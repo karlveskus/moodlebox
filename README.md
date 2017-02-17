@@ -2,7 +2,7 @@
 
 ###[moodlebox.us](http://www.moodlebox.us)
 
-Tegemist on Tartu Ülikooli kursuse "Veebirakenduste loomine" raames tehtud projekt, mille eesmärgiks on Moodle testide haldussüsteemi loomine.
+Tegemist on Tartu Ülikooli kursuse "Veebirakenduste loomine" raames tehtud projektiga, mille eesmärgiks on Moodle testide haldussüsteemi loomine.
 
 ## Kasulikud lingid
 
