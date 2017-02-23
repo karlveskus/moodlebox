@@ -4,6 +4,11 @@
 
 Tegemist on Tartu Ülikooli kursuse "Veebirakenduste loomine" raames tehtud projektiga, mille eesmärgiks on Moodle testide haldussüsteemi loomine.
 
+## Arendajad:
+* Henry Teigar
+* Karl Veskus
+* Tõnis Tenno
+
 ## Kasulikud lingid
 
 - [Projekti plaan](https://github.com/karlveskus/moodlebox/wiki/Plaan)
