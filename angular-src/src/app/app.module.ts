@@ -8,16 +8,19 @@ import { NavbarComponent } from './components/reusable/navbar/navbar.component';
 import { AlertModule } from 'ng2-bootstrap';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { RouterModule, Routes } from '@angular/router';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 const appRoutes: Routes = [
-  { path: '', component: WelcomeComponent }
+  { path: '', component: WelcomeComponent },
+  { path: '**', component: NotFoundComponent }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
