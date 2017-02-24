@@ -7,9 +7,6 @@ const config = require('./config');
 const app = express();
 const port = config.port;
 
-
-const index = require('./routes/index');
-
 // Database connection
 mongoose.connect(config.database.src);
 mongoose.connection.on('connected', () => {
@@ -24,7 +21,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(bodyParser.json());
 
-app.use('/', index);
+app.use('/', (req,res) => {
+  res.sendFile(__dirname + "/index.html");
+});
 
 
 app.listen(port, function() {
