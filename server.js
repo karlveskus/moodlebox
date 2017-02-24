@@ -21,10 +21,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(bodyParser.json());
 
-app.use('/', (req,res) => {
+app.get('/', (req,res) => {
   res.sendFile(__dirname + "/index.html");
 });
 
+app.get('*', (req,res) => {
+  res.sendFile(path.join(__dirname, 'public/index.html'));
+})
 
 app.listen(port, function() {
   console.log('Server started on port ' + port);

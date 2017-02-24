@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
+import { NavbarComponent } from './components/reusable/navbar/navbar.component';
 import { AlertModule } from 'ng2-bootstrap';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { RouterModule, Routes } from '@angular/router';
