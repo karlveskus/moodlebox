@@ -6,20 +6,25 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { AlertModule } from 'ng2-bootstrap';
-import { WelcomeJumbotronComponent } from './components/welcome-jumbotron/welcome-jumbotron.component';
+import { WelcomeComponent } from './components/welcome/welcome.component';
+import { RouterModule, Routes } from '@angular/router';
 
+const appRoutes: Routes = [
+  { path: '', component: WelcomeComponent }
+];
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    WelcomeJumbotronComponent
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    AlertModule.forRoot()
+    AlertModule.forRoot(),
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]
