@@ -3,21 +3,21 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { WelcomeJumbotronComponent } from './welcome-jumbotron.component';
+import { WelcomeComponent } from './welcome.component';
 
 describe('WelcomeJumbotronComponent', () => {
-  let component: WelcomeJumbotronComponent;
-  let fixture: ComponentFixture<WelcomeJumbotronComponent>;
+  let component: WelcomeComponent;
+  let fixture: ComponentFixture<WelcomeComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ WelcomeJumbotronComponent ]
+      declarations: [ WelcomeComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(WelcomeJumbotronComponent);
+    fixture = TestBed.createComponent(WelcomeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
