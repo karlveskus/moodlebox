@@ -1,0 +1,13 @@
+@import "../../../../assets/styles/global";
+
+.container {
+    height: 70px;
+}
+
+h3{
+    color: #686F83;
+}
+
+h3 .box {
+    color: $green;
+}

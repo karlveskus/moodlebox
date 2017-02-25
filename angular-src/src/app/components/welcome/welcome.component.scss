@@ -1,0 +1,24 @@
+@import "../../../assets/styles/global";
+
+.jumbotron {
+    height: 360px;
+    background: $secondary-dark;
+}
+
+.welcome-text-container {
+    font-family: "Helvetica-Light";
+    margin-top:5px;
+}
+
+h3.welcome {
+    color:white;
+    font-size: 33px;
+    margin-top:0px;
+}
+
+h4.welcome {
+    color: $green;
+    font-size: 16px;
+    margin-top: -10px;
+    margin-left: 50px;
+}
