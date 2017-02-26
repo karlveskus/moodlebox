@@ -1,13 +1,8 @@
 @import "../../../assets/styles/global";
 
 .jumbotron {
-    height: 360px;
+    height: 400px;
     background: $secondary-dark;
-}
-
-.welcome-text-container {
-    font-family: "Helvetica-Light";
-    margin-top:5px;
 }
 
 h3.welcome {
@@ -23,10 +18,13 @@ h4.welcome {
     margin-left: 50px;
 }
 
+.container > .row {
+   margin-top: -10px;
+}
+
 .login-box {
     background-color: $main-dark;
     border-radius: 4px;
-    margin-top: -10px;
 }
 
 .lock {

@@ -7,4 +7,10 @@ $light-gray: #7D828F;
 
 body {
     background: $main-dark !important;
+    font-family: "HelveticaNeue-Light" !important;
+}
+
+.nopadding {
+   padding: 0 !important;
+   margin: 0 !important;
 }

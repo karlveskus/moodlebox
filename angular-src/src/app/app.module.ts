@@ -9,6 +9,7 @@ import { AlertModule } from 'ng2-bootstrap';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { RouterModule, Routes } from '@angular/router';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { RulerComponent } from './components/reusable/ruler/ruler.component';
 
 const appRoutes: Routes = [
   { path: '', component: WelcomeComponent },
@@ -20,7 +21,8 @@ const appRoutes: Routes = [
     AppComponent,
     NavbarComponent,
     WelcomeComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    RulerComponent
   ],
   imports: [
     BrowserModule,
