@@ -11,6 +11,7 @@ Tegemist on Tartu Ülikooli kursuse "Veebirakenduste loomine" raames tehtud proj
 
 ## Kasulikud lingid
 
+- [Etapp 1 võtted](https://github.com/karlveskus/moodlebox/wiki/Etapp-1)
 - [Prototüüp](https://github.com/karlveskus/moodlebox/wiki/Visuaalne-protot%C3%BC%C3%BCp)
 - [Projekti plaan](https://github.com/karlveskus/moodlebox/wiki/Plaan)
 
