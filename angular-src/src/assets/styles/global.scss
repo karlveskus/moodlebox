@@ -27,6 +27,20 @@ $light-gray: #7D828F;
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Helvetica-B';
+  src: url('../fonts/Helvetica-Bold.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Helvetica-N';
+  src: url('../fonts/HelveticaNeue.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
     background: $main-dark !important;
     font-family: "Helvetica-T" !important;
