@@ -3,23 +3,34 @@
 .jumbotron {
     height: 400px;
     background: $secondary-dark;
-}
-
-h3.welcome {
-    color:white;
-    font-size: 33px;
-    margin-top:0px;
-}
-
-h4.welcome {
-    color: $green;
-    font-size: 16px;
-    margin-top: -10px;
-    margin-left: 50px;
+    p {
+        font-size: 14px;
+    }
 }
 
 .container > .row {
    margin-top: -10px;
+}
+
+.welcome-text-container {
+    font-family: "Helvetica-Light";
+    margin-top:5px;
+}
+
+
+.welcome {
+    h3 {
+        color:white;
+        font-size: 33px;
+        margin-top:0px;
+    }
+
+    h4 {
+        color: $green;
+        font-size: 16px;
+        margin-top: -10px;
+        margin-left: 50px;
+    }
 }
 
 .login-box {
@@ -31,3 +42,40 @@ h4.welcome {
     display: block;
     margin: 20px auto 200px auto;
 }
+
+.info-points {
+    margin-top: 60px;
+    
+    p {
+        margin-top:-14px;
+        font-family: "Helvetica-Light";
+    }
+
+    p.expl {
+        margin-top: 10px;
+        
+        span {
+            color: $green;
+        }
+    }
+
+    p.check:before {
+        font-family: FontAwesome;
+        content: "\f058";
+        font-size: 18px;
+        color: $green;
+        display: inline-block;
+        margin-right: 10px;
+    }
+
+    p.expl:before {
+        @extend p.check:before;
+        content: "\f06a";
+        color: white;
+    }
+}
+
+// .check {
+//     color: $green;
+//     font-size: 20px;
+// }
