@@ -42,13 +42,37 @@ $light-gray: #7D828F;
 }
 
 body {
-    background: $main-dark !important;
-    font-family: "Helvetica-T" !important;
-    color: white !important;
+  background: $main-dark !important;
+  font-family: "Helvetica-T" !important;
+  color: white !important;
 }
 
 
-.nopadding {
-   padding: 0 !important;
-   margin: 0 !important;
+// Custom media queries
+
+/* Extra small */
+@media only screen and (min-width : 480px) {
+
 }
+
+/* Small */
+@media only screen and (min-width : 768px) {
+
+}
+
+/* Medium */
+@media only screen and (min-width : 992px) {
+  .nopadding-md {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+}
+
+/* Large */
+@media only screen and (min-width : 1200px) {
+  .nopadding-lg {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+}
+

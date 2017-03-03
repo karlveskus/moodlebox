@@ -36,12 +36,17 @@
 .login-box {
     background-color: $main-dark;
     border-radius: 4px;
+    
+    .lock {
+        display: block;
+        margin: 20px auto 200px auto;
+    }
+    i {
+        font-size: 200px;
+    }
 }
 
-.lock {
-    display: block;
-    margin: 20px auto 200px auto;
-}
+
 
 .info-points {
     margin-top: 90px;
@@ -75,7 +80,3 @@
     }
 }
 
-// .check {
-//     color: $green;
-//     font-size: 20px;
-// }
