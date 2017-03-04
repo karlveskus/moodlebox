@@ -1,14 +1,14 @@
 @import "../../../assets/styles/global";
 
 .jumbotron {
-    height: 400px;
+    height: 450px;
     background: $secondary-dark;
     p {
         font-size: 14px;
     }
 }
 
-.container > .row {
+.jumbotron > .container > .row {
    margin-top: -10px;
 }
 
@@ -38,14 +38,39 @@
     border-radius: 4px;
     
     .lock {
-        display: block;
-        margin: 20px auto 200px auto;
+        font-size: 100px;
+        color: $green;
+        text-align: center;
+        height: 130px;
+        margin-top: 10px;
     }
-    i {
-        font-size: 200px;
+    
+    .form-control {
+        background: none;    
+        border: none;
+        border-bottom: 1px solid #434a52;
+        border-radius: 0px;
+        box-shadow: none;
+        outline: none;
+        color: inherit;
+        font-size: 14px;
+        font-family: Helvetica-L, sans-serif;
     }
-}
 
+    .btn-primary {
+        background: $green;
+        height: 40px;
+        border: none;
+        margin-top: 30px;
+    }
+
+    .btn-primary:focus {
+        border: none;
+        box-shadow: none;
+        outline: none;
+    }
+    
+}
 
 
 .info-points {
