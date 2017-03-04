@@ -1,7 +1,7 @@
 @import "../../../assets/styles/global";
 
 .jumbotron {
-    height: 520px;
+    height: 535px;
     background: $secondary-dark;
     p {
         font-size: 14px;
@@ -84,6 +84,7 @@
         @extend .btn-primary;
         background: $facebook;
         padding: 0px;
+        margin-top: 40px;
 
         &:hover {
             background: $facebook-hover;
