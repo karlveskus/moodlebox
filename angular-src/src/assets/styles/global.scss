@@ -1,9 +1,14 @@
 $main-dark: #30333B;
 $secondary-dark: #252830;
 $green: #1CCB91;
+$green-hover: #15E49F;
 $light-gray: #CBCBCB;
 $bluish-gray: #D2D5E0;
 $light-gray: #7D828F;
+$facebook: #3C5A96;
+$facebook-hover: #4269B4;
+$google: #D8493B;
+$google-hover: #BB3527;
 
 @font-face {
   font-family: 'Helvetica-L';
@@ -50,6 +55,10 @@ body {
 .col-centered{
     float: none;
     margin: 0 auto;
+}
+
+.green {
+  color: $green;
 }
 
 // Custom media queries
