@@ -2,19 +2,20 @@
 
 .jumbotron {
     height: 525px;
+
+    /* Small */
+    @media only screen and (max-width : 768px) {
+        height: 720px;
+    }
+
     background: $secondary-dark;
     p {
         font-size: 14px;
-        
     }
 }
 
 .jumbotron > .container > .row {
    margin-top: -10px;
-}
-
-.welcome-text-container {
-    margin-top:5px;
 }
 
 
@@ -23,6 +24,11 @@
         color:white;
         font-size: 33px;
         margin-top:0px;
+        
+        /* Medium */
+        @media only screen and (max-width : 992px) {
+            font-size: 30px;
+        }
     }
 
     h4 {
@@ -30,7 +36,11 @@
         font-size: 15px;
         font-family: Helvetica-L;
         margin-top: -13px;
-        margin-left: 40px;
+
+        /* Medium */
+        @media only screen and (min-width : 992px) {
+            margin-left: 40px;
+        }
     }
 }
 
@@ -131,6 +141,11 @@
 
 .info-points {
     margin-top: 90px;
+
+    /* Small */
+    @media only screen and (max-width : 768px) {
+        margin-top: 50px;
+    }
     
     p {
         margin-top:-14px;
