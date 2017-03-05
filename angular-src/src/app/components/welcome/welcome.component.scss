@@ -1,7 +1,7 @@
 @import "../../../assets/styles/global";
 
 .jumbotron {
-    height: 535px;
+    height: 525px;
     background: $secondary-dark;
     p {
         font-size: 14px;
@@ -84,7 +84,7 @@
         @extend .btn-primary;
         background: $facebook;
         padding: 0px;
-        margin-top: 40px;
+        margin-top: 25px;
 
         &:hover {
             background: $facebook-hover;
@@ -100,7 +100,7 @@
             font-size: 20px;
             height: 100%;
             width: 50px;
-            padding-top: 8px;
+            padding-top: 10px;
             border-right: 1px solid #344B78;
         }
     }
@@ -161,4 +161,3 @@
         color: white;
     }
 }
-
