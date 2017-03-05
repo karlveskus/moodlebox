@@ -1,22 +1,17 @@
 @import "../../../assets/styles/global";
 
 .jumbotron {
-    height: 525px;
-
-    /* Small */
-    @media only screen and (max-width : 768px) {
-        height: 720px;
-    }
-
     background: $secondary-dark;
     p {
         font-size: 14px;
     }
+    padding: 20px 0px 20px 0px;
+
+    @media only screen and (min-width : 768px) {
+        padding: 35px 0px 35px 0px;
+    }
 }
 
-.jumbotron > .container > .row {
-   margin-top: -10px;
-}
 
 
 .welcome {
