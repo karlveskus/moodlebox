@@ -1,6 +1,6 @@
 # MoodleBox 
 
-###[www.moodlebox.us](http://www.moodlebox.us:3000)
+###[www.moodlebox.us](https://www.moodlebox.us)
 
 Tegemist on Tartu Ülikooli kursuse "Veebirakenduste loomine" raames tehtud projektiga, mille eesmärgiks on Moodle testide haldussüsteemi loomine.
 
