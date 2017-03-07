@@ -6,3 +6,9 @@ router.get('/', function(req, res, next) {
 });
 
 module.exports = router;
+
+function ifUserLoggedIn(req, res, next) {
+    if (req.isAuthenticated())
+        return next();
+    res.redirect('/');
+}
