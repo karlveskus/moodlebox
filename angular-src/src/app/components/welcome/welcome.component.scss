@@ -15,18 +15,18 @@
 
 
 .welcome {
-    h3 {
+    h1 {
         color:white;
         font-size: 33px;
         margin-top:0px;
-        
+
         /* Medium */
         @media only screen and (max-width : 992px) {
             font-size: 30px;
         }
     }
 
-    h4 {
+    h2 {
         color: $green;
         font-size: 15px;
         font-family: Helvetica-L;
@@ -43,7 +43,7 @@
 .login-box {
     background-color: $main-dark;
     border-radius: 4px;
-    
+
     .container {
         padding: 20px;
     }
@@ -54,9 +54,9 @@
         text-align: center;
         height: 120px;
     }
-    
+
     .form-control {
-        background: none;    
+        background: none;
         border: none;
         border-bottom: 1px solid #434a52;
         border-radius: 0px;
@@ -79,7 +79,7 @@
             box-shadow: none;
             outline: none;
             color:inherit;
-        }   
+        }
         &:hover {
             background: $green;
         }
@@ -130,7 +130,7 @@
         margin-bottom: -7px;
         font-family: Helvetica-L;
     }
-    
+
 }
 
 
@@ -141,7 +141,7 @@
     @media only screen and (max-width : 768px) {
         margin-top: 50px;
     }
-    
+
     p {
         margin-top:-14px;
         font-family: Helvetica;
@@ -149,8 +149,8 @@
 
     p.expl {
         margin-top: 10px;
-        
-        
+
+
         span {
             color: $green;
         }
@@ -173,7 +173,7 @@
 }
 
 .container.statistics {
-    
+
     @media only screen and (min-width : 768px) {
         margin-top:-10px;
 
@@ -194,14 +194,14 @@
     }
 
     @media only screen and (max-width : 768px) {
-   
+
         .left, .center, .right {
             margin: 0 0 20px 30px;
             width: auto;
         }
-        
+
     }
-    
+
     .square {
         display: block;
         width: 36px;
@@ -231,5 +231,57 @@
             margin-top: 4px;
             letter-spacing: 1px;
         }
+    }
+}
+
+
+.contact {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    max-width: 700px;
+    margin: 0 auto;
+
+    h2 {
+        padding-top: 10px;
+        padding-bottom: 20px;
+        text-align: center;
+    }
+
+    textarea {
+        resize: none;
+        height: 200px;
+    }
+
+    textarea:focus, input:focus {
+        border-color: $green;
+        box-shadow: 0 0 7px $green;
+    }
+
+    .btn-primary{
+        background: $dark-green;
+        height: 40px;
+        border: none;
+        margin-top: 0px;
+        border-radius: 2px;
+        font-family: Helvetica-M, sans-serif;
+        &:focus {
+            border: none;
+            box-shadow: none;
+            outline: none;
+            color:inherit;
+        }
+        &:hover {
+            background: $green;
+        }
+    }
+
+    .green {
+        color: $green;
+    }
+
+    .form-control {
+        background: $secondary-dark;
+        color: $light-gray;
+        border: 0;
     }
 }
