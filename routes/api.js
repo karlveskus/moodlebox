@@ -1,8 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
-router.get('/', function(req, res, next) {
-  res.send("Users endpoint")
-});
+const users = require('./users');
+
+router.use('/users', users);
 
 module.exports = router;
