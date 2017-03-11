@@ -12,7 +12,23 @@
     }
 }
 
-
+.btn-primary{
+    background: $dark-green;
+    height: 40px;
+    border: none;
+    margin-top: 0px;
+    border-radius: 2px;
+    font-family: Helvetica-M, sans-serif;
+    &:focus {
+        border: none;
+        box-shadow: none;
+        outline: none;
+        color:inherit;
+    }
+    &:hover {
+        background: $green;
+    }
+}
 
 .welcome {
     h1 {
@@ -65,24 +81,6 @@
         color: inherit;
         font-size: 14px;
         font-family: Helvetica-L, sans-serif;
-    }
-
-    .btn-primary{
-        background: $dark-green;
-        height: 40px;
-        border: none;
-        margin-top: 20px;
-        border-radius: 2px;
-        font-family: Helvetica-M, sans-serif;
-        &:focus {
-            border: none;
-            box-shadow: none;
-            outline: none;
-            color:inherit;
-        }
-        &:hover {
-            background: $green;
-        }
     }
 
     .btn-facebook {
@@ -236,7 +234,7 @@
 
 
 .contact {
-    padding-top: 40px;
+    padding-top: 30px;
     padding-bottom: 20px;
     max-width: 700px;
     margin: 0 auto;
@@ -269,28 +267,6 @@
         }
     }
 
-    .btn-primary{
-        background: $dark-green;
-        height: 40px;
-        border: none;
-        margin-top: 0px;
-        border-radius: 2px;
-        font-family: Helvetica-M, sans-serif;
-        &:focus {
-            border: none;
-            box-shadow: none;
-            outline: none;
-            color:inherit;
-        }
-        &:hover {
-            background: $green;
-        }
-    }
-
-    .green {
-        color: $green;
-    }
-
     .form-control {
         background: $secondary-dark;
         color: $light-gray;
@@ -321,18 +297,18 @@
 
         a {
             display: inline-block;
-            width:50px;
-            height: 50px;
+            width:45px;
+            height: 45px;
             border: 2px solid $dark-green;
             border-radius: 50px;
-            margin: 3px;
+            margin: 6px;
 
             &:hover{
                 border: 2px solid $green;
             }
 
             i {
-                padding: 18px 11px;
+                padding: 14px 11px;
                 font-size: 20px;
                 color: $dark-green;
 
