@@ -25,10 +25,6 @@ app.use(bodyParser.json());
 
 app.use('/api', api);
 
-// app.get('/', (req,res) => {
-//   res.sendFile(__dirname + "/index.html");
-// });
-
 app.get('*', (req,res) => {
   res.sendFile(path.join(__dirname, 'public/index.html'));
 })
