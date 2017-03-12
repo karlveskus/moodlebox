@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const jwt = require('jsonwebtoken');  // Ülidest jwt peaks kõige levinum ja turvalisem olema.
+const jwt = require('jsonwebtoken');
 
 router.get('/', function(req, res, next) {
   res.send("Users endpoint")
