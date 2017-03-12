@@ -6,7 +6,9 @@ const mongoose = require('mongoose');
 const config = require('./config/properties');
 const config = require('./config');
 const passport = require('passport');
+
 const users = require('./routes/users');
+
 const app = express();
 const port = config.port;
 
@@ -28,7 +30,6 @@ app.use(passport.session());
 
 require('./config/passport')(passport);
 
-app.use('/users', users);
 
 app.use(express.static(path.join(__dirname, 'public')));
 

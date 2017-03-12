@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 const jwt = require('jsonwebtoken');
 
+
 router.get('/', function(req, res, next) {
   res.send("Users endpoint")
 });
@@ -22,7 +23,6 @@ router.post('/', (req, res, next) => {
           expiresIn: 604800 
         });
 
-
         res.json({
           success: true,
           token: 'JWT '+token,
@@ -37,4 +37,3 @@ router.post('/', (req, res, next) => {
 });
 
 module.exports = router;
-
