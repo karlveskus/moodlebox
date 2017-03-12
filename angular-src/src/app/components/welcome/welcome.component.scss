@@ -44,6 +44,13 @@
     padding: 20px;
     position: relative;
 
+    .lock {
+        font-size: 100px;
+        color: $green;
+        text-align: center;
+        height: 120px;
+    }
+
     input:-webkit-autofill {
         -webkit-box-shadow: 0 0 0px 1000px $main-dark inset;
         -webkit-text-fill-color: white !important;
