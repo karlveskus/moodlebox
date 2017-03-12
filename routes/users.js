@@ -6,15 +6,14 @@ router.get('/', function(req, res, next) {
   res.send("Users endpoint")
 });
 
-router.post('/authenticate', (req, res, next) => {
+router.post('/', (req, res, next) => {
   const email = req.body.email;
   const password = req.body.password;
 
   User.getUserByEmail(email, (err, user) => {
     if(err) throw err;
-    if(!user){
-      return res.json({success: false, msg: 'User not found'});
-    }
+    if(!user) return res.json({success: false, msg: 'User not found'});
+    
 
     User.comparePassword(password, user.password, (err, isMatch) => {
       if(err) throw err;
@@ -22,6 +21,7 @@ router.post('/authenticate', (req, res, next) => {
         const token = jwt.sign(user, config.secret, {
           expiresIn: 604800 
         });
+
 
         res.json({
           success: true,
@@ -31,11 +31,10 @@ router.post('/authenticate', (req, res, next) => {
             email: user.email
           }
         });
-      } else {
-        return res.json({success: false, msg: 'Wrong password'});
-      }
+      } else return res.json({success: false, msg: 'Wrong password'});
     });
   });
 });
 
 module.exports = router;
+

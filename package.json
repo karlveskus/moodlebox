@@ -28,6 +28,7 @@
     "bcryptjs":"latest",
     "cors":"latest",
     "jsonwebtoken":"latest",
-    "passport-jwt":"latest"
+    "passport-jwt":"latest",
+    "passport-google-oauth":"latest"
   }
 }
