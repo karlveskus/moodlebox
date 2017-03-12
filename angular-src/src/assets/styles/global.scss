@@ -11,6 +11,8 @@ $facebook-hover: #4269B4;
 $google: #D8493B;
 $google-hover: #BB3527;
 
+// Fonts
+
 @font-face {
   font-family: 'Helvetica-L';
   src: url('../fonts/HelveticaLight.otf');
@@ -47,20 +49,7 @@ $google-hover: #BB3527;
   font-style: normal;
 }
 
-body {
-  background: $main-dark !important;
-  font-family: "Helvetica-T" !important;
-  color: white !important;
-}
-
-.centered{
-    float: none;
-    margin: 0 auto;
-}
-
-.green {
-  color: $green;
-}
+// Buttons
 
 .btn-primary{
     background: $dark-green;
@@ -119,6 +108,25 @@ body {
         color: white;
     }
 }
+
+
+body {
+  background: $main-dark !important;
+  font-family: "Helvetica-T" !important;
+  color: white !important;
+}
+
+
+
+.centered{
+    float: none;
+    margin: 0 auto;
+}
+
+.green {
+  color: $green;
+}
+
 
 // Custom media queries
 
