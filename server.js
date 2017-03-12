@@ -1,9 +1,12 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const mongoose = require('mongoose');
 const config = require('./config/properties');
-
+const config = require('./config');
+const passport = require('passport');
+const users = require('./routes/users');
 const app = express();
 const port = config.port;
 
@@ -18,6 +21,14 @@ mongoose.connection.on('error', (err) => {
   console.log('Database error: '+err);
 });
 
+app.use(cors());
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+require('./config/passport')(passport);
+
+app.use('/users', users);
 
 app.use(express.static(path.join(__dirname, 'public')));
 

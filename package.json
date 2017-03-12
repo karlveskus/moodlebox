@@ -25,6 +25,9 @@
     "passport": "latest",         
     "passport-local": "latest",
     "passport-google-oauth" : "latest",
-    "bcrypt-nodejs":"latest"
+    "bcryptjs":"latest",
+    "cors":"latest",
+    "jsonwebtoken":"latest",
+    "passport-jwt":"latest"
   }
 }
