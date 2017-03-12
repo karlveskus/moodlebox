@@ -10,9 +10,32 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
 import { RouterModule, Routes } from '@angular/router';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { RulerComponent } from './components/reusable/ruler/ruler.component';
+import { LoginComponent } from './components/welcome/login/login.component';
+import { RegisterComponent } from './components/welcome/register/register.component';
 
 const appRoutes: Routes = [
-  { path: '', component: WelcomeComponent },
+  { 
+    path: '',
+    component: WelcomeComponent,
+    children: [
+      {
+        path: '',
+        component: LoginComponent,
+        outlet: 'login'
+      }
+    ]
+  },
+  {
+    path: 'register',
+    component: WelcomeComponent,
+    children: [
+      {
+        path: '',
+        component: RegisterComponent,
+        outlet: 'register'
+      }
+    ]
+  },
   { path: '**', component: NotFoundComponent }
 ];
 
@@ -22,7 +45,9 @@ const appRoutes: Routes = [
     NavbarComponent,
     WelcomeComponent,
     NotFoundComponent,
-    RulerComponent
+    RulerComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

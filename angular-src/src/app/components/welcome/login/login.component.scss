@@ -1,0 +1,70 @@
+@import "../../../../assets/styles/global";
+
+.login {
+
+        .lock {
+            font-size: 100px;
+            color: $green;
+            text-align: center;
+            height: 120px;
+        }
+
+        .form-control {
+            background: none;
+            border: none;
+            border-bottom: 1px solid #434a52;
+            border-radius: 0px;
+            box-shadow: none;
+            outline: none;
+            color: inherit;
+            font-size: 14px;
+            font-family: Helvetica-L, sans-serif;
+        }
+
+        .btn-facebook {
+            @extend .btn-primary;
+            background: $facebook;
+            padding: 0px;
+            margin-top: 25px;
+
+            &:hover {
+                background: $facebook-hover;
+                color: white;
+            }
+            p {
+                display: inline-block;
+                margin-top: 10px;
+                margin-left: -20px;
+            }
+            .box {
+                float:left;
+                font-size: 20px;
+                height: 100%;
+                width: 50px;
+                padding-top: 10px;
+                border-right: 1px solid #344B78;
+            }
+        }
+
+        .btn-google {
+            @extend .btn-facebook;
+            margin-top: -5px;
+            background: $google;
+
+            .box {
+                border-right: 1px solid #A8433A;
+            }
+
+            &:hover {
+                background: $google-hover;
+                color: white;
+            }
+        }
+
+        p {
+            text-align: center;
+            margin-bottom: -7px;
+            font-family: Helvetica-L;
+        }
+
+    }

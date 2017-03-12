@@ -5,7 +5,7 @@
                 <div class="row">
                     <div class="welcome col-lg-12">
                         <h1>Tere tulemast moodleBoxi!</h1>
-                        <h2>Kiireim viis oma moodle testidel silm peal hoida</h2>
+                        <h4>Kiireim viis oma moodle testidel silm peal hoida</h4>
                     </div>
 
                     <div class="info-points col-lg-12">
@@ -18,36 +18,9 @@
             </div>
 
             <div class="col-lg-4 col-md-5 col-sm-6">
-                <div class="login-box">
-                    
-                        <div class="lock ion-ios-locked-outline col-centered"></div>
-                        <form action="post">
-                            <div class="form-group">
-                                <input class="form-control" type="email" name="username" placeholder="Email">
-                            </div>
-                            <div class="form-group">
-                                <input class="form-control" type="password" name="password" placeholder="Parool">
-                            </div>
-                            <div class="form-group">
-                                <button class="btn btn-primary btn-block" type="submit">Logi sisse</button>
-                            </div>
-
-                            <div class="form-group">
-                                <button class="btn btn-facebook btn-block" type="submit">
-                                    <i class="box fa fa-facebook" aria-hidden="true"></i>
-                                    <p>Logi sisse Facebookiga</p>
-                                </button>
-                            </div>
-
-                            <div class="form-group">
-                                <button class="btn btn-google btn-block" type="submit">
-                                    <i class="box fa fa-google" aria-hidden="true"></i>
-                                    <p>Logi sisse Googlega</p>
-                                </button>
-                            </div>
-                        </form>
-                        <p class="pole-veel-kasutajat">Pole kasutajat? <span class="green">Registeeru!</span></p>
-                    
+                <div class="login-registration-area">
+                    <router-outlet name="login"></router-outlet>
+                    <router-outlet name="register"></router-outlet>                 
                 </div>
             </div>
         </div>
