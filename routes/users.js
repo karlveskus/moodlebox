@@ -2,10 +2,8 @@ var express = require('express');
 var router = express.Router();
 const jwt = require('jsonwebtoken');
 
-
-router.get('/', function(req, res, next) {
-  res.send("Users endpoint")
-});
+const config = require('../config/properties');
+const User = require('../models/user');
 
 router.post('/', (req, res, next) => {
   const email = req.body.email;

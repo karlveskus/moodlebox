@@ -4,7 +4,6 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const config = require('./config/properties');
-const config = require('./config');
 const passport = require('passport');
 
 const users = require('./routes/users');

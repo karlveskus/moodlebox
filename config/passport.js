@@ -2,7 +2,7 @@
 const JwtStrategy = require('passport-jwt').Strategy;
 const ExtractJwt = require('passport-jwt').ExtractJwt;
 const User = require('../models/user');
-const config = require('../config');
+const config = require('./properties');
 const googleStrategy = require('passport-google-oauth').OAuth2Strategy;
 
 module.exports = function(passport){
