@@ -73,31 +73,34 @@
     <div class="row">
         <div class="col-sm-offset-1 col-sm-10">
             <h2><span class="green">Küsimus?</span> Võta meiega ühendust</h2>
-            <form action="post">
+            <form (ngSubmit)="onSubmit()">
                 <div class="row">
                     <div class="col-xs-12 col-sm-6">
                         <div class="form-group">
                             <label class="sr-only" for="name">Nimi</label>
-                            <input type="text" class="form-control" id="name" placeholder="Nimi">
+                            <input [(ngModel)]="emailInfo.name" name="name" type="text" class="form-control" id="name" placeholder="Nimi" required>
                         </div>
                     </div>
+
                     <div class="col-xs-12 col-sm-6">
                         <div class="form-group">
                             <label class="sr-only" for="email">Emaili address</label>
-                            <input type="email" class="form-control" id="email" placeholder="Email">
+                            <input [(ngModel)]="emailInfo.email" name="email" type="email" class="form-control" id="email" placeholder="Email" required>
                         </div>
                     </div>
 
                     <div class="col-xs-12 col-sm-12">
                         <div class="form-group">
                             <label class="sr-only" for="message">Sõnum</label>
-                            <textarea class="form-control" id="message" placeholder="Sõnum"></textarea>
+                            <textarea [(ngModel)]="emailInfo.message" name="message" class="form-control" id="message" placeholder="Sõnum" required></textarea>
                         </div>
                     </div>
 
                     <div class="col-xs-12 col-sm-3 col-sm-offset-9">
                         <div class="form-group">
-                            <button class="btn btn-primary btn-block" type="submit">Saada</button>
+                            <button class="btn btn-primary btn-block" type="submit">
+                                Saada
+                            </button>
                         </div>
                     </div>
                 </div>

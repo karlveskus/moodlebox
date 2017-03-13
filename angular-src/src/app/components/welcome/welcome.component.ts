@@ -8,9 +8,19 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 })
 export class WelcomeComponent implements OnInit {
 
-  constructor() { }
+    emailInfo = {
+        name: "",
+        email: "",
+        message: ""
+    }
 
-  ngOnInit() {
-  }
+    constructor() { }
+
+    ngOnInit() {
+    }
+
+    onSubmit() {
+        console.log(this.emailInfo);
+    }
 
 }
