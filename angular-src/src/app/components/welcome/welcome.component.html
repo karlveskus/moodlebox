@@ -73,35 +73,36 @@
     <div class="row">
         <div class="col-sm-offset-1 col-sm-10">
             <h2><span class="green">Küsimus?</span> Võta meiega ühendust</h2>
-            <form (ngSubmit)="onSubmit()">
+            <form [formGroup]="form" (ngSubmit)="onSubmitModelBased()" autocomplete="off">
                 <div class="row">
                     <div class="col-xs-12 col-sm-6">
                         <div class="form-group">
-                            <label class="sr-only" for="name">Nimi</label>
-                            <input [(ngModel)]="emailInfo.name" name="name" type="text" class="form-control" id="name" placeholder="Nimi" required>
+                            <input formControlName="name" type="text" class="form-control" placeholder="Nimi">
                         </div>
                     </div>
 
                     <div class="col-xs-12 col-sm-6">
                         <div class="form-group">
-                            <label class="sr-only" for="email">Emaili address</label>
-                            <input [(ngModel)]="emailInfo.email" name="email" type="email" class="form-control" id="email" placeholder="Email" required>
+                            <input formControlName="email" type="email" class="form-control" placeholder="Email">
                         </div>
                     </div>
 
                     <div class="col-xs-12 col-sm-12">
                         <div class="form-group">
-                            <label class="sr-only" for="message">Sõnum</label>
-                            <textarea [(ngModel)]="emailInfo.message" name="message" class="form-control" id="message" placeholder="Sõnum" required></textarea>
+                            <textarea formControlName="message" class="form-control" placeholder="Sõnum"></textarea>
                         </div>
                     </div>
 
-                    <div class="col-xs-12 col-sm-3 col-sm-offset-9">
+                    <div class="col-xs-12 col-sm-3 col-sm-push-9">
                         <div class="form-group">
-                            <button class="btn btn-primary btn-block" type="submit">
+                            <button class="btn btn-primary btn-block" type="submit" [disabled]="!form.valid">
                                 Saada
                             </button>
                         </div>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-9 col-sm-pull-3" *ngIf="sentBoolean">
+                        Täname tagasiside eest!
                     </div>
                 </div>
             </form>

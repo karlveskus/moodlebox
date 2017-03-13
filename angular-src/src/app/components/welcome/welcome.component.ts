@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-welcome',
@@ -6,21 +7,27 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   styleUrls: ['./welcome.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class WelcomeComponent implements OnInit {
+export class WelcomeComponent {
 
-    emailInfo = {
-        name: "",
-        email: "",
-        message: ""
+    form: FormGroup;
+    sentBoolean: Boolean;
+
+    name = new FormControl("", Validators.required);
+    email = new FormControl("", Validators.required);
+    message = new FormControl("", Validators.required);
+
+    constructor(fb: FormBuilder) {
+        this.form = fb.group({
+            "name": this.name,
+            "email": this.email,
+            "message": this.message
+        });
     }
 
-    constructor() { }
-
-    ngOnInit() {
-    }
-
-    onSubmit() {
-        console.log(this.emailInfo);
+    onSubmitModelBased() {
+        console.log(this.form);
+        this.form.reset();
+        this.sentBoolean = true;
     }
 
 }
