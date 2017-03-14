@@ -29,5 +29,4 @@ export class WelcomeComponent {
         this.form.reset();
         this.sentBoolean = true;
     }
-
 }
