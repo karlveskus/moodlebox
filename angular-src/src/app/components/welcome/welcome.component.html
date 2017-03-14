@@ -95,13 +95,16 @@
 
                     <div class="col-xs-12 col-sm-3 col-sm-push-9">
                         <div class="form-group">
-                            <button class="btn btn-primary btn-block" type="submit" [disabled]="!form.valid">
+                            <button class="btn btn-primary btn-block" type="submit">
                                 Saada
                             </button>
                         </div>
                     </div>
 
-                    <div class="col-xs-12 col-sm-9 col-sm-pull-3" *ngIf="sentBoolean">
+                    <div class="col-xs-12 col-sm-9 col-sm-pull-3" *ngIf="feedbackSuccess == false">
+                        Palun täida ära kõik lahtrid!
+                    </div>
+                    <div class="col-xs-12 col-sm-9 col-sm-pull-3" *ngIf="feedbackSuccess == true">
                         Täname tagasiside eest!
                     </div>
                 </div>

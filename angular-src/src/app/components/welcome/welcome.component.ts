@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { FeedbackService } from '../../services/feedback.service';
 
 @Component({
   selector: 'app-welcome',
@@ -10,13 +11,16 @@ import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
 export class WelcomeComponent {
 
     form: FormGroup;
-    sentBoolean: Boolean;
+    feedbackSuccess: Boolean;
 
-    name = new FormControl("", Validators.required);
-    email = new FormControl("", Validators.required);
-    message = new FormControl("", Validators.required);
+    name = new FormControl();
+    email = new FormControl();
+    message = new FormControl();
 
-    constructor(fb: FormBuilder) {
+    constructor(
+        private fb: FormBuilder,
+        private feedbackService: FeedbackService
+    ) {
         this.form = fb.group({
             "name": this.name,
             "email": this.email,
@@ -25,8 +29,24 @@ export class WelcomeComponent {
     }
 
     onSubmitModelBased() {
-        console.log(this.form);
-        this.form.reset();
-        this.sentBoolean = true;
+        const feedback = {
+            name: this.name.value,
+            email: this.email.value,
+            message: this.message.value
+        }
+
+        if(!this.feedbackService.validateFeedback(feedback)) {
+            this.feedbackSuccess = false;
+            return false;
+        }
+
+        this.feedbackService.newFeedback(feedback).subscribe(data => {
+          if(data.success){
+            this.feedbackSuccess = true;
+            this.form.reset();
+          } else {
+            console.log("Feedback saving failed.");
+          }
+        });
     }
 }
