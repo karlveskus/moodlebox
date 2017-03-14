@@ -14,6 +14,8 @@ import { RulerComponent } from './components/reusable/ruler/ruler.component';
 import { LoginComponent } from './components/welcome/login/login.component';
 import { RegisterComponent } from './components/welcome/register/register.component';
 
+import { FeedbackService } from './services/feedback.service';
+
 const appRoutes: Routes = [
   {
     path: '',
@@ -58,7 +60,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [FeedbackService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
