@@ -8,7 +8,11 @@ import { FeedbackService } from '../../services/feedback.service';
   styleUrls: ['./welcome.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class WelcomeComponent {
+
+export class WelcomeComponent implements OnInit {
+    lat: number = 58.3768154;
+    lng: number = 26.7175982;
+    zoom: number = 15;
 
     form: FormGroup;
     feedbackSuccess: Boolean;
@@ -27,6 +31,8 @@ export class WelcomeComponent {
             "message": this.message
         });
     }
+
+    ngOnInit() {}
 
     onSubmitModelBased() {
         const feedback = {

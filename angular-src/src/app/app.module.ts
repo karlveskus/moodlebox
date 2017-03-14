@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+import { AgmCoreModule } from 'angular2-google-maps/core';
+
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/reusable/navbar/navbar.component';
 import { AlertModule } from 'ng2-bootstrap';
@@ -55,6 +57,9 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyD2qA7279xnKdrKlliN4PMv6B7Dt4KJt9E'
+    }),
     HttpModule,
     AlertModule.forRoot(),
     RouterModule.forRoot(appRoutes),

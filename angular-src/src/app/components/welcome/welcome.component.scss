@@ -44,6 +44,18 @@
     padding: 20px;
     position: relative;
 
+    .lock {
+        font-size: 100px;
+        color: $green;
+        text-align: center;
+        height: 120px;
+    }
+
+    input:-webkit-autofill {
+        -webkit-box-shadow: 0 0 0px 1000px $main-dark inset;
+        -webkit-text-fill-color: white !important;
+    }
+
     .form-control {
         background: none;
         border: none;
@@ -54,6 +66,7 @@
         color: inherit;
         font-size: 14px;
         font-family: Helvetica-L, sans-serif;
+
     }
 
     p {
@@ -126,7 +139,6 @@
             margin: 0 0 20px 30px;
             width: auto;
         }
-
     }
 
     .square {
@@ -246,4 +258,11 @@
             }
         }
     }
+}
+
+.maps {
+    margin-bottom: 20px;
+}
+.sebm-google-map-container {
+  height: 200px;
 }
