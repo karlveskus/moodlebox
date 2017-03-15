@@ -1,18 +1,6 @@
-$main-dark: #30333B;
-$secondary-dark: #252830;
-$dark-green: #26A97E;
-$green: #1CCB91;
-$green-hover: #15E49F;
-$light-gray: #CBCBCB;
-$bluish-gray: #D2D5E0;
-$gray: #7D828F;
-$facebook: #3C5A96;
-$facebook-hover: #4269B4;
-$google: #D8493B;
-$google-hover: #BB3527;
+@import "./variables";
 
 // Fonts
-
 @font-face {
   font-family: 'Helvetica-L';
   src: url('../fonts/HelveticaLight.otf');
@@ -51,34 +39,35 @@ $google-hover: #BB3527;
 
 // Buttons
 
-.btn-primary{
+button.btn.btn-primary{
+    height: 40px;
     background: $dark-green;
     height: 40px;
     border: none;
     margin-top: 0px;
     border-radius: 2px;
     font-family: Helvetica-M, sans-serif;
-    &:focus {
+    
+    &:hover, &:focus, &:active, &:visited {
         border: none;
         box-shadow: none;
         outline: none;
         color:inherit;
-    }
-    &:hover {
         background: $green;
     }
 }
 
-.btn-facebook {
+
+button.btn.btn-facebook {
     @extend .btn-primary;
     background: $facebook;
     padding: 0px;
     margin-top: 25px;
 
-    &:hover {
+    &:hover,&:focus, &:active, &:visited {
         background: $facebook-hover;
-        color: white;
     }
+
     p {
         display: inline-block;
         margin-top: 10px;
@@ -94,7 +83,7 @@ $google-hover: #BB3527;
     }
 }
 
-.btn-google {
+button.btn.btn-google {
     @extend .btn-facebook;
     margin-top: -5px;
     background: $google;
@@ -103,9 +92,8 @@ $google-hover: #BB3527;
         border-right: 1px solid #A8433A;
     }
 
-    &:hover {
+    &:hover, &:focus, &:active, &:visited {
         background: $google-hover;
-        color: white;
     }
 }
 
