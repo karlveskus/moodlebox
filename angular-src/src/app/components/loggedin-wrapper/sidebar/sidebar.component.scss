@@ -1,5 +1,31 @@
 @import "../../../../assets/styles/variables";
 
-a {
-    color: white;
+div {
+    font-family: Helvetica-L, sans-serif;
+}
+
+li {
+    a {
+        color: white;
+        padding: 6px 0 6px 20px;
+
+        &:hover, &:active, &:focus {
+            background: $green-hover;
+        }
+
+    }
+
+    &.active a {
+        background: $green;
+
+        &:hover, &:active, &:focus {
+            background: $green-hover;
+        }
+    }
+}
+
+h4 {
+    margin: 20px 0 10px 20px;
+    color: $gray;
+    font-size: 15px;
 }
