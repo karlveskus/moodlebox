@@ -18,6 +18,8 @@ import { RegisterComponent } from './components/welcome/register/register.compon
 
 import { FeedbackService } from './services/feedback.service';
 import { FooterComponent } from './components/reusable/footer/footer.component';
+import { LoggedinWrapperComponent } from './components/loggedin-wrapper/loggedin-wrapper.component';
+import { SidebarComponent } from './components/loggedin-wrapper/sidebar/sidebar.component';
 
 const appRoutes: Routes = [
   {
@@ -42,6 +44,10 @@ const appRoutes: Routes = [
       }
     ]
   },
+  {
+      path: 'home',
+      component: LoggedinWrapperComponent,
+  },
   { path: '**', component: NotFoundComponent }
 ];
 
@@ -54,7 +60,9 @@ const appRoutes: Routes = [
     RulerComponent,
     LoginComponent,
     RegisterComponent,
-    FooterComponent
+    FooterComponent,
+    LoggedinWrapperComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
