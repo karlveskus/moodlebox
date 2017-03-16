@@ -12,7 +12,7 @@
                         <p class="check">Me ei salvesta Sinu Moodle parooli</p>
                         <p class="check">Võid alati oma testid meie serverist ära kustutada</p>
                         <p class="check">Mugav kasutuskeskkond testide vaatamiseks</p>
-                        <p class="expl">Sisenedes nõustun <span>tingimustega</span></p>
+                        <p class="expl">Sisenedes nõustun <span class="green">tingimustega</span></p>
                     </div>
                 </div>
             </div>
@@ -77,13 +77,13 @@
                 <div class="row">
                     <div class="col-xs-12 col-sm-6">
                         <div class="form-group">
-                            <input formControlName="name" type="text" class="form-control" placeholder="Nimi">
+                            <input formControlName="name" class="form-control" placeholder="Nimi">
                         </div>
                     </div>
 
                     <div class="col-xs-12 col-sm-6">
                         <div class="form-group">
-                            <input formControlName="email" type="email" class="form-control" placeholder="Email">
+                            <input formControlName="email" class="form-control" placeholder="Email">
                         </div>
                     </div>
 
@@ -101,10 +101,10 @@
                         </div>
                     </div>
 
-                    <div class="col-xs-12 col-sm-9 col-sm-pull-3" *ngIf="feedbackSuccess == false">
-                        Palun täida ära kõik lahtrid!
+                    <div class="col-xs-12 col-sm-9 col-sm-pull-3 red" *ngIf="feedbackSuccess == false">
+                        {{errorMessage}}
                     </div>
-                    <div class="col-xs-12 col-sm-9 col-sm-pull-3" *ngIf="feedbackSuccess == true">
+                    <div class="col-xs-12 col-sm-9 col-sm-pull-3 green" *ngIf="feedbackSuccess == true">
                         Täname tagasiside eest!
                     </div>
                 </div>
@@ -112,34 +112,3 @@
         </div>
     </div>
 </div>
-
-
-<div class="container-fluid footer">
-    
-    <div class="maps row">
-        <div class="col-sm-10 col-sm-offset-1">
-            <sebm-google-map [zoom]="zoom" [latitude]="lat" [longitude]="lng">
-            <sebm-google-map-marker [latitude]="lat" [longitude]="lng"></sebm-google-map-marker>
-            </sebm-google-map>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-10 col-sm-offset-1">
-            <div class="row">
-                <div class="col-xs-12 col-sm-4 col-sm-offset-4">
-                    <div class="social-links">
-                        <a><i class="fa fa-facebook fa-lg"></i></a>
-                        <a><i class="fa fa-twitter fa-lg"></i></a>
-                        <a><i class="fa fa-pinterest fa-lg"></i></a>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-4">
-                    <div class="right">
-                        © Kõik õigused kaitstud
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-

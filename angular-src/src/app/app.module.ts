@@ -17,6 +17,7 @@ import { LoginComponent } from './components/welcome/login/login.component';
 import { RegisterComponent } from './components/welcome/register/register.component';
 
 import { FeedbackService } from './services/feedback.service';
+import { FooterComponent } from './components/reusable/footer/footer.component';
 
 const appRoutes: Routes = [
   {
@@ -52,7 +53,8 @@ const appRoutes: Routes = [
     NotFoundComponent,
     RulerComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

@@ -9,7 +9,7 @@ export class FeedbackService {
     constructor(private http:Http) { }
 
     validateFeedback(feedback){
-        if (feedback.name == undefined || !this.validateEmail(feedback.email) || feedback.message == undefined) {
+        if (feedback.name == undefined || feedback.email == undefined || feedback.message == undefined) {
             return false;
         } else {
             return true;

@@ -10,12 +10,9 @@ import { FeedbackService } from '../../services/feedback.service';
 })
 
 export class WelcomeComponent implements OnInit {
-    lat: number = 58.3768154;
-    lng: number = 26.7175982;
-    zoom: number = 15;
-
     form: FormGroup;
     feedbackSuccess: Boolean;
+    errorMessage: String;
 
     name = new FormControl();
     email = new FormControl();
@@ -43,6 +40,13 @@ export class WelcomeComponent implements OnInit {
 
         if(!this.feedbackService.validateFeedback(feedback)) {
             this.feedbackSuccess = false;
+            this.errorMessage = "Palun täida ära kõik lahtrid!";
+            return false;
+        }
+
+        if(!this.feedbackService.validateEmail(feedback.email)) {
+            this.feedbackSuccess = false;
+            this.errorMessage = "Lisa korrektne email!";
             return false;
         }
 

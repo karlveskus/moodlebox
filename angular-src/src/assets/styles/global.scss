@@ -47,7 +47,7 @@ button.btn.btn-primary{
     margin-top: 0px;
     border-radius: 2px;
     font-family: Helvetica-M, sans-serif;
-    
+
     &:hover, &:focus, &:active, &:visited {
         border: none;
         box-shadow: none;
@@ -112,6 +112,10 @@ body {
 
 .green {
   color: $green;
+}
+
+.red {
+    color: $red;
 }
 
 
