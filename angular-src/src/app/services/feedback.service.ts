@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
+import { environment } from '../../environments/environment';
+
 
 @Injectable()
 export class FeedbackService {
@@ -24,7 +26,7 @@ export class FeedbackService {
     newFeedback(feedback){
         let headers = new Headers();
         headers.append('Content-Type','application/json');
-        return this.http.post('http://localhost:3000/api/feedback', feedback, {headers: headers})
+        return this.http.post(environment.baseUrl + '/api/feedback', feedback, {headers: headers})
         .map(res => res.json());
     }
 }

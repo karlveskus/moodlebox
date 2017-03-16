@@ -20,6 +20,9 @@ import { FeedbackService } from './services/feedback.service';
 import { FooterComponent } from './components/reusable/footer/footer.component';
 import { LoggedinWrapperComponent } from './components/loggedin-wrapper/loggedin-wrapper.component';
 import { SidebarComponent } from './components/loggedin-wrapper/sidebar/sidebar.component';
+import { HomeComponent } from './components/loggedin-wrapper/content/home/home.component';
+import { TestsComponent } from './components/loggedin-wrapper/content/tests/tests.component';
+import { SettingsComponent } from './components/loggedin-wrapper/content/settings/settings.component';
 
 const appRoutes: Routes = [
   {
@@ -47,6 +50,35 @@ const appRoutes: Routes = [
   {
       path: 'home',
       component: LoggedinWrapperComponent,
+      children: [
+          {
+              path: '',
+              component: HomeComponent,
+              outlet: 'home'
+          }
+      ]
+  },
+  {
+      path: 'tests',
+      component: LoggedinWrapperComponent,
+      children: [
+          {
+              path: '',
+              component: TestsComponent,
+              outlet: 'tests'
+          }
+      ]
+  },
+  {
+      path: 'settings',
+      component: LoggedinWrapperComponent,
+      children: [
+          {
+              path: '',
+              component: SettingsComponent,
+              outlet: 'settings'
+          }
+      ]
   },
   { path: '**', component: NotFoundComponent }
 ];
@@ -62,7 +94,10 @@ const appRoutes: Routes = [
     RegisterComponent,
     FooterComponent,
     LoggedinWrapperComponent,
-    SidebarComponent
+    SidebarComponent,
+    HomeComponent,
+    TestsComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,
