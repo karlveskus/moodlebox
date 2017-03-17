@@ -3,32 +3,33 @@ const router = express.Router();
 const config = require('../config/properties');
 const User = require('../models/user');
 
-router.post('/', (req, res, next) => {
-  const email = req.body.email;
-  const password = req.body.password;
+router.get('/', (req, res) => {
+  User.find({}, function(err, users) {
+    res.json(users);
+  });
+});
 
-  User.getUserByEmail(email, (err, user) => {
-    if(err) throw err;
-    if(!user) return res.json({success: false, msg: 'User not found'});
-    
+router.post('/authenticate', (req, res) => {
+  User.findOne({
+    email: req.body.email
+  }, function(err, user) {
+    if (err) {
+      res.json({success: false, msg:'There was an unexpected error'});
+    }
 
-    User.comparePassword(password, user.password, (err, isMatch) => {
-      if(err) throw err;
-      if(isMatch){
-        const token = jwt.sign(user, config.secret, {
-          expiresIn: 604800 
-        });
-
-        res.json({
-          success: true,
-          token: 'JWT '+token,
-          user: {
-            id: user._id,
-            email: user.email
-          }
-        });
-      } else return res.json({success: false, msg: 'Wrong password'});
-    });
+    if (!user) {
+      res.json({success: false, msg:'No user found with given email and password'});
+    } else {
+      User.comparePassword(req.body.password, user.password, (err, isMatch) => {
+        if (err) {
+          res.json({success: false, msg:'There was an unexpected error'});
+        } else if (isMatch) {
+          res.json({success: true, msg: "User was found from our database"});
+        } else {
+          res.json({success: false, msg:'No user found with given email and password'});
+        }
+      });
+    }
   });
 });
 
