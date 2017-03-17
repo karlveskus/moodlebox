@@ -1,7 +1,5 @@
-var express = require('express');
-var router = express.Router();
-const jwt = require('jsonwebtoken');
-
+const express = require('express');
+const router = express.Router();
 const config = require('../config/properties');
 const User = require('../models/user');
 
@@ -31,6 +29,20 @@ router.post('/', (req, res, next) => {
         });
       } else return res.json({success: false, msg: 'Wrong password'});
     });
+  });
+});
+
+router.post('/register', (req, res, next) => {
+  let newUser = new User({
+    email: req.body.email,
+    password: req.body.password
+  });
+
+  User.addUser(newUser, (err) => {
+    if(err)
+      res.json({success: false, msg:'Failed to register user'});
+    else 
+      res.json({success: true, msg:'User registered'});
   });
 });
 
