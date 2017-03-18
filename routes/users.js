@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const config = require('../config/properties');
+const properties = require('../config/properties');
 const User = require('../models/user');
+const jwt = require('jsonwebtoken');
 
 router.get('/', (req, res) => {
   User.find({}, function(err, users) {
@@ -14,19 +15,24 @@ router.post('/authenticate', (req, res) => {
     email: req.body.email
   }, function(err, user) {
     if (err) {
-      res.json({success: false, msg:'There was an unexpected error'});
+      sendErrorResponse(res);
     }
-
-    if (!user) {
-      res.json({success: false, msg:'No user found with given email and password'});
+    else if (!user) {
+      sendNotFoundResponse(res);
     } else {
       User.comparePassword(req.body.password, user.password, (err, isMatch) => {
         if (err) {
-          res.json({success: false, msg:'There was an unexpected error'});
+          sendErrorResponse(res);
         } else if (isMatch) {
-          res.json({success: true, msg: "User was found from our database"});
+          let token = jwt.sign({
+            email: user.email,
+            admin: false
+          }, properties.jwt.secret, {
+            expiresIn: 1440 * 7 // 7 days
+          });
+          sendSuccessResponse(res, token);
         } else {
-          res.json({success: false, msg:'No user found with given email and password'});
+          sendNotFoundResponse(res);
         }
       });
     }
@@ -46,5 +52,21 @@ router.post('/register', (req, res, next) => {
       res.json({success: true, msg:'User registered'});
   });
 });
+
+function sendErrorResponse(res) {
+  res.status(500).json({success: false, msg:'There was an unexpected error'});
+}
+
+function sendNotFoundResponse(res) {
+  res.status(402).json({success: false, msg:'No user found with given email and password'});
+}
+
+function sendSuccessResponse(res, token) {
+  res.json({
+            success: true, 
+            msg: "User was found from our database",
+            token: token
+        });
+}
 
 module.exports = router;

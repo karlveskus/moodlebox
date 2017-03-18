@@ -5,7 +5,6 @@ const path        = require('path');
 const mongoose    = require('mongoose');
 const properties  = require('./config/properties');
 const port        = properties.port;
-const jwt         = require('jsonwebtoken');
 const morgan      = require('morgan');
 
 const api = require('./routes/api');
