@@ -2,30 +2,72 @@
 
 div {
     font-family: Helvetica-L, sans-serif;
-}
 
-li {
-    a {
-        color: white;
-        padding: 6px 0 6px 20px;
+    li {
+        width: 100%;
+        a {
+            color: white;
+            padding: 6px 0 6px 20px;
 
-        &:hover, &:active, &:focus {
-            background: $green-hover;
+            &:hover, &:active {
+                background: none;
+                color: $green;
+            }
+
+            &:focus {
+                background: none;
+            }
         }
 
+        &.active a {
+            background: $green;
+
+            &:hover {
+                color: white;
+            }
+        }
     }
 
-    &.active a {
-        background: $green;
+    .header, i {
+        overflow: hidden;
+    }
 
-        &:hover, &:active, &:focus {
-            background: $green-hover;
-        }
+    .toggleButton {
+        display: none;
     }
 }
 
-h4 {
-    margin: 20px 0 10px 20px;
-    color: $gray;
-    font-size: 15px;
+
+// Mobile view
+@media (max-width: 768px){
+    .header {
+        overflow: visible;
+        position: absolute;
+        height: 70px;
+        width: 100%;
+        right: 0;
+        top: 0;
+        z-index: 0;
+        background: $secondary-dark;
+
+        .toggleButton {
+            display: inline;
+            height: 100%;
+            width: 80px;
+            border: 0;
+            background: none;
+            outline: none;
+            float: right;
+
+            i {
+                overflow: visible;
+                font-size: 30px;
+                color: $green;
+
+                &.green {
+                    color: $green-hover;
+                }
+            }
+        }
+    }
 }

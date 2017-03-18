@@ -4,8 +4,11 @@
     height: 70px;
 
     h3 {
+        display: inline-block;
         font-family: "Helvetica-M";
         padding-top: 5px;
+        position: relative;
+        z-index: 1;
     }
 }
 

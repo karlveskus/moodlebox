@@ -8,7 +8,10 @@ import { AgmCoreModule } from 'angular2-google-maps/core';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/reusable/navbar/navbar.component';
+
 import { AlertModule } from 'ng2-bootstrap';
+import { CollapseModule } from 'ng2-bootstrap/collapse';
+
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { RouterModule, Routes } from '@angular/router';
 import { NotFoundComponent } from './components/not-found/not-found.component';
@@ -106,6 +109,7 @@ const appRoutes: Routes = [
       apiKey: 'AIzaSyD2qA7279xnKdrKlliN4PMv6B7Dt4KJt9E'
     }),
     HttpModule,
+    CollapseModule.forRoot(),
     AlertModule.forRoot(),
     RouterModule.forRoot(appRoutes),
     ReactiveFormsModule

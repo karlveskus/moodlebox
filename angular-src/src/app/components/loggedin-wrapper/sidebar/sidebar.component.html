@@ -1,8 +1,16 @@
-<div class="row">
-    <h4>SISUKORD</h4>
-    <ul class="nav nav-pills nav-stacked">
-        <li [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}"><a routerLink="/home">Ülevaade</a></li>
-        <li [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}"><a routerLink="/tests">Üles laetud testid</a></li>
-        <li [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}"><a routerLink="/settings">Konto seaded</a></li>
-    </ul>
+<div (window:resize)="onResize()">
+    <div class="header">
+        <button type="button" class="toggleButton" (click)="onClick()">
+            <i class="ion-navicon-round" *ngIf="isCollapsed"></i>
+            <i class="ion-navicon-round green" *ngIf="!isCollapsed"></i>
+        </button>
+    </div>
+    <div [collapse]="isCollapsed">
+      <ul class="nav">
+        <li><a>Ülevaade</a></li>
+        <li><a>Admin paneel</a></li>
+        <li><a>Konto seaded</a></li>
+        <li><a>Logi välja</a></li>
+      </ul>
+    </div>
 </div>

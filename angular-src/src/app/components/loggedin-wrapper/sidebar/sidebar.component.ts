@@ -7,9 +7,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
-  constructor() { }
+    isCollapsed:boolean = false;
 
-  ngOnInit() {
-  }
+    constructor() {
+        this.checkSize();
+    }
+
+    ngOnInit() {
+    }
+
+    checkSize() {
+        // Checks the size on window to choose the menu to be collapsed or not.
+        if(window.innerWidth > 768) {
+            this.isCollapsed = false;
+        } else {
+            this.isCollapsed = true;
+        }
+    }
+
+    onResize() {
+        this.checkSize();
+    }
+
+    onClick() {
+        this.isCollapsed = !this.isCollapsed;
+    }
 
 }

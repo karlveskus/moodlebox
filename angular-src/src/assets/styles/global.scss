@@ -98,12 +98,19 @@ button.btn.btn-google {
 
 
 body {
-  background: $main-dark !important;
-  font-family: "Helvetica-T" !important;
-  color: white !important;
+    height: 100%;
+    background: $main-dark !important;
+    font-family: "Helvetica-T" !important;
+    color: white !important;
 }
 
+html {
+    height: 100%;
+}
 
+.body-container {
+    min-height: 100%;
+}
 
 .centered{
     float: none;
