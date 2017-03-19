@@ -3,8 +3,32 @@ const router = express.Router();
 const properties = require('../config/properties');
 const User = require('../models/user');
 const jwt = require('jsonwebtoken');
+const api = require('./api.js');
 
-router.get('/', (req, res) => {
+
+function mustBeUser(req, res, next) {
+  return api.mustBeUser(req, res, next);
+}
+
+function mustBeAdmin(req, res, next) {
+  return api.mustBeAdmin(req, res, next);
+}
+
+router.post('/register', (req, res, next) => {
+  let newUser = new User({
+    email: req.body.email,
+    password: req.body.password
+  });
+
+  User.addUser(newUser, (err) => {
+    if(err)
+      res.json({success: false, msg:'Failed to register user'});
+    else 
+      res.json({success: true, msg:'User registered'});
+  });
+});
+
+router.get('/', mustBeUser, (req, res, next) => {
   User.find({}, function(err, users) {
     res.json(users);
   });
@@ -39,19 +63,7 @@ router.post('/authenticate', (req, res) => {
   });
 });
 
-router.post('/register', (req, res, next) => {
-  let newUser = new User({
-    email: req.body.email,
-    password: req.body.password
-  });
 
-  User.addUser(newUser, (err) => {
-    if(err)
-      res.json({success: false, msg:'Failed to register user'});
-    else 
-      res.json({success: true, msg:'User registered'});
-  });
-});
 
 function sendErrorResponse(res) {
   res.status(500).json({success: false, msg:'There was an unexpected error'});

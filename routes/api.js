@@ -8,8 +8,6 @@ const properties = require('../config/properties');
 const users = require('./users');
 const feedback = require('./feedback');
 
-
-router.use(authenticateMiddleware(false));
 router.use('/users', users);
 router.use('/feedback', feedback);
 
@@ -34,4 +32,8 @@ function authenticateMiddleware(mustBeAdmin) {
     }
 }
 
-module.exports = router;
+
+module.exports.router = router;
+
+module.exports.mustBeUser = authenticateMiddleware(false);
+module.exports.mustBeAdmin = authenticateMiddleware(true);

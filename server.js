@@ -27,7 +27,7 @@ mongoose.connection.on('error', (err) => {
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
 app.use(morgan('dev'));
-app.use('/api', api);
+app.use('/api', api.router);
 
 
 
