@@ -49,6 +49,18 @@ div {
 
 // Mobile view
 @media (max-width: 768px){
+    .kinni {
+        max-height: 0px;
+        overflow: hidden;
+        transition: max-height 0.2s ease-out;
+    }
+
+    .lahti {
+        overflow: hidden;
+        max-height: 300px;
+        transition: max-height 0.3s ease-in;
+    }
+
     div {
         font-size: 18px;
         line-height: 25px;

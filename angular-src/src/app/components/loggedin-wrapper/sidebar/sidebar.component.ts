@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class SidebarComponent implements OnInit {
 
     isCollapsed:boolean = false;
+    isMobileCollapsed:boolean = true;
 
     constructor() {
         this.checkSize();
@@ -20,8 +21,9 @@ export class SidebarComponent implements OnInit {
         // Checks the size on window to choose the menu to be collapsed or not.
         if(window.innerWidth > 768) {
             this.isCollapsed = false;
+            this.isMobileCollapsed = true;
         } else {
-            this.isCollapsed = true;
+            this.isCollapsed = this.isMobileCollapsed ? true : false;
         }
     }
 
@@ -30,7 +32,9 @@ export class SidebarComponent implements OnInit {
     }
 
     onClick() {
+        this.isMobileCollapsed = !this.isMobileCollapsed;
         this.isCollapsed = !this.isCollapsed;
+
     }
 
 }
