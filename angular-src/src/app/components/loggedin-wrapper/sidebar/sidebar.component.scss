@@ -3,27 +3,36 @@
 div {
     font-family: Helvetica-L, sans-serif;
 
-    li {
-        width: 100%;
-        a {
-            color: white;
-            padding: 6px 0 6px 20px;
+    h4 {
+        font-size: 14px;
+        color: $gray;
+        margin-left: 20px;
+        margin-bottom: 10px;
+    }
 
-            &:hover, &:active {
-                background: none;
-                color: $green;
-            }
+    ul {
+        margin-right: 30px;
 
-            &:focus {
-                background: none;
-            }
-        }
+        li {
+            padding: 0;
+            margin-bottom: 4px;
 
-        &.active a {
-            background: $green;
-
-            &:hover {
+            a {
+                margin: 0;
                 color: white;
+                padding-top: 4px;
+                padding-bottom: 4px;
+                padding-left: 20px;
+
+                &.active, &:active, &:hover {
+                    background: $green !important;
+                    border-radius: 3px;
+                }
+
+                &:focus {
+                    background: none;
+                }
+
             }
         }
     }
@@ -40,33 +49,59 @@ div {
 
 // Mobile view
 @media (max-width: 768px){
-    .header {
-        overflow: visible;
-        position: absolute;
-        height: 70px;
-        width: 100%;
-        right: 0;
-        top: 0;
-        z-index: 0;
-        background: $secondary-dark;
+    div {
+        font-size: 18px;
+        line-height: 25px;
 
-        .toggleButton {
-            display: inline;
-            height: 100%;
-            width: 80px;
-            border: 0;
-            background: none;
-            outline: none;
-            float: right;
+        .header {
+            overflow: visible;
+            position: absolute;
+            height: 70px;
+            width: 100%;
+            right: 0;
+            top: 0;
+            z-index: 0;
+            background: $secondary-dark;
 
-            i {
-                overflow: visible;
-                font-size: 30px;
-                color: $green;
+            .toggleButton {
+                display: inline;
+                border: 0;
+                outline: none;
+                background: none;
+                width: 80px;
+                float: right;
+                height: 100%;
+                i {
+                    overflow: visible;
+                    font-size: 30px;
+                    color: $green;
 
-                &.green {
-                    color: $green-hover;
+                    &.green {
+                        color: $green-hover;
+                    }
                 }
+            }
+        }
+        
+        ul {
+            li {
+                padding-bottom: 0;
+                width: calc(100% + 30px);
+
+                a{
+                    &:hover, &.active {
+                        background: none !important;;
+                        color: $green;
+                    }                    
+                }
+
+                &:last-child {
+                    a {
+                        font-family: Helvetica-M, sans-serif;
+                        margin-top: 10px;
+                        margin-bottom: 10px;
+                    }
+                }                
             }
         }
     }
