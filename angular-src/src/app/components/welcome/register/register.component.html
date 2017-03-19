@@ -3,12 +3,18 @@
   <form [formGroup]="registrationForm" (ngSubmit)="onRegisterSubmit()" novalidate>
       <div class="form-group">
           <input class="form-control" type="email" formControlName="email" placeholder="Email">
+          <i *ngIf="registrationForm.controls['email'].dirty && !registrationForm.controls['email'].valid && !registrationForm.controls['email'].untouched" class="ion-alert-circled"></i>
       </div>
+      
+      
       <div class="form-group">
-          <input class="form-control" type="password" formControlName="password" placeholder="Parool">
+          <input #t class="form-control" type="password" formControlName="password" placeholder="Parool">
+          <i *ngIf="registrationForm.controls['password'].dirty && !registrationForm.controls['password'].valid && !registrationForm.controls['password'].untouched" class="ion-alert-circled"></i>
       </div>
+      
       <div class="form-group">
           <input class="form-control" type="password" formControlName="passwordAgain" placeholder="Parool uuesti">
+          <i *ngIf="registrationForm.controls['passwordAgain'].dirty && !registrationForm.controls['passwordAgain'].valid && !registrationForm.controls['passwordAgain'].untouched" class="ion-alert-circled"></i>
       </div>
       <div class="form-group">
           <button class="btn btn-primary btn-block" type="submit">Registreeru</button>
