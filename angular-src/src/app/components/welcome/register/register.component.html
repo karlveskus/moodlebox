@@ -3,18 +3,23 @@
   <form [formGroup]="registrationForm" (ngSubmit)="onRegisterSubmit()" novalidate>
       <div class="form-group">
           <input class="form-control" type="email" formControlName="email" placeholder="Email">
-          <i *ngIf="registrationForm.controls['email'].dirty && !registrationForm.controls['email'].valid && !registrationForm.controls['email'].untouched" class="ion-alert-circled"></i>
+          <div *ngIf="registrationForm.controls['email'].dirty && !registrationForm.controls['email'].valid && !registrationForm.controls['email'].untouched">
+            <i class="ion-alert-circled"></i><div class="error">{{problems.email}}</div>
+          </div>
       </div>
       
-      
       <div class="form-group">
-          <input #t class="form-control" type="password" formControlName="password" placeholder="Parool">
-          <i *ngIf="registrationForm.controls['password'].dirty && !registrationForm.controls['password'].valid && !registrationForm.controls['password'].untouched" class="ion-alert-circled"></i>
+          <input #t  class="form-control" type="password" formControlName="password" placeholder="Parool">
+          <div *ngIf="registrationForm.controls['password'].dirty && !registrationForm.controls['password'].valid && !registrationForm.controls['password'].untouched">
+            <i class="ion-alert-circled"></i><div class="error">{{problems.password}}</div>
+          </div>
       </div>
       
       <div class="form-group">
           <input class="form-control" type="password" formControlName="passwordAgain" placeholder="Parool uuesti">
-          <i *ngIf="registrationForm.controls['passwordAgain'].dirty && !registrationForm.controls['passwordAgain'].valid && !registrationForm.controls['passwordAgain'].untouched" class="ion-alert-circled"></i>
+          <div *ngIf="registrationForm.controls['passwordAgain'].dirty && !registrationForm.controls['passwordAgain'].valid && !registrationForm.controls['passwordAgain'].untouched">
+            <i class="ion-alert-circled"></i><div class="error">{{problems.passwordAgain}}</div>
+          </div>
       </div>
       <div class="form-group">
           <button class="btn btn-primary btn-block" type="submit">Registreeru</button>
@@ -26,7 +31,7 @@
               <p>Registreeru Facebookiga</p>
           </button>
       </div>
-
+      
       <div class="form-group">
           <button class="btn btn-google btn-block" type="submit">
               <i class="box fa fa-google" aria-hidden="true"></i>
