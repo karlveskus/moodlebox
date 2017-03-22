@@ -28,12 +28,6 @@ router.post('/register', (req, res, next) => {
   });
 });
 
-router.get('/', mustBeUser, (req, res, next) => {
-  User.find({}, function(err, users) {
-    res.json(users);
-  });
-});
-
 router.post('/authenticate', (req, res) => {
   User.findOne({
     email: req.body.email
@@ -63,6 +57,12 @@ router.post('/authenticate', (req, res) => {
   });
 });
 
+router.get('/', mustBeUser, (req, res, next) => {
+  User.find({}, function(err, users) {
+    res.json(users);
+  });
+});
+
 
 
 function sendErrorResponse(res) {
@@ -70,7 +70,8 @@ function sendErrorResponse(res) {
 }
 
 function sendNotFoundResponse(res) {
-  res.status(402).json({success: false, msg:'No user found with given email and password'});
+  // res.status(402).json({success: false, msg:'No user found with given email and password'});
+  res.json({success: false, msg:'No user found with given email and password'});
 }
 
 function sendSuccessResponse(res, token) {

@@ -19,4 +19,18 @@ export class AuthenticateService {
     return this.http.post(this.baseUrl + '/api/users/register', user, {headers: headers})
       .map(res => res.json());
   }
+
+  authenticateUser(user) {
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.http.post(this.baseUrl + '/api/users/authenticate', user, {headers: headers})
+      .map(res => res.json());
+  }
+
+  storeUserData(token, email) {
+    localStorage.setItem('id_token', token);
+    localStorage.setItem('user', email);
+    this.token = token;
+    this.user.email = email;
+  }
 }
