@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { AuthenticateService } from '../../../services/authenticate.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -12,11 +14,14 @@ export class RegisterComponent implements OnInit{
   email: FormControl;
   password: FormControl;
   passwordAgain: FormControl;
+  
 
-  constructor() {
+  constructor(private authenticateService: AuthenticateService,
+              private router: Router) {
     this.email = new FormControl('',[Validators.required, Validators.pattern(/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])+/)]);
     this.password = new FormControl('',[Validators.required, Validators.minLength(5)]);
     this.passwordAgain = new FormControl('',[Validators.required]);
+    
   }
 
   ngOnInit() {
@@ -44,7 +49,7 @@ export class RegisterComponent implements OnInit{
           match: false
         });
       } else {
-        console.log('MINE')
+        this.registerUser();
       }
     } 
   }
@@ -60,5 +65,22 @@ export class RegisterComponent implements OnInit{
       passwordAgain: passwordAgainProblem
     };
   }
+
+  registerUser() {
+    const user = {
+      email: this.email.value,
+      password: this.password.value
+    }
+
+    this.authenticateService.registerUser(user).subscribe(data => {
+      if(data.success) {
+        this.router.navigateByUrl('/');
+      } else {
+        console.log("REGISTRATION_ERROR");
+      }
+    });
+  }
+
+
 
 }

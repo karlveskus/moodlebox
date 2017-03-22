@@ -25,6 +25,7 @@ import { HomeComponent } from './components/loggedin-wrapper/content/home/home.c
 import { TestsComponent } from './components/loggedin-wrapper/content/tests/tests.component';
 import { SettingsComponent } from './components/loggedin-wrapper/content/settings/settings.component';
 
+import { AuthenticateService } from './services/authenticate.service';
 const appRoutes: Routes = [
   {
     path: '',
@@ -109,7 +110,8 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     ReactiveFormsModule
   ],
-  providers: [FeedbackService],
+
+  providers: [FeedbackService, AuthenticateService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
