@@ -1,28 +1,39 @@
 <div class="login">
   <div class="lock ion-ios-locked-outline"></div>
-  <form action="post">
+  <form [formGroup]="registrationForm" (ngSubmit)="onRegisterSubmit()" novalidate>
       <div class="form-group">
-          <input class="form-control" type="email" name="username" placeholder="Email">
+          <input class="form-control" type="email" formControlName="email" placeholder="Email">
+          <div *ngIf="registrationForm.controls['email'].dirty && !registrationForm.controls['email'].valid && !registrationForm.controls['email'].untouched">
+            <i class="ion-alert-circled"></i><div class="error">{{problems.email}}</div>
+          </div>
       </div>
+      
       <div class="form-group">
-          <input class="form-control" type="password" name="password" placeholder="Parool">
+          <input #t  class="form-control" type="password" formControlName="password" placeholder="Parool">
+          <div *ngIf="registrationForm.controls['password'].dirty && !registrationForm.controls['password'].valid && !registrationForm.controls['password'].untouched">
+            <i class="ion-alert-circled"></i><div class="error">{{problems.password}}</div>
+          </div>
       </div>
+      
       <div class="form-group">
-          <input class="form-control" type="password" name="password" placeholder="Parool uuesti">
+          <input class="form-control" type="password" formControlName="passwordAgain" placeholder="Parool uuesti">
+          <div *ngIf="registrationForm.controls['passwordAgain'].dirty && !registrationForm.controls['passwordAgain'].valid && !registrationForm.controls['passwordAgain'].untouched">
+            <i class="ion-alert-circled"></i><div class="error">{{problems.passwordAgain}}</div>
+          </div>
       </div>
       <div class="form-group">
           <button class="btn btn-primary btn-block" type="submit">Registreeru</button>
       </div>
 
       <div class="form-group">
-          <button class="btn btn-facebook btn-block" type="submit">
+          <button class="btn btn-facebook btn-block">
               <i class="box fa fa-facebook" aria-hidden="true"></i>
               <p>Registreeru Facebookiga</p>
           </button>
       </div>
-
+      
       <div class="form-group">
-          <button class="btn btn-google btn-block" type="submit">
+          <button class="btn btn-google btn-block">
               <i class="box fa fa-google" aria-hidden="true"></i>
               <p>Registreeru Googlega</p>
           </button>

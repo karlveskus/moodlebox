@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { AuthenticateService } from '../../../services/authenticate.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -7,10 +10,39 @@ import { Component, OnInit } from '@angular/core';
   
 })
 export class LoginComponent implements OnInit {
+  loginForm: FormGroup;
+  email: FormControl;
+  password: FormControl;
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor(private authenticateService : AuthenticateService,
+              private router : Router) { 
+    this.email = new FormControl(null, Validators.required);
+    this.password = new FormControl(null, Validators.required);
   }
 
+  ngOnInit() {
+    this.loginForm = new FormGroup({
+      email: this.email,
+      password: this.password,
+    });
+  }
+
+  onLoginSubmit() {
+    if (this.loginForm.valid) {
+      const user = {
+        email: this.email.value,
+        password: this.password.value
+      }
+
+      this.authenticateService.authenticateUser(user).subscribe(data => {
+        if (data.success) {
+          this.authenticateService.storeUserData(data.token, user.email);
+          this.router.navigateByUrl('/home');
+        } else {
+          this.router.navigateByUrl('/');
+        }
+      });
+
+    }
+  }
 }
