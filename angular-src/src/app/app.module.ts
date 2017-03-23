@@ -4,11 +4,12 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import { AgmCoreModule } from 'angular2-google-maps/core';
-
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/reusable/navbar/navbar.component';
+
 import { AlertModule } from 'ng2-bootstrap';
+import { CollapseModule } from 'ng2-bootstrap/collapse';
+
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { RouterModule, Routes } from '@angular/router';
 import { NotFoundComponent } from './components/not-found/not-found.component';
@@ -18,6 +19,11 @@ import { RegisterComponent } from './components/welcome/register/register.compon
 
 import { FeedbackService } from './services/feedback.service';
 import { FooterComponent } from './components/reusable/footer/footer.component';
+import { LoggedinWrapperComponent } from './components/loggedin-wrapper/loggedin-wrapper.component';
+import { SidebarComponent } from './components/loggedin-wrapper/sidebar/sidebar.component';
+import { HomeComponent } from './components/loggedin-wrapper/content/home/home.component';
+import { TestsComponent } from './components/loggedin-wrapper/content/tests/tests.component';
+import { SettingsComponent } from './components/loggedin-wrapper/content/settings/settings.component';
 
 const appRoutes: Routes = [
   {
@@ -42,6 +48,39 @@ const appRoutes: Routes = [
       }
     ]
   },
+  {
+      path: 'home',
+      component: LoggedinWrapperComponent,
+      children: [
+          {
+              path: '',
+              component: HomeComponent,
+              outlet: 'home'
+          }
+      ]
+  },
+  {
+      path: 'tests',
+      component: LoggedinWrapperComponent,
+      children: [
+          {
+              path: '',
+              component: TestsComponent,
+              outlet: 'tests'
+          }
+      ]
+  },
+  {
+      path: 'settings',
+      component: LoggedinWrapperComponent,
+      children: [
+          {
+              path: '',
+              component: SettingsComponent,
+              outlet: 'settings'
+          }
+      ]
+  },
   { path: '**', component: NotFoundComponent }
 ];
 
@@ -54,15 +93,18 @@ const appRoutes: Routes = [
     RulerComponent,
     LoginComponent,
     RegisterComponent,
-    FooterComponent
+    FooterComponent,
+    LoggedinWrapperComponent,
+    SidebarComponent,
+    HomeComponent,
+    TestsComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyD2qA7279xnKdrKlliN4PMv6B7Dt4KJt9E'
-    }),
     HttpModule,
+    CollapseModule.forRoot(),
     AlertModule.forRoot(),
     RouterModule.forRoot(appRoutes),
     ReactiveFormsModule

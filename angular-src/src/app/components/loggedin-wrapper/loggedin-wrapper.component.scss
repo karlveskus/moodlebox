@@ -1,0 +1,41 @@
+@import "../../../assets/styles/variables";
+
+h2 {
+    padding-bottom: 20px;
+    border-bottom: 1px solid $gray;
+    margin: 0;
+}
+
+.sidebar {
+    width: 200px;
+    float: left;
+}
+
+.content {
+    width: calc(100% - 200px);
+    margin-left: 200px;
+}
+
+// Mobile view
+@media (max-width: 768px){
+
+    .content, .sidebar {
+        width: calc(100% + 30px);
+        float: left;
+        margin-left: -15px;
+    }
+
+    .sidebar{
+        margin-top: 0;
+        background: $secondary-dark;
+    }
+
+    .content {
+        padding-left: 15px;
+        padding-right: 15px;
+
+        h2 {
+            border: 0;
+        }
+    }
+}

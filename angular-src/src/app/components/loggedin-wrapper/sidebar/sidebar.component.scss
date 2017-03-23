@@ -1,0 +1,120 @@
+@import "../../../../assets/styles/variables";
+
+div {
+    font-family: Helvetica-L, sans-serif;
+
+    h4 {
+        font-size: 14px;
+        color: $gray;
+        margin-left: 20px;
+        margin-bottom: 10px;
+    }
+
+    ul {
+        margin-right: 30px;
+
+        li {
+            padding: 0;
+            margin-bottom: 4px;
+
+            a {
+                margin: 0;
+                color: white;
+                padding-top: 4px;
+                padding-bottom: 4px;
+                padding-left: 20px;
+
+                &.active, &:active, &:hover {
+                    background: $green !important;
+                    border-radius: 3px;
+                }
+
+                &:focus {
+                    background: none;
+                }
+
+            }
+        }
+    }
+
+    .header, i {
+        overflow: hidden;
+    }
+
+    .toggleButton {
+        display: none;
+    }
+}
+
+
+// Mobile view
+@media (max-width: 768px){
+    .kinni {
+        max-height: 0px;
+        overflow: hidden;
+        transition: max-height 0.2s ease-out;
+    }
+
+    .lahti {
+        overflow: hidden;
+        max-height: 300px;
+        transition: max-height 0.3s ease-in;
+    }
+
+    div {
+        font-size: 18px;
+        line-height: 25px;
+
+        .header {
+            overflow: visible;
+            position: absolute;
+            height: 70px;
+            width: 100%;
+            right: 0;
+            top: 0;
+            z-index: 0;
+            background: $secondary-dark;
+
+            .toggleButton {
+                display: inline;
+                border: 0;
+                outline: none;
+                background: none;
+                width: 80px;
+                float: right;
+                height: 100%;
+                i {
+                    overflow: visible;
+                    font-size: 30px;
+                    color: $green;
+
+                    &.green {
+                        color: $green-hover;
+                    }
+                }
+            }
+        }
+        
+        ul {
+            li {
+                padding-bottom: 0;
+                width: calc(100% + 30px);
+
+                a{
+                    &:hover, &.active {
+                        background: none !important;;
+                        color: $green;
+                    }                    
+                }
+
+                &:last-child {
+                    a {
+                        font-family: Helvetica-M, sans-serif;
+                        margin-top: 10px;
+                        margin-bottom: 10px;
+                    }
+                }                
+            }
+        }
+    }
+}

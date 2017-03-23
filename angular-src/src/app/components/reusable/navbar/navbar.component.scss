@@ -4,21 +4,18 @@
     height: 70px;
 
     h3 {
+        display: inline-block;
         font-family: "Helvetica-M";
         padding-top: 5px;
+        position: relative;
+        z-index: 1;
     }
-    
 }
 
 a {
     text-decoration: none !important;
 }
 
-
 h3{
     color: #686F83;
-}
-
-h3 .box {
-    color: $green;
 }
