@@ -1,4 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { AuthenticateService } from '../../services/authenticate.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-loggedin-wrapper',
@@ -8,9 +10,12 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 })
 export class LoggedinWrapperComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authenticateService : AuthenticateService, private router : Router) { }
 
   ngOnInit() {
+    // if (!this.authenticateService.isLoggedIn()) {
+    //   this.router.navigate(['/']);
+    // }
   }
 
 }

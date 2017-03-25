@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit{
+  token = this.authenticateService.token;
   problems: Object;
   registrationForm: FormGroup;
   email: FormControl;

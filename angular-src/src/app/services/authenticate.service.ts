@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { environment } from '../../environments/environment';
+import { tokenNotExpired } from 'angular2-jwt';
 
 @Injectable()
 export class AuthenticateService {
@@ -29,9 +30,24 @@ export class AuthenticateService {
   }
 
   storeUserData(token, email) {
+    // this.token = token;
+    // this.user.email = email;
     localStorage.setItem('id_token', token);
-    localStorage.setItem('email', email);
-    this.token = token;
-    this.user.email = email;
+    localStorage.setItem('user', JSON.stringify(this.user));
   }
+
+  logout() {
+    this.token = null;
+    this.user = {email: null, admin: false};
+    localStorage.clear();
+  }
+
+  loadToken() {
+    this.token = localStorage.getItem('id_token');
+  }
+
+  isLoggedIn() {
+    return tokenNotExpired();
+  }
+
 }

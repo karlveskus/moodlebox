@@ -51,6 +51,7 @@ const appRoutes: Routes = [
   },
   {
       path: 'home',
+      canActivate:[true],
       component: LoggedinWrapperComponent,
       children: [
           {

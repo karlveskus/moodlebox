@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { FeedbackService } from '../../services/feedback.service';
+import { AuthenticateService } from '../../services/authenticate.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-welcome',
@@ -20,7 +22,9 @@ export class WelcomeComponent implements OnInit {
 
     constructor(
         private fb: FormBuilder,
-        private feedbackService: FeedbackService
+        private feedbackService: FeedbackService,
+        private router: Router,
+        private authenticateService: AuthenticateService
     ) {
         this.form = fb.group({
             "name": this.name,
@@ -29,7 +33,11 @@ export class WelcomeComponent implements OnInit {
         });
     }
 
-    ngOnInit() {}
+    ngOnInit() {
+        // if (this.authenticateService.isLoggedIn()) {
+        //     this.router.navigate(['/home']);
+        // }
+    }
 
     onSubmitModelBased() {
         const feedback = {

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthenticateService } from '../../../services/authenticate.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',
@@ -10,7 +12,7 @@ export class SidebarComponent implements OnInit {
     isCollapsed:boolean = false;
     isMobileCollapsed:boolean = true;
 
-    constructor() {
+    constructor(private authenticateService : AuthenticateService) {
         this.checkSize();
     }
 
@@ -34,7 +36,10 @@ export class SidebarComponent implements OnInit {
     onClick() {
         this.isMobileCollapsed = !this.isMobileCollapsed;
         this.isCollapsed = !this.isCollapsed;
+    }
 
+    onLogoutClick() {
+        this.authenticateService.logout();
     }
 
 }
