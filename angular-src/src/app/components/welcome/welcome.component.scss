@@ -48,6 +48,11 @@
     padding: 20px;
     position: relative;
 
+    a:hover {
+        color: $green-hover;
+        text-decoration: none;
+    }
+
     .lock {
         font-size: 100px;
         color: $green;
