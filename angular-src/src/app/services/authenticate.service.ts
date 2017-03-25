@@ -11,6 +11,7 @@ export class AuthenticateService {
 
   constructor(private http: Http){
     this.baseUrl = environment.baseUrl;
+    this.user = {email: null, admin: false}
   }
 
   registerUser(user) {
@@ -29,7 +30,7 @@ export class AuthenticateService {
 
   storeUserData(token, email) {
     localStorage.setItem('id_token', token);
-    localStorage.setItem('user', email);
+    localStorage.setItem('email', email);
     this.token = token;
     this.user.email = email;
   }
