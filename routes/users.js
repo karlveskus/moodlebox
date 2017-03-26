@@ -17,15 +17,25 @@ function mustBeAdmin(req, res, next) {
 router.post('/register', (req, res, next) => {
   let newUser = new User({
     email: req.body.email,
-    password: req.body.password
+    password: req.body.password,
+    role: 'user'
   });
 
-  User.addUser(newUser, (err) => {
-    if(err)
-      res.json({success: false, msg:'Failed to register user'});
-    else 
-      res.json({success: true, msg:'User registered'});
+  User.findOne({email: newUser.email}, function(err, user) {
+    if (err) {
+      sendErrorResponse(res);
+    } else if (user) {
+      sendUserAlreadyExists(res);
+    } else {
+      User.addUser(newUser, (err) => {
+        if(err)
+          res.json({success: false, msg:'Failed to register user'});
+        else 
+          res.json({success: true, msg:'User registered'});
+      });
+    }
   });
+
 });
 
 router.post('/authenticate', (req, res) => {
@@ -44,7 +54,7 @@ router.post('/authenticate', (req, res) => {
         } else if (isMatch) {
           let token = jwt.sign({
             email: user.email,
-            role: 'user'
+            role: user.role
           }, properties.jwt.secret, {
             expiresIn: 1440 * 7 // 7 days
           });
@@ -70,8 +80,11 @@ function sendErrorResponse(res) {
 }
 
 function sendNotFoundResponse(res) {
-  // res.status(402).json({success: false, msg:'No user found with given email and password'});
-  res.json({success: false, msg:'No user found with given email and password'});
+  res.status(402).json({success: false, msg:'No user found with given email and password'});
+}
+
+function sendUserAlreadyExists(res) {
+  res.status(500).json({success: false, msg:'User already exists'});
 }
 
 function sendSuccessResponse(res, token) {
