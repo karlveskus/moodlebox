@@ -67,7 +67,7 @@ router.post('/authenticate', (req, res) => {
   });
 });
 
-router.get('/', mustBeUser, (req, res, next) => {
+router.get('/', mustBeAdmin, (req, res, next) => {
   User.find({}, function(err, users) {
     res.json(users);
   });

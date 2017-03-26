@@ -15,6 +15,7 @@ export class AuthGuard implements CanActivate {
         state: RouterStateSnapshot
         ): boolean {
             this.authenticateService.loadTokenAndData();
+            
             let roles = route.data["roles"] as Array<String>;
             let userRole = this.authenticateService.user.role == null ? 'logged-out' : this.authenticateService.user.role;
 

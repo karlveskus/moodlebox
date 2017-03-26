@@ -21,8 +21,10 @@ function authenticateMiddleware(mustBeAdmin) {
                     res.sendFile(path.resolve('public/index.html'));
                 }
                 else {
-                    if (mustBeAdmin == decoded.admin) {
+                    if (mustBeAdmin && decoded.role == 'admin') {
                         next();
+                    } else {
+                        res.sendFile(path.resolve('public/index.html'));
                     }
                 }
             });  

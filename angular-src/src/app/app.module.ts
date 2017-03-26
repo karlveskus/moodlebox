@@ -26,6 +26,7 @@ import { TestsComponent } from './components/loggedin-wrapper/content/tests/test
 import { SettingsComponent } from './components/loggedin-wrapper/content/settings/settings.component';
 
 import { AuthenticateService } from './services/authenticate.service';
+import { UserService } from './services/user.service';
 import { AuthGuard } from './services/auth.guard';
 import { AdminComponent } from './components/loggedin-wrapper/content/admin/admin.component';
 
@@ -146,7 +147,7 @@ const appRoutes: Routes = [
     ReactiveFormsModule
   ],
 
-  providers: [FeedbackService, AuthenticateService, AuthGuard],
+  providers: [FeedbackService, AuthenticateService, AuthGuard, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

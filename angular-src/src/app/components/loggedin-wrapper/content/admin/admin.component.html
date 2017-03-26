@@ -1,4 +1,8 @@
 <h2>
     Admin panel
 </h2>
-See on admin paneel
+<p>List hetkel registreerunud kasutajatest:</p>
+<br>
+
+
+<li *ngFor="let user of users">{{user.email}} - <span class="green">{{user.role}}</span></li>
