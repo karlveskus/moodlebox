@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  baseUrl: 'https://moodlebox.us/'
+  baseUrl: 'https://moodlebox.us'
 };
