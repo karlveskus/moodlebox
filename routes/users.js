@@ -44,7 +44,7 @@ router.post('/authenticate', (req, res) => {
         } else if (isMatch) {
           let token = jwt.sign({
             email: user.email,
-            admin: false
+            role: 'user'
           }, properties.jwt.secret, {
             expiresIn: 1440 * 7 // 7 days
           });

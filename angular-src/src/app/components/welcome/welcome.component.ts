@@ -34,9 +34,6 @@ export class WelcomeComponent implements OnInit {
     }
 
     ngOnInit() {
-        // if (this.authenticateService.isLoggedIn()) {
-        //     this.router.navigate(['/home']);
-        // }
     }
 
     onSubmitModelBased() {

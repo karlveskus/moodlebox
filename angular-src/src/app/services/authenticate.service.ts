@@ -2,17 +2,18 @@ import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { environment } from '../../environments/environment';
-import { tokenNotExpired } from 'angular2-jwt';
+import { tokenNotExpired, JwtHelper } from 'angular2-jwt';
 
 @Injectable()
-export class AuthenticateService {
+export class AuthenticateService{
   baseUrl: string;
   token: any;
-  user: any;
+  user: {email:String, role:String};
+  jwtHelper: JwtHelper = new JwtHelper();
 
   constructor(private http: Http){
     this.baseUrl = environment.baseUrl;
-    this.user = {email: null, admin: false}
+    this.user = {email: null, role: null};
   }
 
   registerUser(user) {
@@ -29,25 +30,52 @@ export class AuthenticateService {
       .map(res => res.json());
   }
 
-  storeUserData(token, email) {
-    // this.token = token;
-    // this.user.email = email;
+  storeUserData(token) {
     localStorage.setItem('id_token', token);
-    localStorage.setItem('user', JSON.stringify(this.user));
   }
 
   logout() {
     this.token = null;
-    this.user = {email: null, admin: false};
+    this.clearUser();
     localStorage.clear();
   }
 
-  loadToken() {
-    this.token = localStorage.getItem('id_token');
+  loadTokenAndData() {
+    if (this.user.email == null) {
+      this.token = localStorage.getItem('id_token');
+      if (this.token != null) {
+        console.log('loading');
+        this.user = {
+          email: this.getEmail(this.token),
+          role: this.getRole(this.token)
+        }
+      }
+    }
   }
 
   isLoggedIn() {
     return tokenNotExpired();
+  }
+
+  isAdmin() {
+    return this.user.role == 'admin';
+  }
+
+  isUser() {
+    return this.user.role == 'user';
+  }
+
+  clearUser() {
+    this.user.email = null;
+    this.user.role = null;
+  }
+
+  private getRole(token) {
+    return this.jwtHelper.decodeToken(token).role;
+  }
+
+  private getEmail(token) {
+    return this.jwtHelper.decodeToken(token).email;
   }
 
 }

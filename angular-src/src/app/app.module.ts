@@ -26,9 +26,21 @@ import { TestsComponent } from './components/loggedin-wrapper/content/tests/test
 import { SettingsComponent } from './components/loggedin-wrapper/content/settings/settings.component';
 
 import { AuthenticateService } from './services/authenticate.service';
+import { AuthGuard } from './services/auth.guard';
+
+/* Possible roles
+* 
+*   logged-out
+*   user
+*   admin
+*
+*/
+
 const appRoutes: Routes = [
   {
     path: '',
+    canActivate: [AuthGuard],
+    data: {roles: ['logged-out']},
     component: WelcomeComponent,
     children: [
       {
@@ -40,6 +52,8 @@ const appRoutes: Routes = [
   },
   {
     path: 'register',
+    canActivate: [AuthGuard],
+    data: {roles: ['logged-out']},
     component: WelcomeComponent,
     children: [
       {
@@ -51,7 +65,8 @@ const appRoutes: Routes = [
   },
   {
       path: 'home',
-      canActivate:[true],
+      canActivate: [AuthGuard],
+      data: {roles: ['user', 'admin']},
       component: LoggedinWrapperComponent,
       children: [
           {
@@ -63,6 +78,8 @@ const appRoutes: Routes = [
   },
   {
       path: 'tests',
+      canActivate: [AuthGuard],
+      data: {roles: ['user', 'admin']},
       component: LoggedinWrapperComponent,
       children: [
           {
@@ -74,6 +91,8 @@ const appRoutes: Routes = [
   },
   {
       path: 'settings',
+      canActivate: [AuthGuard],
+      data: {roles: ['user', 'admin']},
       component: LoggedinWrapperComponent,
       children: [
           {
@@ -112,7 +131,7 @@ const appRoutes: Routes = [
     ReactiveFormsModule
   ],
 
-  providers: [FeedbackService, AuthenticateService],
+  providers: [FeedbackService, AuthenticateService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

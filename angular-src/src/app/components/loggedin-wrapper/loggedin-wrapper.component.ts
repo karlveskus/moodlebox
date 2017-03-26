@@ -13,9 +13,6 @@ export class LoggedinWrapperComponent implements OnInit {
   constructor(private authenticateService : AuthenticateService, private router : Router) { }
 
   ngOnInit() {
-    // if (!this.authenticateService.isLoggedIn()) {
-    //   this.router.navigate(['/']);
-    // }
   }
 
 }
