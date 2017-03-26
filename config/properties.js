@@ -9,5 +9,10 @@ module.exports = {
     },
     jwt: {
         secret: secrets.jwt_secret
+    },
+    googleAuth: {
+        'clientId': secrets.google.clientId,
+        'clientSecret': secrets.google.clientSecret,
+        'callbackURL': env.url + "/api/users/googleCallback"
     }
 }

@@ -25,19 +25,19 @@
           <button class="btn btn-primary btn-block" type="submit">Registreeru</button>
       </div>
 
+  </form>
       <div class="form-group">
-          <button class="btn btn-facebook btn-block">
+          <button (click)="onFacebookRegister()" class="btn btn-facebook btn-block">
               <i class="box fa fa-facebook" aria-hidden="true"></i>
               <p>Registreeru Facebookiga</p>
           </button>
       </div>
       
       <div class="form-group">
-          <button class="btn btn-google btn-block">
+          <button (click)="onGoogleRegister()" class="btn btn-google btn-block">
               <i class="box fa fa-google" aria-hidden="true"></i>
               <p>Registreeru Googlega</p>
           </button>
       </div>
-  </form>
   <p class="pole-veel-kasutajat">Kasutaja olemas? <a routerLink="/" class="green">Logi sisse!</a></p>
 </div>
