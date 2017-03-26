@@ -14,6 +14,7 @@ h2 {
 .content {
     width: calc(100% - 200px);
     margin-left: 200px;
+    margin-top: -30px;
 }
 
 // Mobile view
@@ -33,7 +34,7 @@ h2 {
     .content {
         padding-left: 15px;
         padding-right: 15px;
-
+        margin-top: 20px;
         h2 {
             border: 0;
         }

@@ -42,4 +42,8 @@ export class SidebarComponent implements OnInit {
         this.authenticateService.logout();
     }
 
+    isAdmin() {
+        return this.authenticateService.isAdmin();
+    }
+
 }

@@ -9,6 +9,7 @@
         <h4 class="hidden-xs">SISUKORD</h4>
         <ul class="nav">
             <li><a [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}" [routerLink]="['/home']">Ülevaade</a></li>
+            <li *ngIf="isAdmin()"><a [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}" [routerLink]="['/admin']">Admin panel</a></li>
             <li><a [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}" [routerLink]="['/tests']">Üles laetud testid</a></li>
             <li><a [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}" [routerLink]="['/settings']">Konto seaded</a></li>
             <li><a [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}" [routerLink]="['/']" (click)="onLogoutClick()">Logi välja</a></li>

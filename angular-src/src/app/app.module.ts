@@ -27,6 +27,7 @@ import { SettingsComponent } from './components/loggedin-wrapper/content/setting
 
 import { AuthenticateService } from './services/authenticate.service';
 import { AuthGuard } from './services/auth.guard';
+import { AdminComponent } from './components/loggedin-wrapper/content/admin/admin.component';
 
 /* Possible roles
 * 
@@ -77,6 +78,19 @@ const appRoutes: Routes = [
       ]
   },
   {
+      path: 'admin',
+      canActivate: [AuthGuard],
+      data: {roles: ['admin']},
+      component: LoggedinWrapperComponent,
+      children: [
+          {
+              path: '',
+              component: AdminComponent,
+              outlet: 'admin'
+          }
+      ]
+  },
+  {
       path: 'tests',
       canActivate: [AuthGuard],
       data: {roles: ['user', 'admin']},
@@ -119,7 +133,8 @@ const appRoutes: Routes = [
     SidebarComponent,
     HomeComponent,
     TestsComponent,
-    SettingsComponent
+    SettingsComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
