@@ -1,6 +1,6 @@
 # MoodleBox 
 
-###[www.moodlebox.us](https://www.moodlebox.us)
+### [www.moodlebox.us](https://www.moodlebox.us)
 
 Tegemist on Tartu Ülikooli kursuse "Veebirakenduste loomine" raames tehtud projektiga, mille eesmärgiks on Moodle testide haldussüsteemi loomine.
 
