@@ -1,67 +1,77 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
-import { FeedbackService } from '../../services/feedback.service';
-import { AuthenticateService } from '../../services/authenticate.service';
-import { Router } from '@angular/router';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FeedbackService } from '../../services/feedback.service';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-welcome',
-  templateUrl: './welcome.component.html',
-  styleUrls: ['./welcome.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  selector: 'app-welcome',
+  templateUrl: './welcome.component.html',
+  styleUrls: ['./welcome.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 
-export class WelcomeComponent implements OnInit {
-    form: FormGroup;
-    feedbackSuccess: Boolean;
-    errorMessage: String;
+export class WelcomeComponent implements OnInit {
+  feedbackForm: FormGroup;
+  name: FormControl;
+  email: FormControl;
+  message: FormControl;
 
-    name = new FormControl();
-    email = new FormControl();
-    message = new FormControl();
+  feedbackSuccess: Boolean;
+  problems: Object;
 
-    constructor(
-        private fb: FormBuilder,
-        private feedbackService: FeedbackService,
-        private router: Router,
-        private authenticateService: AuthenticateService
-    ) {
-        this.form = fb.group({
-            "name": this.name,
-            "email": this.email,
-            "message": this.message
-        });
+  constructor(
+    private feedbackService: FeedbackService,
+    private router: Router,
+  ) {
+    this.name = new FormControl('', Validators.required);
+    this.email = new FormControl('',[Validators.required, Validators.pattern(/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])+/)]);
+    this.message = new FormControl('', Validators.required);        
+  }
+
+  ngOnInit() {
+    this.feedbackForm = new FormGroup({
+      name: this.name,
+      email: this.email,
+      message: this.message
+    });
+    this.updateProblems();
+    this.feedbackForm.valueChanges.subscribe(data => {
+      this.updateProblems();
+    })
+  }
+
+  updateProblems() {
+    let nameProblem = 'Väli on kohustuslik';
+    let emailProblem = this.email.hasError('required') ? 'Väli on kohustuslik' : 'Ei ole emaili aadress';
+    let messageProblem = 'Väli on kohustuslik';
+
+    this.problems = {
+      name: nameProblem,
+      email: emailProblem,
+      message: messageProblem
+    };
+  }
+
+  onFeedbackSubmit() {
+    this.updateProblems(); 
+    for (let property in this.feedbackForm.controls) {
+      this.feedbackForm.controls[property].markAsDirty();
+      this.feedbackForm.controls[property].markAsTouched();
     }
 
-    ngOnInit() {
-    }
+    if (this.feedbackForm.valid) {
+      const feedback = {
+        name: this.name.value,
+        email: this.email.value,
+        message: this.message.value
+      }
 
-    onSubmitModelBased() {
-        const feedback = {
-            name: this.name.value,
-            email: this.email.value,
-            message: this.message.value
-        }
-
-        if(!this.feedbackService.validateFeedback(feedback)) {
-            this.feedbackSuccess = false;
-            this.errorMessage = "Palun täida ära kõik lahtrid!";
-            return false;
-        }
-
-        if(!this.feedbackService.validateEmail(feedback.email)) {
-            this.feedbackSuccess = false;
-            this.errorMessage = "Lisa korrektne email!";
-            return false;
-        }
-
-        this.feedbackService.newFeedback(feedback).subscribe(data => {
-          if(data.success){
-            this.feedbackSuccess = true;
-            this.form.reset();
-          } else {
-            console.log("Feedback saving failed.");
-          }
-        });
-    }
+      this.feedbackService.newFeedback(feedback).subscribe(data => {
+        if(data._id){
+          this.feedbackSuccess = true;
+          this.feedbackForm.reset();
+        } 
+      });
+    } 
+  }
 }

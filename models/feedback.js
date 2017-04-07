@@ -1,24 +1,22 @@
-const mongoose = require('mongoose');
-const config = require('../config');
+const mongoose = require('mongoose');
+const config = require('../config');
 
-// User Schema
-const FeedbackSchema = mongoose.Schema({
-  name: {
-    type: String,
-    required: true
-  },
-  email: {
-    type: String,
-    required: true
-  },
-  message: {
-    type: String,
-    required: true
-  }
+// User Schema
+const FeedbackSchema = mongoose.Schema({
+  name: {
+    type: String,
+    required: [true, 'Name field is required']
+  },
+  email: {
+    type: String,
+    required: [true, 'Email field is required']
+  },
+  message: {
+    type: String,
+    required: [true, 'Message field is required']
+  }
 });
 
-const Feedback = module.exports = mongoose.model('Feedback', FeedbackSchema);
+const Feedback = mongoose.model('Feedback', FeedbackSchema);
 
-module.exports.addFeedback = function(newFeedback, callback){
-    newFeedback.save(callback);
-}
+module.exports = Feedback;

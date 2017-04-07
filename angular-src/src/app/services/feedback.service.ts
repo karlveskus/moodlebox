@@ -6,22 +6,8 @@ import { environment } from '../../environments/environment';
 
 @Injectable()
 export class FeedbackService {
-    feedback: any
-
+    
     constructor(private http:Http) { }
-
-    validateFeedback(feedback){
-        if (feedback.name == undefined || feedback.email == undefined || feedback.message == undefined) {
-            return false;
-        } else {
-            return true;
-        }
-    }
-
-    validateEmail(email){
-        const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        return re.test(email);
-    }
 
     newFeedback(feedback){
         let headers = new Headers();

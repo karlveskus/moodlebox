@@ -1,22 +1,27 @@
-const express = require('express');
-const router = express.Router();
-const Feedback = require('../models/feedback');
+const express = require('express');
+const router = express.Router();
+const Feedback = require('../models/feedback');
+const api = require('./api.js');
 
-router.post('/', function(req, res, next) {
+function mustBeUser(req, res, next) {
+  return api.mustBeUser(req, res, next);
+}
 
-    let newFeedback = new Feedback({
-        name: req.body.name,
-        email: req.body.email,
-        message: req.body.message
-    });
+function mustBeAdmin(req, res, next) {
+  return api.mustBeAdmin(req, res, next);
+}
 
-    Feedback.addFeedback(newFeedback, (err, feedback) => {
-        if(err){
-            res.json({ success: false, msg: "Failed to add feedback"});
-        } else {
-            res.json({ success: true, msg: "Feedback added"});
-        }
-    });
+
+router.post('/', function(req, res, next) {
+    Feedback.create(req.body).then(function(feedback){
+        res.send(feedback);
+    }).catch(next);
 });
 
-module.exports = router;
+router.delete('/:id', mustBeAdmin, function(req, res, next){
+    Feedback.findByIdAndRemove({_id: req.params.id}).then(function(feedback){
+        res.send(feedback);
+    }).catch(next);
+});
+
+module.exports = router;

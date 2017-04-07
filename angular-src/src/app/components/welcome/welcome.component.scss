@@ -12,10 +12,6 @@
     }
 }
 
-.test {
-    background: red;
-}
-
 .welcome {
     h1 {
         color:white;
@@ -189,21 +185,15 @@
     textarea {
         resize: none;
         height: 200px;
-        padding: 15px;
-    }
-
-    input {
-        padding: 20px 0 15px 15px;
+        padding: 10px;
     }
 
     textarea, input {
-
         &::placeholder {
             color: $gray;
         }
 
         &:focus {
-            border-color: $green;
             box-shadow: none;
         }
     }
@@ -212,5 +202,49 @@
         background: $secondary-dark;
         color: $light-gray;
         border: 0;
+    }
+
+    .ion-alert-circled {
+        display: block;
+        float: right;
+        margin-top: -28px;
+        margin-right: 10px;
+        font-size: 18px;
+        color: #F65555;
+        position: relative;
+        z-index: 2;
+
+        &:hover {
+            color: white;
+        }
+    }
+
+    .error {
+        color: #F65555;
+        display: block;
+        float: right;
+        margin-top: -34px;
+        height: 34px;
+        overflow: hidden;
+        position: relative;
+        z-index: 1;
+        padding-right: 33px;
+        padding-top: 8px;
+        padding-left: 6px;
+        opacity: 0;
+        transition: opacity 0.2s ease-in-out;
+    }
+
+    input.ng-dirty.ng-invalid.ng-touched {
+        border-left: 3px solid #F65555;
+    }
+
+    textarea.ng-dirty.ng-invalid.ng-touched {
+        border-left: 3px solid #F65555;
+    }
+
+    .ion-alert-circled:hover + .error{
+        opacity: 1;
+        transition: opacity 0.2s ease-in-out;
     }
 }

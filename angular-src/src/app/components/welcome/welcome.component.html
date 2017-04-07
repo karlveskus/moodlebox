@@ -73,23 +73,32 @@
     <div class="row">
         <div class="col-sm-offset-1 col-sm-10">
             <h2><span class="green">Küsimus?</span> Võta meiega ühendust</h2>
-            <form [formGroup]="form" (ngSubmit)="onSubmitModelBased()" autocomplete="off">
+            <form [formGroup]="feedbackForm" (ngSubmit)="onFeedbackSubmit()" novalidate>
                 <div class="row">
                     <div class="col-xs-12 col-sm-6">
                         <div class="form-group">
-                            <input formControlName="name" class="form-control" placeholder="Nimi">
+                            <input type="text" formControlName="name" class="form-control" placeholder="Nimi">
+                            <div *ngIf="feedbackForm.controls['name'].dirty && !feedbackForm.controls['name'].valid && !feedbackForm.controls['name'].untouched">
+                                <i class="ion-alert-circled"></i><div class="error">{{problems.name}}</div>
+                            </div>
                         </div>
                     </div>
 
                     <div class="col-xs-12 col-sm-6">
                         <div class="form-group">
-                            <input formControlName="email" class="form-control" placeholder="Email">
+                            <input type="email" formControlName="email" class="form-control" placeholder="Email">
+                            <div *ngIf="feedbackForm.controls['email'].dirty && !feedbackForm.controls['email'].valid && !feedbackForm.controls['email'].untouched">
+                                <i class="ion-alert-circled"></i><div class="error">{{problems.email}}</div>
+                            </div>
                         </div>
                     </div>
 
                     <div class="col-xs-12 col-sm-12">
                         <div class="form-group">
                             <textarea formControlName="message" class="form-control" placeholder="Sõnum"></textarea>
+                            <div *ngIf="feedbackForm.controls['message'].dirty && !feedbackForm.controls['message'].valid && !feedbackForm.controls['message'].untouched">
+                                <i class="ion-alert-circled"></i><div class="error">{{problems.message}}</div>
+                            </div>
                         </div>
                     </div>
 
@@ -101,9 +110,6 @@
                         </div>
                     </div>
 
-                    <div class="col-xs-12 col-sm-9 col-sm-pull-3 red" *ngIf="feedbackSuccess == false">
-                        {{errorMessage}}
-                    </div>
                     <div class="col-xs-12 col-sm-9 col-sm-pull-3 green" *ngIf="feedbackSuccess == true">
                         Täname tagasiside eest!
                     </div>
