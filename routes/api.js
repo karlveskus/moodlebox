@@ -4,34 +4,37 @@ const path = require('path');
 const jwt = require('jsonwebtoken');
 const properties = require('../config/properties');
 
-
+const user = require('./user');
 const users = require('./users');
 const feedback = require('./feedback');
+const feedbacks = require('./feedbacks');
 
+router.use('/user', user);
 router.use('/users', users);
 router.use('/feedback', feedback);
+router.use('/feedbacks', feedbacks);
 
 function authenticateMiddleware(mustBeAdmin) {
-    return function (req, res, next) {
-        let accessGranted = false;
-        let token = req.body.token || req.query.token || req.headers['x-access-token'];
-        if (token) {
-            jwt.verify(token, properties.jwt.secret, function(err, decoded) {
-                if (err) {
-                    res.sendFile(path.resolve('public/index.html'));
-                }
-                else {
-                    if (mustBeAdmin && decoded.role == 'admin') {
-                        next();
-                    } else {
-                        res.sendFile(path.resolve('public/index.html'));
-                    }
-                }
-            });  
-        } else {
-            res.sendFile(path.resolve('public/index.html'));
+  return function (req, res, next) {
+    let accessGranted = false;
+    let token = req.body.token || req.query.token || req.headers['x-access-token'];
+    if (token) {
+      jwt.verify(token, properties.jwt.secret, function(err, decoded) {
+        if (err) {
+          res.sendFile(path.resolve('public/index.html'));
         }
+        else {
+          if (mustBeAdmin && decoded.role == 'admin') {
+            next();
+          } else {
+            res.sendFile(path.resolve('public/index.html'));
+          }
+        }
+      });  
+    } else {
+      res.sendFile(path.resolve('public/index.html'));
     }
+  }
 }
 
 
