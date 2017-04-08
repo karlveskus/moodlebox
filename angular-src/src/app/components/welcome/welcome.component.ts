@@ -46,9 +46,9 @@ export class WelcomeComponent implements OnInit {
   }
 
   updateProblems() {
-    let nameProblem = 'Väli on kohustuslik';
-    let emailProblem = this.email.hasError('required') ? 'Väli on kohustuslik' : 'Ei ole emaili aadress';
-    let messageProblem = 'Väli on kohustuslik';
+    let nameProblem = 'WELCOME.REQUIRED_FIELD';
+    let emailProblem = this.email.hasError('required') ? 'WELCOME.REQUIRED_FIELD' : 'WELCOME.INVALID_EMAIL';
+    let messageProblem = 'WELCOME.REQUIRED_FIELD';
 
     this.problems = {
       name: nameProblem,

@@ -16,6 +16,8 @@ export const LANG_ET_TRANS = {
     'WELCOME.EMAIL':                'Email',
     'WELCOME.MESSAGE':              'Sõnum',
     'WELCOME.SUCCESSFUL_FEEDBACK':  'Täname tagasiside eest!',
+    'WELCOME.REQUIRED_FIELD':       'Väli on kohustuslik',
+    'WELCOME.INVALID_EMAIL':        'Ei ole emaili aadress',
 
     'LOGIN.LOGIN':                  'Logi sisse',
     'LOGIN.EMAIL':                  'Email',
@@ -33,6 +35,10 @@ export const LANG_ET_TRANS = {
     'REGISTER.REGISTER_GOOGLE':     'Registreeru Googlega',
     'REGISTER.ALREADY_USER':        'Kasutaja olemas?',
     'REGISTER.LOGIN':               'Logi sisse!',
+    'REGISTER.REQUIRED_FIELD':      'Väli on kohustuslik',
+    'REGISTER.INVALID_EMAIL':       'Ei ole emaili aadress',
+    'REGISTER.BASIC_PASSWORD':      'Liiga lihtne parool',
+    'REGISTER.PASSWORD_DONT_MATCH': 'Paroolid ei kattu',
 
     'SIDEBAR.CONTENT':              'SISUKORD',
     'SIDEBAR.OVERVIEW':             'Ülevaade',

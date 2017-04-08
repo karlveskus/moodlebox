@@ -7,7 +7,7 @@ export const LANG_EN_TRANS = {
     'WELCOME.ON_REGISTER':          'Review the',
     'WELCOME.TERMS':                'Terms of Service',
     'WELCOME.ACTIVE_USER':          'ACTIVE USERS',
-    'WELCOME.DIFFERENT_SUBJECTS':   'DIFFERENT SUBJECTS',
+    'WELCOME.DIFFERENT_SUBJECTS':   'SUBJECTS',
     'WELCOME.MOODLE_TESTS':         'MOODLE TESTS',
     'WELCOME.QUESTION':             'Have a question?',
     'WELCOME.CONTACT_US':           'Contact us',
@@ -16,13 +16,15 @@ export const LANG_EN_TRANS = {
     'WELCOME.EMAIL':                'Email',
     'WELCOME.MESSAGE':              'Message',
     'WELCOME.SUCCESSFUL_FEEDBACK':  'Thank you for the feedback!',
+    'WELCOME.REQUIRED_FIELD':       'Required field',
+    'WELCOME.INVALID_EMAIL':        'Not valid email',
 
     'LOGIN.LOGIN':                  'Log in',
     'LOGIN.EMAIL':                  'Email',
     'LOGIN.PASSWORD':               'Password',
     'LOGIN.LOGIN_FACEBOOK':         'Log in with Facebook',
     'LOGIN.LOGIN_GOOGLE':           'Log in with Google',
-    'LOGIN.NOT_USER':               'Not a user?',
+    'LOGIN.NOT_USER':               'No account?',
     'LOGIN.REGISTER':               'Register here!',
 
     'REGISTER.REGISTER':            'Register',
@@ -33,6 +35,10 @@ export const LANG_EN_TRANS = {
     'REGISTER.REGISTER_GOOGLE':     'Register with Google',
     'REGISTER.ALREADY_USER':        'Already registered?',
     'REGISTER.LOGIN':               'Log in here!',
+    'REGISTER.REQUIRED_FIELD':      'Required field',
+    'REGISTER.INVALID_EMAIL':       'Not valid email',
+    'REGISTER.BASIC_PASSWORD':      'Too simple password',
+    'REGISTER.PASSWORD_DONT_MATCH': 'Passwords have to match',
 
     'SIDEBAR.CONTENT':              'CONTENT',
     'SIDEBAR.OVERVIEW':             'Overview',
@@ -49,7 +55,6 @@ export const LANG_EN_TRANS = {
     'TESTS.HEADING':                'Uploaded tests',
 
     'SETTINGS.HEADING':             'User settings',
-
 
 
     'NOT-FOUND.PAGE_NOT_FOUND':     'Page not found!',

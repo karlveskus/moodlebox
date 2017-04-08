@@ -79,7 +79,7 @@
                         <div class="form-group">
                             <input type="text" formControlName="name" class="form-control" placeholder="{{ 'WELCOME.NAME' | translate }}">
                             <div *ngIf="feedbackForm.controls['name'].dirty && !feedbackForm.controls['name'].valid && !feedbackForm.controls['name'].untouched">
-                                <i class="ion-alert-circled"></i><div class="error">{{problems.name}}</div>
+                                <i class="ion-alert-circled"></i><div class="error">{{ problems.name | translate}}</div>
                             </div>
                         </div>
                     </div>
@@ -88,7 +88,7 @@
                         <div class="form-group">
                             <input type="email" formControlName="email" class="form-control" placeholder="{{ 'WELCOME.EMAIL' | translate }}">
                             <div *ngIf="feedbackForm.controls['email'].dirty && !feedbackForm.controls['email'].valid && !feedbackForm.controls['email'].untouched">
-                                <i class="ion-alert-circled"></i><div class="error">{{problems.email}}</div>
+                                <i class="ion-alert-circled"></i><div class="error">{{ problems.email | translate }}</div>
                             </div>
                         </div>
                     </div>
@@ -97,7 +97,7 @@
                         <div class="form-group">
                             <textarea formControlName="message" class="form-control" placeholder="{{ 'WELCOME.MESSAGE' | translate }}"></textarea>
                             <div *ngIf="feedbackForm.controls['message'].dirty && !feedbackForm.controls['message'].valid && !feedbackForm.controls['message'].untouched">
-                                <i class="ion-alert-circled"></i><div class="error">{{problems.message}}</div>
+                                <i class="ion-alert-circled"></i><div class="error">{{ problems.message | translate }}</div>
                             </div>
                         </div>
                     </div>

@@ -56,9 +56,9 @@ export class RegisterComponent implements OnInit{
   }
 
   updateProblems() {
-    let emailProblem = this.email.hasError('required') ? 'Väli on kohustuslik' : 'Ei ole emaili aadress';
-    let passwordProblem = this.password.hasError('required') ? 'Väli on kohustuslik' : 'Liiga lihtne parool';
-    let passwordAgainProblem = this.passwordAgain.hasError('required') ? 'Väli on kohustuslik' : 'Paroolid ei kattu';
+    let emailProblem = this.email.hasError('required') ? 'REGISTER.REQUIRED_FIELD' : 'REGISTER.INVALID_EMAIL';
+    let passwordProblem = this.password.hasError('required') ? 'REGISTER.REQUIRED_FIELD' : 'REGISTER.BASIC_PASSWORD';
+    let passwordAgainProblem = this.passwordAgain.hasError('required') ? 'REGISTER.REQUIRED_FIELD' : 'REGISTER.PASSWORD_DONT_MATCH';
 
     this.problems = {
       email: emailProblem,
