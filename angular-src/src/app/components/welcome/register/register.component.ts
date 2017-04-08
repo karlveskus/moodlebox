@@ -15,14 +15,14 @@ export class RegisterComponent implements OnInit{
   email: FormControl;
   password: FormControl;
   passwordAgain: FormControl;
-  
 
-  constructor(private authenticateService: AuthenticateService,
-              private router: Router) {
+  constructor(
+    private authenticateService: AuthenticateService,
+    private router: Router
+  ) {
     this.email = new FormControl('',[Validators.required, Validators.pattern(/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])+/)]);
     this.password = new FormControl('',[Validators.required, Validators.minLength(5)]);
     this.passwordAgain = new FormControl('',[Validators.required]);
-    
   }
 
   ngOnInit() {
@@ -89,7 +89,4 @@ export class RegisterComponent implements OnInit{
   onGoogleRegister() {
     console.log("GOOGLE");
   }
-
-
-
 }

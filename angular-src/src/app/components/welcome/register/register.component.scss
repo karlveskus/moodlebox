@@ -10,6 +10,7 @@
     position: relative;
     z-index: 2;
 }
+
 .ion-alert-circled:hover {
     color: white;
 }
@@ -38,6 +39,4 @@ input.ng-dirty.ng-invalid.ng-touched {
     padding-left: 6px;
     opacity: 0;
     transition: opacity 0.2s ease-in-out;
-    
-    
 }

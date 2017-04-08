@@ -26,6 +26,8 @@ export const LANG_EN_TRANS = {
     'LOGIN.LOGIN_GOOGLE':           'Log in with Google',
     'LOGIN.NOT_USER':               'No account?',
     'LOGIN.REGISTER':               'Register here!',
+    'LOGIN.REQUIRED_FIELD':         'Required field',
+    'LOGIN.INVALID_LOGIN':          'Invalid email or password',
 
     'REGISTER.REGISTER':            'Register',
     'REGISTER.EMAIL':               'Email',

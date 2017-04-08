@@ -71,7 +71,7 @@ function sendErrorResponse(res) {
 }
 
 function sendNotFoundResponse(res) {
-  res.status(402).json({success: false, msg:'No user found with given email and password'});
+  res.status(401).json({success: false, msg:'No user found with given email and password'});
 }
 
 function sendUserAlreadyExists(res) {

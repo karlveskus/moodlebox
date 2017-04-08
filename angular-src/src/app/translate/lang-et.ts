@@ -26,6 +26,8 @@ export const LANG_ET_TRANS = {
     'LOGIN.LOGIN_GOOGLE':           'Logi sisse Googlega',
     'LOGIN.NOT_USER':               'Pole kasutaja?',
     'LOGIN.REGISTER':               'Registreeru!',
+    'LOGIN.REQUIRED_FIELD':         'Väli on kohustuslik',
+    'LOGIN.INVALID_LOGIN':          'Vale kasutajanimie või parool',
 
     'REGISTER.REGISTER':            'Registreeru',
     'REGISTER.EMAIL':               'Email',
