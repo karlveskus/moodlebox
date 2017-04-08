@@ -33,6 +33,9 @@ app.use('/api', api.router);
 
 // ROUTES
 // =======================================
+app.get('/google', (req,res) => {
+  res.sendFile(__dirname + "/google.html");
+});
 app.get('/', (req,res) => {
   res.sendFile(__dirname + "/index.html");
 });
