@@ -80,17 +80,18 @@ export class RegisterComponent implements OnInit{
       password: this.password.value
     }
 
-    this.authenticateService.registerUser(user)
-    .subscribe(data => {
-      if (data.success) {
-        this.router.navigateByUrl('/');
-      }
-    }, (err) => {
-      if(err.status == 400) {
-        this.registrationForm.controls['email'].setErrors({'EMAIL_ALREADY_EXISTS': true});
-        this.updateProblems();
-      }
-    })  
+    this.authenticateService.registerUser(user).subscribe(
+      data => {
+        if (data.success) {
+          this.router.navigateByUrl('/');
+        }
+      }, 
+      err => {
+        if(err.status == 400) {
+          this.registrationForm.controls['email'].setErrors({'EMAIL_ALREADY_EXISTS': true});
+          this.updateProblems();
+        }
+      });
   }
 
   onFacebookRegister() {

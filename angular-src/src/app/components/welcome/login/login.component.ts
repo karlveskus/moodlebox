@@ -51,23 +51,30 @@ export class LoginComponent implements OnInit {
     }
 
     if (this.loginForm.valid) {
-      const user = {
-        email: this.email.value,
-        password: this.password.value
-      }
+      this.authenticateUser();
+    }
+  }
 
-      this.authenticateService.authenticateUser(user)
-      .subscribe(data => {
+  authenticateUser() {
+    const user = {
+      email: this.email.value,
+      password: this.password.value
+    }
+
+    this.authenticateService.authenticateUser(user).subscribe(
+      data => {
         if (data.success) {
           this.authenticateService.storeUserData(data.token);
           this.router.navigate(['/home']);
         }
-      }, (err) => {
-        for (let property in this.loginForm.controls) {
-          this.loginForm.controls[property].setErrors({"INVALID_LOGIN": true});
+      }, 
+      err => {
+        if (err.status == 401) {
+          for (let property in this.loginForm.controls) {
+            this.loginForm.controls[property].setErrors({"INVALID_LOGIN": true});
+          }
+          this.updateProblems();
         }
-        this.updateProblems();
-      })   
-    }
+      });
   }
 }
