@@ -6,13 +6,13 @@
         </button>
     </div>
     <div [ngClass]="(isCollapsed==false)?'lahti':'kinni'">
-        <h4 class="hidden-xs">SISUKORD</h4>
+        <h4 class="hidden-xs">{{ 'SIDEBAR.CONTENT' | translate}}</h4>
         <ul class="nav">
-            <li><a [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}" [routerLink]="['/home']">Ülevaade</a></li>
-            <li *ngIf="isAdmin()"><a [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}" [routerLink]="['/admin']">Admin panel</a></li>
-            <li><a [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}" [routerLink]="['/tests']">Üles laetud testid</a></li>
-            <li><a [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}" [routerLink]="['/settings']">Konto seaded</a></li>
-            <li><a [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}" [routerLink]="['/']" (click)="onLogoutClick()">Logi välja</a></li>
+            <li><a [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}" [routerLink]="['/home']">{{ 'SIDEBAR.OVERVIEW' | translate}}</a></li>
+            <li *ngIf="isAdmin()"><a [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}" [routerLink]="['/admin']">{{ 'SIDEBAR.ADMIN_PANEL' | translate}}</a></li>
+            <li><a [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}" [routerLink]="['/tests']">{{ 'SIDEBAR.UPLOADED_TESTS' | translate}}</a></li>
+            <li><a [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}" [routerLink]="['/settings']">{{ 'SIDEBAR.USER_SETTINGS' | translate}}</a></li>
+            <li><a [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}" [routerLink]="['/']" (click)="onLogoutClick()">{{ 'SIDEBAR.LOGOUT' | translate}}</a></li>
         </ul>
     </div>
 </div>

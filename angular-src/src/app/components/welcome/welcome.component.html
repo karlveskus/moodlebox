@@ -37,7 +37,7 @@
                 </div>
                 <div class="info">
                     <h1>399</h1>
-                    <p>AKTIIVSET KASUTAJAT</p>
+                    <p>{{ 'WELCOME.ACTIVE_USER' | translate }}</p>
                 </div>
             </div>
         </div>
@@ -49,7 +49,7 @@
                 </div>
                 <div class="info">
                     <h1>26</h1>
-                    <p>ERINEVAT AINET</p>
+                    <p>{{ 'WELCOME.DIFFERENT_SUBJECTS' | translate }}</p>
                 </div>
             </div>
         </div>
@@ -61,7 +61,7 @@
                 </div>
                 <div class="info">
                     <h1>287</h1>
-                    <p>MOODLE TESTI</p>
+                    <p>{{ 'WELCOME.MOODLE_TESTS' | translate }}</p>
                 </div>
             </div>
         </div>
@@ -72,12 +72,12 @@
 <div class="container contact">
     <div class="row">
         <div class="col-sm-offset-1 col-sm-10">
-            <h2><span class="green">Küsimus?</span> Võta meiega ühendust</h2>
+            <h2><span class="green">{{ 'WELCOME.QUESTION' | translate }}</span> {{ 'WELCOME.CONTACT_US' | translate }}</h2>
             <form [formGroup]="feedbackForm" (ngSubmit)="onFeedbackSubmit()" novalidate>
                 <div class="row">
                     <div class="col-xs-12 col-sm-6">
                         <div class="form-group">
-                            <input type="text" formControlName="name" class="form-control" placeholder="Nimi">
+                            <input type="text" formControlName="name" class="form-control" placeholder="{{ 'WELCOME.NAME' | translate }}">
                             <div *ngIf="feedbackForm.controls['name'].dirty && !feedbackForm.controls['name'].valid && !feedbackForm.controls['name'].untouched">
                                 <i class="ion-alert-circled"></i><div class="error">{{problems.name}}</div>
                             </div>
@@ -86,7 +86,7 @@
 
                     <div class="col-xs-12 col-sm-6">
                         <div class="form-group">
-                            <input type="email" formControlName="email" class="form-control" placeholder="Email">
+                            <input type="email" formControlName="email" class="form-control" placeholder="{{ 'WELCOME.EMAIL' | translate }}">
                             <div *ngIf="feedbackForm.controls['email'].dirty && !feedbackForm.controls['email'].valid && !feedbackForm.controls['email'].untouched">
                                 <i class="ion-alert-circled"></i><div class="error">{{problems.email}}</div>
                             </div>
@@ -95,7 +95,7 @@
 
                     <div class="col-xs-12 col-sm-12">
                         <div class="form-group">
-                            <textarea formControlName="message" class="form-control" placeholder="Sõnum"></textarea>
+                            <textarea formControlName="message" class="form-control" placeholder="{{ 'WELCOME.MESSAGE' | translate }}"></textarea>
                             <div *ngIf="feedbackForm.controls['message'].dirty && !feedbackForm.controls['message'].valid && !feedbackForm.controls['message'].untouched">
                                 <i class="ion-alert-circled"></i><div class="error">{{problems.message}}</div>
                             </div>
@@ -105,13 +105,13 @@
                     <div class="col-xs-12 col-sm-3 col-sm-push-9">
                         <div class="form-group">
                             <button class="btn btn-primary btn-block" type="submit">
-                                Saada
+                                {{ 'WELCOME.SEND' | translate }}
                             </button>
                         </div>
                     </div>
 
                     <div class="col-xs-12 col-sm-9 col-sm-pull-3 green" *ngIf="feedbackSuccess == true">
-                        Täname tagasiside eest!
+                        {{ 'WELCOME.SUCCESSFUL_FEEDBACK' | translate }}
                     </div>
                 </div>
             </form>
