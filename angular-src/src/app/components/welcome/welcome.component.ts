@@ -19,10 +19,15 @@ export class WelcomeComponent implements OnInit {
   feedbackSuccess: Boolean;
   problems: Object;
 
+  translatedText: string;
+  supportedLanguages: any[];
+
   constructor(
     private feedbackService: FeedbackService,
     private router: Router,
   ) {
+    
+
     this.name = new FormControl('', Validators.required);
     this.email = new FormControl('',[Validators.required, Validators.pattern(/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])+/)]);
     this.message = new FormControl('', Validators.required);        

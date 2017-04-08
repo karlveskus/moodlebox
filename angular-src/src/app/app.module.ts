@@ -1,8 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/reusable/navbar/navbar.component';
@@ -10,25 +10,28 @@ import { NavbarComponent } from './components/reusable/navbar/navbar.component';
 import { AlertModule } from 'ng2-bootstrap';
 import { CollapseModule } from 'ng2-bootstrap/collapse';
 
+import { TRANSLATION_PROVIDERS } from './translate/translation';
+import { TranslatePipe } from './translate/translate.pipe';
+import { TranslateService } from './translate/translate.service';
+
 import { WelcomeComponent } from './components/welcome/welcome.component';
-import { RouterModule, Routes } from '@angular/router';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { RulerComponent } from './components/reusable/ruler/ruler.component';
 import { LoginComponent } from './components/welcome/login/login.component';
 import { RegisterComponent } from './components/welcome/register/register.component';
 
-import { FeedbackService } from './services/feedback.service';
 import { FooterComponent } from './components/reusable/footer/footer.component';
 import { LoggedinWrapperComponent } from './components/loggedin-wrapper/loggedin-wrapper.component';
 import { SidebarComponent } from './components/loggedin-wrapper/sidebar/sidebar.component';
 import { HomeComponent } from './components/loggedin-wrapper/content/home/home.component';
 import { TestsComponent } from './components/loggedin-wrapper/content/tests/tests.component';
 import { SettingsComponent } from './components/loggedin-wrapper/content/settings/settings.component';
+import { AdminComponent } from './components/loggedin-wrapper/content/admin/admin.component';
 
+import { FeedbackService } from './services/feedback.service';
 import { AuthenticateService } from './services/authenticate.service';
 import { UserService } from './services/user.service';
 import { AuthGuard } from './services/auth.guard';
-import { AdminComponent } from './components/loggedin-wrapper/content/admin/admin.component';
 
 /* Possible roles
 * 
@@ -135,7 +138,8 @@ const appRoutes: Routes = [
     HomeComponent,
     TestsComponent,
     SettingsComponent,
-    AdminComponent
+    AdminComponent,
+    TranslatePipe
   ],
   imports: [
     BrowserModule,
@@ -147,7 +151,7 @@ const appRoutes: Routes = [
     ReactiveFormsModule
   ],
 
-  providers: [FeedbackService, AuthenticateService, AuthGuard, UserService],
+  providers: [FeedbackService, AuthenticateService, AuthGuard, UserService, TRANSLATION_PROVIDERS, TranslateService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
