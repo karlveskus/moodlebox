@@ -15,8 +15,8 @@ export class NavbarComponent implements OnInit {
     private _translate: TranslateService
   ) { 
     this.supportedLanguages = [
-      { display: 'English', value: 'en' },
-      { display: 'Eesti', value: 'et' },
+      { display: 'EST', value: 'et' },
+      { display: 'ENG', value: 'en' },
     ];
     
     if(localStorage.getItem('language')) {

@@ -10,9 +10,7 @@ import { NavbarComponent } from './components/reusable/navbar/navbar.component';
 import { AlertModule } from 'ng2-bootstrap';
 import { CollapseModule } from 'ng2-bootstrap/collapse';
 
-import { TRANSLATION_PROVIDERS } from './translate/translation';
-import { TranslatePipe } from './translate/translate.pipe';
-import { TranslateService } from './translate/translate.service';
+import { TranslatePipe, TranslateService, TRANSLATION_PROVIDERS } from './translate';
 
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
@@ -151,7 +149,7 @@ const appRoutes: Routes = [
     ReactiveFormsModule
   ],
 
-  providers: [FeedbackService, AuthenticateService, AuthGuard, UserService, TRANSLATION_PROVIDERS, TranslateService],
+  providers: [FeedbackService, AuthenticateService, AuthGuard, UserService, TranslateService, TRANSLATION_PROVIDERS],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

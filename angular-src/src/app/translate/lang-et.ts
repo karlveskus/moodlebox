@@ -1,5 +1,3 @@
-export const LANG_ET_NAME = 'et';
-
 export const LANG_ET_TRANS = {
     'WELCOME.WELCOME':              'Tere tulemast moodleBoxi!',
     'WELCOME.FASTEST_WAY':          'Kiireim viis oma moodle testidel silm peal hoida',

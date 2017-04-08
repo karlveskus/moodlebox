@@ -24,9 +24,10 @@ h3{
     float: right;
     position: relative;
     top: 25px;
+    margin-left: 0px;
 
     a {
-        color: $gray;
+        color: white;
 
         &:hover {
             color: $green;
