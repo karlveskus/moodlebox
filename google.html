@@ -1,0 +1,101 @@
+<html>
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+  <script src="https://apis.google.com/js/api:client.js"></script>
+  <script>
+
+  var googleUser = {};
+	var clientId = '194536527730-nm1e5gad9gr76tm28nrsl0npqs7n72qb.apps.googleusercontent.com'
+	
+	
+
+  var startApp = function() {
+		gapi.load('auth2', function() {
+		gapi.auth2.init({
+				client_id: clientId,
+
+			}).then(function(){
+				auth2 = gapi.auth2.getAuthInstance();
+				attachSignin(document.getElementById('googleSignIn'));
+				if (auth2.isSignedIn.get()) {
+					var name = auth2.currentUser.get().getBasicProfile().getName();
+					document.getElementById('content').innerText = "Tere, " + name;
+
+					document.getElementById('signInContainer').style.display = "none";
+					document.getElementById('logout').style.display = "block";
+				} else {
+					document.getElementById('signInContainer').style.display = "block";
+					document.getElementById('logout').style.display = "none";
+				}
+			});
+		});
+  };
+
+	function logout() {
+		gapi.auth2.getAuthInstance().signOut();
+		location.reload();
+	}
+  
+
+
+  function attachSignin(element) {
+    
+    auth2.attachClickHandler(element, {},
+        function(googleUser) {
+          document.getElementById('content').innerText = "Signed in: " +
+              googleUser.getBasicProfile().getName();
+              location.reload();
+        }, function(error) {
+          
+        });
+  }
+  </script>
+  <style type="text/css">
+    .button {
+      background: white;
+      color: #444;
+      width: 190px;
+			height:50px;
+      border-radius: 5px;
+      border: thin solid #888;
+      box-shadow: 1px 1px 1px grey;
+    }
+
+		#logout {
+			display:none;
+		}
+		#signInContainer{
+			display: none;
+		}
+    .button:hover {
+      cursor: pointer;
+    }
+
+    span.buttonText {
+      display: inline-block;
+      vertical-align: middle;
+			margin-left:25px;
+			margin-top: 17px;
+			height: 50px;
+      font-size: 14px;
+      font-weight: bold;
+      font-family: 'Roboto', sans-serif;
+    }
+  </style>
+  </head>
+  <body>
+
+  <div id="signInContainer">
+    <div id="googleSignIn" class="button">
+      <span class="buttonText">Logi sisse Googlega</span>
+    </div>
+  </div>
+	
+  <div id="content"></div>
+	<br>
+	<div id="logout" class="button" onclick="logout()">
+      <span class="buttonText">Logi välja!</span>
+  </div>
+  <script>startApp();</script>
+</body>
+</html>
