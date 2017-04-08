@@ -75,7 +75,7 @@ function sendNotFoundResponse(res) {
 }
 
 function sendUserAlreadyExists(res) {
-  res.status(500).json({success: false, msg:'User already exists'});
+  res.status(400).json({success: false, msg:'User already exists'});
 }
 
 function sendSuccessResponse(res, token) {

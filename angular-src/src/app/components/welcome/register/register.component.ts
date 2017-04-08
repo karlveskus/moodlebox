@@ -56,7 +56,14 @@ export class RegisterComponent implements OnInit{
   }
 
   updateProblems() {
-    let emailProblem = this.email.hasError('required') ? 'REGISTER.REQUIRED_FIELD' : 'REGISTER.INVALID_EMAIL';
+    let emailProblem;
+
+    if (this.email.hasError('EMAIL_ALREADY_EXISTS')) {
+      emailProblem = 'REGISTER.EMAIL_EXISTS';
+    } else {
+      emailProblem = this.email.hasError('required') ? 'REGISTER.REQUIRED_FIELD' : 'REGISTER.INVALID_EMAIL';
+    }
+
     let passwordProblem = this.password.hasError('required') ? 'REGISTER.REQUIRED_FIELD' : 'REGISTER.BASIC_PASSWORD';
     let passwordAgainProblem = this.passwordAgain.hasError('required') ? 'REGISTER.REQUIRED_FIELD' : 'REGISTER.PASSWORD_DONT_MATCH';
 
@@ -73,13 +80,17 @@ export class RegisterComponent implements OnInit{
       password: this.password.value
     }
 
-    this.authenticateService.registerUser(user).subscribe(data => {
-      if(data.success) {
+    this.authenticateService.registerUser(user)
+    .subscribe(data => {
+      if (data.success) {
         this.router.navigateByUrl('/');
-      } else {
-        console.log("REGISTRATION_ERROR");
       }
-    });
+    }, (err) => {
+      if(err.status == 400) {
+        this.registrationForm.controls['email'].setErrors({'EMAIL_ALREADY_EXISTS': true});
+        this.updateProblems();
+      }
+    })  
   }
 
   onFacebookRegister() {

@@ -41,6 +41,7 @@ export const LANG_ET_TRANS = {
     'REGISTER.INVALID_EMAIL':       'Ei ole emaili aadress',
     'REGISTER.BASIC_PASSWORD':      'Liiga lihtne parool',
     'REGISTER.PASSWORD_DONT_MATCH': 'Paroolid ei kattu',
+    'REGISTER.EMAIL_EXISTS':        'Email on juba kasutusel',
 
     'SIDEBAR.CONTENT':              'SISUKORD',
     'SIDEBAR.OVERVIEW':             'Ülevaade',

@@ -41,6 +41,7 @@ export const LANG_EN_TRANS = {
     'REGISTER.INVALID_EMAIL':       'Not valid email',
     'REGISTER.BASIC_PASSWORD':      'Too simple password',
     'REGISTER.PASSWORD_DONT_MATCH': 'Passwords have to match',
+    'REGISTER.EMAIL_EXISTS':        'Email already in use',
 
     'SIDEBAR.CONTENT':              'CONTENT',
     'SIDEBAR.OVERVIEW':             'Overview',
