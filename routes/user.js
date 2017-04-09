@@ -13,6 +13,16 @@ function mustBeAdmin(req, res, next) {
   return api.mustBeAdmin(req, res, next);
 }
 
+var Pusher = require('pusher');
+
+var pusher = new Pusher({
+  appId: '325759',
+  key: 'ba783ca2fe210d40dbd6',
+  secret: 'ac4a62710ec7b53857d8',
+  cluster: 'eu',
+  encrypted: true
+});
+
 router.post('/', (req, res, next) => {
   let newUser = new User({
     email: req.body.email,
@@ -31,9 +41,18 @@ router.post('/', (req, res, next) => {
           res.json({success: false, msg:'Failed to register user'});
         else 
           res.json({success: true, msg:'User registered'});
+          User.find().count({}, function(err, count) {
+            pusher.trigger('my-channel', 'my-event', {
+              "message": count
+            });
+          });
       });
+      
     }
   });
+
+  
+  
 
 });
 

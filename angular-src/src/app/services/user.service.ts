@@ -25,4 +25,11 @@ export class UserService{
       .map(res => res.json());
   }
 
+  getUserCount() {
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.http.get(environment.baseUrl + '/api/users/count', {headers: headers})
+      .map(res => res.json());
+  }
+
 }
