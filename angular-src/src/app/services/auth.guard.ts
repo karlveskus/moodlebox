@@ -20,11 +20,16 @@ export class AuthGuard implements CanActivate {
             let userRole = this.authenticateService.user.role == null ? 'logged-out' : this.authenticateService.user.role;
 
             if (roles.indexOf(userRole) != -1) {
-                return true;
-            } else if (userRole != 'logged-out') {
-                this.router.navigate(['/home']);
-                return false;
-            } else {
+              return true;
+            } 
+            
+            else if (userRole != 'logged-out') {
+              this.router.navigate(['/home']);
+              return false;
+            } 
+            
+            else {
+                localStorage.setItem('landing-page', state.url);
                 this.router.navigate(['/']);
                 return false;
             }

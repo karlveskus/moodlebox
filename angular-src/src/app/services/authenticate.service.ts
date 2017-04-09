@@ -37,7 +37,7 @@ export class AuthenticateService{
   logout() {
     this.token = null;
     this.clearUser();
-    localStorage.clear();
+    localStorage.removeItem('id_token');
   }
 
   loadTokenAndData() {

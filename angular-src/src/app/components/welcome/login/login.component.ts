@@ -65,7 +65,7 @@ export class LoginComponent implements OnInit {
       data => {
         if (data.success) {
           this.authenticateService.storeUserData(data.token);
-          this.router.navigate(['/home']);
+          this.redirectAfterLogin();
         }
       }, 
       err => {
@@ -76,5 +76,16 @@ export class LoginComponent implements OnInit {
           this.updateProblems();
         }
       });
+  }
+
+  redirectAfterLogin() {
+    let langingPage = localStorage.getItem('landing-page');
+
+    if(langingPage) {
+      this.router.navigate([langingPage]);
+      localStorage.removeItem('landing-page');
+    } else {
+      this.router.navigate(['/route']);
+    }
   }
 }
