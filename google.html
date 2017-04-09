@@ -6,8 +6,6 @@
 
   var googleUser = {};
 	var clientId = '194536527730-nm1e5gad9gr76tm28nrsl0npqs7n72qb.apps.googleusercontent.com'
-	
-	
 
   var startApp = function() {
 		gapi.load('auth2', function() {
@@ -40,14 +38,12 @@
 
   function attachSignin(element) {
     
-    auth2.attachClickHandler(element, {},
-        function(googleUser) {
-          document.getElementById('content').innerText = "Signed in: " +
-              googleUser.getBasicProfile().getName();
-              location.reload();
-        }, function(error) {
-          
-        });
+  auth2.attachClickHandler(element, {},
+      function(googleUser) {
+            location.reload();
+      }, function(error) {
+        
+      });
   }
   </script>
   <style type="text/css">
