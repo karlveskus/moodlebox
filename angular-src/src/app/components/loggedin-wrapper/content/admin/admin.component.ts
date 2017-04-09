@@ -7,14 +7,17 @@ import { UserService } from '../../../../services/user.service';
   styleUrls: ['./admin.component.scss']
 })
 export class AdminComponent implements OnInit {
-  users: Object;
+  users: any;
 
   constructor(private userService: UserService) { }
 
   ngOnInit() {
-    this.userService.getAllUsers().subscribe(data => {
-      this.users = data;
-    });    
+    this.userService.getAllUsers().subscribe(
+      data => {
+        localStorage.setItem('users', JSON.stringify(data));
+      });
+
+      this.users = JSON.parse(localStorage.getItem('users'));
   }
 
 }
