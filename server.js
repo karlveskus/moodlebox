@@ -33,11 +33,8 @@ app.use('/api', api.router);
 
 // ROUTES
 // =======================================
-app.get('/google', (req,res) => {
-  res.sendFile(__dirname + "/google.html");
-});
-app.get('/datapush', (req, res) => {
-  res.sendFile(__dirname + '/datapush.html');
+app.get('/votted', (req, res) => {
+  res.sendFile(__dirname + '/votted.html');
 });
 app.get('/', (req,res) => {
   res.sendFile(__dirname + "/index.html");
