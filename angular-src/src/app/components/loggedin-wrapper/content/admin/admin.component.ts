@@ -15,6 +15,7 @@ export class AdminComponent implements OnInit {
     this.userService.getAllUsers().subscribe(
       data => {
         localStorage.setItem('users', JSON.stringify(data));
+        this.users = JSON.parse(localStorage.getItem('users'));
       });
 
       this.users = JSON.parse(localStorage.getItem('users'));
