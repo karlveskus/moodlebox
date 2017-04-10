@@ -1,7 +1,7 @@
 export const LANG_EN_TRANS = {
     'WELCOME.WELCOME':              'Welcome to moodle',
     'WELCOME.WELCOME.BOX':          'Box',
-    'WELCOME.FASTEST_WAY':          'Fastest way to track your moodle tests',
+    'WELCOME.FASTEST_WAY':          'Fastest way to track your Moodle tests',
     'WELCOME.SAFE_PASSWORD':        'We don\'t save your password',
     'WELCOME.DELETE_TESTS':         'You can always delete your tests',
     'WELCOME.EASY_TO_USE':          'Excellent way to manage Moodle tests',

@@ -42,11 +42,21 @@ html {
 }
 
 .green {
-  color: $green;
+  color: $green !important;
 }
 
 .red {
-  color: $red;
+  color: $red !important;
+}
+
+input {
+  &::-webkit-contacts-auto-fill-button, &::-webkit-credentials-auto-fill-button {
+    visibility: hidden;
+    display: none !important;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+  }
 }
 
 

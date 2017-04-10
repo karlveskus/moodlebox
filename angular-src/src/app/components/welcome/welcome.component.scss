@@ -224,7 +224,7 @@
     }
 
     textarea.ng-dirty.ng-invalid.ng-touched {
-        border-left: 3px solid #F65555;
+        border-left: 3px solid $red;
     }
 }
 
@@ -235,7 +235,7 @@
     margin-top: -28px;
     margin-right: 10px;
     font-size: 18px;
-    color: #F65555;
+    color: $red;
     position: relative;
     z-index: 2;
 
@@ -250,11 +250,11 @@
 }
 
 input.ng-dirty.ng-invalid.ng-touched {
-    border-left: 3px solid #F65555;
+    border-left: 3px solid $red;
 }
 
 .error {
-    color: #F65555;
+    color: $red;
     display: block;
     float: right;
     margin-top: -34px;
