@@ -85,7 +85,7 @@ export class LoginComponent implements OnInit {
       this.router.navigate([langingPage]);
       localStorage.removeItem('landing-page');
     } else {
-      this.router.navigate(['/route']);
+      this.router.navigate(['/home']);
     }
   }
 }
