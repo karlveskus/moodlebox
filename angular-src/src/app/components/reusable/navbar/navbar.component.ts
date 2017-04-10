@@ -7,9 +7,9 @@ import { TranslateService } from '../../../translate/translate.service';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-
   translatedText: string;
   supportedLanguages: any[];
+  activeLanguage: any;
 
   constructor(
     private _translate: TranslateService
@@ -32,6 +32,15 @@ export class NavbarComponent implements OnInit {
   selectLang(lang: string) {
     this._translate.use(lang);
     localStorage.setItem('language', lang);
+    this.activeLanguage = lang;
   }
 
+  getColor(lang) {
+    if (lang == this.activeLanguage) {
+      return "#1CCB91";
+    } else {
+      return "white";
+    }
+  }
 }
+

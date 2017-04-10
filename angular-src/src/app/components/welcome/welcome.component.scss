@@ -2,11 +2,7 @@
 
 .jumbotron {
     background: $secondary-dark;
-    p {
-        font-size: 14px;
-    }
     padding: 20px 0px 20px 0px;
-
     @media only screen and (min-width : 768px) {
         padding: 35px 0px 35px 0px;
     }
@@ -15,24 +11,35 @@
 .welcome {
     h1 {
         color:white;
-        font-size: 33px;
+        font-size: 45px;
         margin-top:0px;
-
-        /* Medium */
+        font-weight: 800;
+        
+        /* xs - md */
+        @media only screen and (max-width : 1200px) {
+            font-size: 40px;
+        }
+        /* xs - sm */
         @media only screen and (max-width : 992px) {
-            font-size: 30px;
+            font-size: 28px;
         }
     }
 
     h4 {
         color: $green;
-        font-size: 15px;
-        font-family: Helvetica-L;
-        margin-top: -13px;
+        font-size: 23px;
+        font-family: Lato;
+        font-weight: 300;
+        margin-top: -10px;
+        margin-left: 50px;
 
-        /* Medium */
-        @media only screen and (min-width : 992px) {
-            margin-left: 40px;
+        /* xs - md */
+        @media only screen and (max-width : 1200px) {
+            margin-left: 0px;
+        }
+        /* xs - sm */
+        @media only screen and (max-width : 992px) {
+            font-size: 16px;
         }
     }
 }
@@ -53,7 +60,8 @@
         font-size: 100px;
         color: $green;
         text-align: center;
-        height: 120px;
+        height: 130px;
+        margin-top: -20px;
     }
 
     input:-webkit-autofill {
@@ -69,13 +77,14 @@
         box-shadow: none;
         outline: none;
         color: inherit;
-        font-size: 14px;
-        font-family: Helvetica-L, sans-serif;
+        font-size: 16px;
     }
 
     p {
         text-align: center;
-        margin-bottom: -7px;        
+        margin-bottom: -5px;
+        font-size: 16px;
+        font-weight: 300;
     }
 
     button.btn {
@@ -86,14 +95,23 @@
 .info-points {
     margin-top: 90px;
 
-    /* Small */
-    @media only screen and (max-width : 768px) {
-        margin-top: 50px;
-    }
-
     p {
         margin-top:-14px;
-        font-family: Helvetica;
+        font-size: 18px;
+        font-weight: 300; 
+    }
+
+    // /* xs - sm */
+    @media only screen and (max-width : 992px) {
+        margin-top: 120px;
+        p {
+            font-size: 16px;
+        }
+    }
+
+    // /* xs */
+    @media only screen and (max-width : 768px) {
+        margin-top: 40px;
     }
 
     p.expl {
@@ -126,7 +144,7 @@
         }
 
         .center {
-            width: 170px;
+            width: 190px;
             margin: 0 auto;
         }
 
@@ -162,14 +180,11 @@
         margin: 0px;
 
         h1 {
-            font-family: Helvetica-L;
             margin: 0px;
         }
 
         p {
             color: $light-gray;
-            margin-top: 4px;
-            letter-spacing: 1px;
         }
     }
 }

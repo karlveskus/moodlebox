@@ -1,8 +1,6 @@
 @import "../../../../assets/styles/variables";
 
 div {
-    font-family: Helvetica-L, sans-serif;
-
     h4 {
         font-size: 14px;
         color: $gray;
@@ -15,7 +13,9 @@ div {
 
         li {
             padding: 0;
-            margin-bottom: 4px;
+            margin-bottom: 2px;
+            font-size: 15px;
+            font-weight: 300;
 
             a {
                 margin: 0;
@@ -23,16 +23,29 @@ div {
                 padding-top: 4px;
                 padding-bottom: 4px;
                 padding-left: 20px;
-
-                &.active, &:active, &:hover {
+                &.active {
                     background: $green !important;
                     border-radius: 3px;
+                    font-weight: 400;
+                    &:hover {
+                        background: $green;
+                        color: white;
+                    }
+                }
+
+                &:hover {
+                    background: none;
+                    color: $green;
                 }
 
                 &:focus {
                     background: none;
                 }
+            }
 
+            &:last-child {
+                font-weight: 500;
+                margin-top: 10px;
             }
         }
     }
@@ -109,7 +122,6 @@ div {
 
                 &:last-child {
                     a {
-                        font-family: Helvetica-M, sans-serif;
                         margin-top: 10px;
                         margin-bottom: 10px;
                     }
