@@ -1,42 +1,5 @@
 @import "./variables";
 
-// Fonts
-@font-face {
-  font-family: 'Helvetica-L';
-  src: url('../fonts/HelveticaLight.otf');
-  src: url('../fonts/HelveticaLight.ttf');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Helvetica-T';
-  src: url('../fonts/HelveticaNeueThin.otf');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Helvetica-M';
-  src: url('../fonts/HelveticaNeueMedium.otf');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Helvetica-B';
-  src: url('../fonts/Helvetica-Bold.otf');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Helvetica-N';
-  src: url('../fonts/HelveticaNeue.ttf');
-  font-weight: normal;
-  font-style: normal;
-}
-
 button.btn.btn-primary{
   height: 40px;
   background: $dark-green;
@@ -44,7 +7,7 @@ button.btn.btn-primary{
   border: none;
   margin-top: 0px;
   border-radius: 2px;
-  font-family: Helvetica-M, sans-serif;
+  font-size: 17px;
 
   &:hover, &:focus, &:active, &:visited {
     border: none;
@@ -56,10 +19,13 @@ button.btn.btn-primary{
 }
 
 body {
-  height: 100%;
-  background: $main-dark !important;
-  font-family: "Helvetica-T" !important;
-  color: white !important;
+    height: 100%;
+    background: $main-dark !important;
+    color: white !important;
+}
+
+body, p, h1, h2, h3, h4, h5, h6, a{
+    font-family: Lato !important;
 }
 
 html {
