@@ -93,12 +93,4 @@ export class RegisterComponent implements OnInit{
         }
       });
   }
-
-  onFacebookRegister() {
-    console.log("FACEBOOK");
-  }
-
-  onGoogleRegister() {
-    console.log("GOOGLE");
-  }
 }

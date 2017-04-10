@@ -24,20 +24,6 @@
       <div class="form-group">
           <button class="btn btn-primary btn-block" type="submit">{{ 'REGISTER.REGISTER' | translate }}</button>
       </div>
-
   </form>
-      <div class="form-group">
-          <button (click)="onFacebookRegister()" class="btn btn-facebook btn-block">
-              <i class="box fa fa-facebook" aria-hidden="true"></i>
-              <p>{{ 'REGISTER.REGISTER_FACEBOOK' | translate }}</p>
-          </button>
-      </div>
-      
-      <div class="form-group">
-          <button (click)="onGoogleRegister()" class="btn btn-google btn-block">
-              <i class="box fa fa-google" aria-hidden="true"></i>
-              <p>{{ 'REGISTER.REGISTER_GOOGLE' | translate }}</p>
-          </button>
-      </div>
   <p class="pole-veel-kasutajat">{{ 'REGISTER.ALREADY_USER' | translate }} <a routerLink="/" class="green">{{ 'REGISTER.LOGIN' | translate }}</a></p>
 </div>
