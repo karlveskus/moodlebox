@@ -23,8 +23,9 @@ div {
                 padding-top: 4px;
                 padding-bottom: 4px;
                 padding-left: 20px;
+
                 &.active {
-                    background: $green !important;
+                    background: $green;
                     border-radius: 3px;
                     font-weight: 400;
                     &:hover {
@@ -41,11 +42,20 @@ div {
                 &:focus {
                     background: none;
                 }
+
+                i {
+                    visibility: hidden;
+                }
             }
 
             &:last-child {
                 font-weight: 500;
                 margin-top: 10px;
+            }
+
+            ul.adminSubMenu {
+                overflow: hidden;
+                max-height: 0px;
             }
         }
     }
@@ -62,13 +72,13 @@ div {
 
 // Mobile view
 @media (max-width: 768px){
-    .kinni {
-        max-height: 0px;
+    .closed {
         overflow: hidden;
+        max-height: 0px;
         transition: max-height 0.2s ease-out;
     }
 
-    .lahti {
+    .opened {
         overflow: hidden;
         max-height: 300px;
         transition: max-height 0.3s ease-in;
@@ -108,16 +118,27 @@ div {
             }
         }
         
-        ul {
+        ul.nav {
             li {
                 padding-bottom: 0;
                 width: calc(100% + 30px);
 
-                a{
+                a{  
+                    i {
+                        visibility: visible;
+                        font-size: 13px;
+                        margin-left: 3px;
+                    }
+
                     &:hover, &.active {
                         background: none !important;;
                         color: $green;
-                    }                    
+                    }     
+
+                    &.active:hover {
+                        color: $green;
+                    }
+                            
                 }
 
                 &:last-child {
@@ -125,7 +146,20 @@ div {
                         margin-top: 10px;
                         margin-bottom: 10px;
                     }
-                }                
+                }   
+
+                ul.adminSubMenu {
+                    padding-left: 40px;
+                    max-height: 300px;
+                    
+                    a{  
+                        display: block;
+                        text-decoration: none;
+                        padding: 0;
+                        margin: 0;
+                    } 
+                }
+                         
             }
         }
     }

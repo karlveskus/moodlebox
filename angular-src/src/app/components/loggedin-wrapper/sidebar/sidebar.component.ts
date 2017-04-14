@@ -11,6 +11,7 @@ export class SidebarComponent implements OnInit {
 
     isCollapsed:boolean = false;
     isMobileCollapsed:boolean = true;
+    isAdminSubMenuCollapsed: boolean = true;
 
     constructor(private authenticateService : AuthenticateService) {
         this.checkSize();
@@ -33,7 +34,7 @@ export class SidebarComponent implements OnInit {
         this.checkSize();
     }
 
-    onClick() {
+    toggleMenu() {
         this.isMobileCollapsed = !this.isMobileCollapsed;
         this.isCollapsed = !this.isCollapsed;
     }
@@ -44,6 +45,14 @@ export class SidebarComponent implements OnInit {
 
     isAdmin() {
         return this.authenticateService.isAdmin();
+    }
+
+    isMobileView() {
+        return window.innerWidth < 768
+    }
+
+    toggleAdminSubMenu() {
+        this.isAdminSubMenuCollapsed = !this.isAdminSubMenuCollapsed;
     }
 
 }

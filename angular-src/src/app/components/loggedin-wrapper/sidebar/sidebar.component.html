@@ -1,15 +1,29 @@
 <div (window:resize)="onResize()">
     <div class="header">
-        <button type="button" class="toggleButton" (click)="onClick()">
+        <button type="button" class="toggleButton" (click)="toggleMenu()">
             <i class="ion-navicon-round" *ngIf="isCollapsed"></i>
             <i class="ion-navicon-round green" *ngIf="!isCollapsed"></i>
         </button>
     </div>
-    <div [ngClass]="(isCollapsed==false)?'lahti':'kinni'">
+    <div [ngClass]="(isCollapsed==false)?'opened':'closed'">
         <h4 class="hidden-xs">{{ 'SIDEBAR.CONTENT' | translate}}</h4>
         <ul class="nav">
             <li><a [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}" [routerLink]="['/home']">{{ 'SIDEBAR.OVERVIEW' | translate}}</a></li>
-            <li *ngIf="isAdmin()"><a [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}" [routerLink]="['/admin']">{{ 'SIDEBAR.ADMIN_PANEL' | translate}}</a></li>
+            <li *ngIf="isAdmin()">
+                <a *ngIf="!isMobileView()" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}" [routerLink]="['/admin']">
+                    {{ 'SIDEBAR.ADMIN_PANEL' | translate}}
+                </a>
+                <a *ngIf="isMobileView()" (click)="toggleAdminSubMenu()">
+                    {{ 'SIDEBAR.ADMIN_PANEL' | translate}}
+                    <i class="ion-chevron-right" *ngIf="isAdminSubMenuCollapsed"></i>
+                    <i class="ion-chevron-down" *ngIf="!isAdminSubMenuCollapsed"></i>
+                </a>
+                <ul class="adminSubMenu" *ngIf="!isAdminSubMenuCollapsed">
+                    <a [routerLink]="['/']">test1</a>
+                    <a [routerLink]="['/']">test2</a>
+                    <a [routerLink]="['/']">test3</a>
+                </ul>
+            </li>
             <li><a [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}" [routerLink]="['/tests']">{{ 'SIDEBAR.UPLOADED_TESTS' | translate}}</a></li>
             <li><a [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}" [routerLink]="['/settings']">{{ 'SIDEBAR.USER_SETTINGS' | translate}}</a></li>
             <li><a [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}" [routerLink]="['/']" (click)="onLogoutClick()">{{ 'SIDEBAR.LOGOUT' | translate}}</a></li>
