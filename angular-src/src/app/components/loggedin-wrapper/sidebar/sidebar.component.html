@@ -18,7 +18,7 @@
                     <i class="ion-chevron-right" *ngIf="isAdminSubMenuCollapsed"></i>
                     <i class="ion-chevron-down" *ngIf="!isAdminSubMenuCollapsed"></i>
                 </a>
-                <ul class="adminSubMenu" *ngIf="!isAdminSubMenuCollapsed">
+                <ul class="adminSubMenu" [ngClass]="(isAdminSubMenuCollapsed==false)?'opened':'closed'">
                     <a [routerLink]="['/']">test1</a>
                     <a [routerLink]="['/']">test2</a>
                     <a [routerLink]="['/']">test3</a>
