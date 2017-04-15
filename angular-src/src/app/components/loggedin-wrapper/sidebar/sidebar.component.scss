@@ -1,5 +1,13 @@
 @import "../../../../assets/styles/variables";
 
+.header, i {
+    overflow: hidden;
+}
+
+.toggleButton {
+    display: none;
+}
+
 div {
     h4 {
         font-size: 14px;
@@ -59,87 +67,76 @@ div {
             }
         }
     }
-
-    .header, i {
-        overflow: hidden;
-    }
-
-    .toggleButton {
-        display: none;
-    }
-}
-
+} 
 
 // Mobile view
 @media (max-width: 768px){
 
-    div {
-        font-size: 18px;
-        line-height: 25px;
+    .closed {
+        overflow: hidden;
+        max-height: 0px !important;
+        transition: max-height 0.2s ease-out;
+    }
 
-        .closed {
-            overflow: hidden;
-            max-height: 0px;
-            transition: max-height 0.2s ease-out;
-        }
+    .opened {
+        overflow: hidden;
+        max-height: 300px;
+        transition: max-height 0.3s ease-in;
+    } 
 
-        .opened {
-            overflow: hidden;
-            max-height: 300px;
-            transition: max-height 0.3s ease-in;
-        }
+    .header {
+        overflow: visible;
+        position: absolute;
+        height: 70px;
+        width: 100%;
+        right: 0;
+        top: 0;
+        z-index: 0;
+        background: $secondary-dark;
 
-        .header {
-            overflow: visible;
-            position: absolute;
-            height: 70px;
-            width: 100%;
-            right: 0;
-            top: 0;
-            z-index: 0;
-            background: $secondary-dark;
+        .toggleButton {
+            display: inline;
+            border: 0;
+            outline: none;
+            background: none;
+            width: 80px;
+            float: right;
+            height: 100%;
+            
+            i {
+                overflow: visible;
+                font-size: 30px;
+                color: $green;
 
-            .toggleButton {
-                display: inline;
-                border: 0;
-                outline: none;
-                background: none;
-                width: 80px;
-                float: right;
-                height: 100%;
-                i {
-                    overflow: visible;
-                    font-size: 30px;
-                    color: $green;
-
-                    &.green {
-                        color: $green-hover;
-                    }
+                &.green {
+                    color: $green-hover;
                 }
             }
         }
+    }
+
+    div {
+        font-size: 18px;
+        line-height: 25px;
         
         ul.nav {
             li {
                 padding-bottom: 0;
                 width: calc(100% + 30px);
 
-                a{  
+                a {  
+                    cursor: pointer;
+
                     i {
                         visibility: visible;
                         font-size: 13px;
                         margin-left: 3px;
                     }
 
-                    &:hover, &.active {
-                        background: none !important;;
+                    &:hover, &.active, &.active:hover {
+                        background: none;
                         color: $green;
-                    }     
-
-                    &.active:hover {
-                        color: $green;
-                    }
-                            
+                    }                                 
                 }
 
                 &:last-child {
@@ -153,26 +150,13 @@ div {
                     padding-left: 40px;
                     max-height: 300px;
                     
-                    a{  
+                    a {  
                         display: block;
                         text-decoration: none;
                         padding: 0;
                         margin: 0;
                     } 
-
-                    &.closed {
-                        overflow: hidden;
-                        max-height: 0px;
-                        transition: max-height 0.2s ease-out;
-                    }
-
-                    &.opened {
-                        overflow: hidden;
-                        max-height: 300px;
-                        transition: max-height 0.3s ease-in;
-                    }
-                }
-                         
+                }       
             }
         }
     }
