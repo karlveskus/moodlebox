@@ -53,7 +53,6 @@ const appRoutes: Routes = [
       {
         path: '',
         component: LoginComponent,
-        outlet: 'login'
       }
     ]
   },
@@ -66,7 +65,6 @@ const appRoutes: Routes = [
       {
         path: '',
         component: RegisterComponent,
-        outlet: 'register'
       }
     ]
   },
@@ -79,7 +77,6 @@ const appRoutes: Routes = [
           {
               path: '',
               component: HomeComponent,
-              outlet: 'home'
           }
       ]
   },
@@ -96,39 +93,19 @@ const appRoutes: Routes = [
           },
           {
               path: 'statistics',
-              children: [
-                  {
-                      path: '',
-                      component: StatisticsComponent,
-                  }
-              ]
+              component: StatisticsComponent            
           },
           {
               path: 'testmanagment',
-              children: [
-                  {
-                      path: '',
-                      component: TestManagmentComponent,
-                  }
-              ]
+              component: TestManagmentComponent
           },
           {
               path: 'usermanagment',
-              children: [
-                  {
-                      path: '',
-                      component: UserManagmentComponent,
-                  }
-              ]
+              component: UserManagmentComponent
           },
           {
               path: 'servermanagment',
-              children: [
-                  {
-                      path: '',
-                      component: ServerManagmentComponent,
-                  }
-              ]
+              component: ServerManagmentComponent,
           },
       ]
   },
@@ -141,7 +118,6 @@ const appRoutes: Routes = [
           {
               path: '',
               component: TestsComponent,
-              outlet: 'tests'
           }
       ]
   },
@@ -154,7 +130,6 @@ const appRoutes: Routes = [
           {
               path: '',
               component: SettingsComponent,
-              outlet: 'settings'
           }
       ]
   },

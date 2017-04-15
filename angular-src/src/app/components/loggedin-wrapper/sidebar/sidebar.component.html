@@ -10,7 +10,7 @@
         <ul class="nav">
             <li><a [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}" [routerLink]="['/home']">{{ 'SIDEBAR.OVERVIEW' | translate}}</a></li>
             <li *ngIf="isAdmin()">
-                <a *ngIf="!isMobileView()" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}" [routerLink]="['/admin']">
+                <a *ngIf="!isMobileView()" [routerLinkActive]="['active']" [routerLink]="['/admin']">
                     {{ 'SIDEBAR.ADMIN_PANEL' | translate}}
                 </a>
                 <a *ngIf="isMobileView()" (click)="toggleAdminSubMenu()">
@@ -19,10 +19,10 @@
                     <i class="ion-chevron-down" *ngIf="!isAdminSubMenuCollapsed"></i>
                 </a>
                 <ul class="adminSubMenu" [ngClass]="(isAdminSubMenuCollapsed==false)?'opened':'closed'">
-                    <a [routerLink]="['/admin/statistics']">{{ 'SIDEBAR.STATISTICS' | translate}}</a>
-                    <a [routerLink]="['/admin/testmanagment']">{{ 'SIDEBAR.TEST_MANAGMENT' | translate}}</a>
-                    <a [routerLink]="['/admin/usermanagment']">{{ 'SIDEBAR.USER_MANAGMENT' | translate}}</a>
-                    <a [routerLink]="['/admin/servermanagment']">{{ 'SIDEBAR.SERVER.MANAGMENT' | translate}}</a>
+                    <a [routerLink]="['/admin/statistics']" (click)="toggleMenu(); toggleAdminSubMenu()">{{ 'SIDEBAR.STATISTICS' | translate}}</a>
+                    <a [routerLink]="['/admin/testmanagment']" (click)="toggleMenu(); toggleAdminSubMenu()">{{ 'SIDEBAR.TEST_MANAGMENT' | translate}}</a>
+                    <a [routerLink]="['/admin/usermanagment']" (click)="toggleMenu(); toggleAdminSubMenu()">{{ 'SIDEBAR.USER_MANAGMENT' | translate}}</a>
+                    <a [routerLink]="['/admin/servermanagment']" (click)="toggleMenu(); toggleAdminSubMenu()">{{ 'SIDEBAR.SERVER_MANAGMENT' | translate}}</a>
                 </ul>
             </li>
             <li><a [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}" [routerLink]="['/tests']">{{ 'SIDEBAR.UPLOADED_TESTS' | translate}}</a></li>
