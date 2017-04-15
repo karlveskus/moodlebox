@@ -72,21 +72,22 @@ div {
 
 // Mobile view
 @media (max-width: 768px){
-    .closed {
-        overflow: hidden;
-        max-height: 0px;
-        transition: max-height 0.2s ease-out;
-    }
-
-    .opened {
-        overflow: hidden;
-        max-height: 300px;
-        transition: max-height 0.3s ease-in;
-    }
 
     div {
         font-size: 18px;
         line-height: 25px;
+
+        .closed {
+            overflow: hidden;
+            max-height: 0px;
+            transition: max-height 0.2s ease-out;
+        }
+
+        .opened {
+            overflow: hidden;
+            max-height: 300px;
+            transition: max-height 0.3s ease-in;
+        }
 
         .header {
             overflow: visible;

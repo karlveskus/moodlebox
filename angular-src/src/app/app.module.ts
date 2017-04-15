@@ -25,6 +25,10 @@ import { HomeComponent } from './components/loggedin-wrapper/content/home/home.c
 import { TestsComponent } from './components/loggedin-wrapper/content/tests/tests.component';
 import { SettingsComponent } from './components/loggedin-wrapper/content/settings/settings.component';
 import { AdminComponent } from './components/loggedin-wrapper/content/admin/admin.component';
+import { StatisticsComponent } from './components/loggedin-wrapper/content/admin/statistics/statistics.component';
+import { TestManagmentComponent } from './components/loggedin-wrapper/content/admin/test-managment/test-managment.component';
+import { UserManagmentComponent } from './components/loggedin-wrapper/content/admin/user-managment/user-managment.component';
+import { ServerManagmentComponent } from './components/loggedin-wrapper/content/admin/server-managment/server-managment.component';
 
 import { FeedbackService } from './services/feedback.service';
 import { AuthenticateService } from './services/authenticate.service';
@@ -87,9 +91,45 @@ const appRoutes: Routes = [
       children: [
           {
               path: '',
-              component: AdminComponent,
-              outlet: 'admin'
-          }
+              redirectTo: '/admin/statistics',
+              pathMatch: 'full'
+          },
+          {
+              path: 'statistics',
+              children: [
+                  {
+                      path: '',
+                      component: StatisticsComponent,
+                  }
+              ]
+          },
+          {
+              path: 'testmanagment',
+              children: [
+                  {
+                      path: '',
+                      component: TestManagmentComponent,
+                  }
+              ]
+          },
+          {
+              path: 'usermanagment',
+              children: [
+                  {
+                      path: '',
+                      component: UserManagmentComponent,
+                  }
+              ]
+          },
+          {
+              path: 'servermanagment',
+              children: [
+                  {
+                      path: '',
+                      component: ServerManagmentComponent,
+                  }
+              ]
+          },
       ]
   },
   {
@@ -137,7 +177,11 @@ const appRoutes: Routes = [
     TestsComponent,
     SettingsComponent,
     AdminComponent,
-    TranslatePipe
+    TranslatePipe,
+    StatisticsComponent,
+    TestManagmentComponent,
+    UserManagmentComponent,
+    ServerManagmentComponent
   ],
   imports: [
     BrowserModule,

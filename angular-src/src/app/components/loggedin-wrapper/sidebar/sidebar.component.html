@@ -19,9 +19,10 @@
                     <i class="ion-chevron-down" *ngIf="!isAdminSubMenuCollapsed"></i>
                 </a>
                 <ul class="adminSubMenu" [ngClass]="(isAdminSubMenuCollapsed==false)?'opened':'closed'">
-                    <a [routerLink]="['/']">test1</a>
-                    <a [routerLink]="['/']">test2</a>
-                    <a [routerLink]="['/']">test3</a>
+                    <a [routerLink]="['/admin/statistics']">{{ 'SIDEBAR.STATISTICS' | translate}}</a>
+                    <a [routerLink]="['/admin/testmanagment']">{{ 'SIDEBAR.TEST_MANAGMENT' | translate}}</a>
+                    <a [routerLink]="['/admin/usermanagment']">{{ 'SIDEBAR.USER_MANAGMENT' | translate}}</a>
+                    <a [routerLink]="['/admin/servermanagment']">{{ 'SIDEBAR.SERVER.MANAGMENT' | translate}}</a>
                 </ul>
             </li>
             <li><a [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}" [routerLink]="['/tests']">{{ 'SIDEBAR.UPLOADED_TESTS' | translate}}</a></li>
