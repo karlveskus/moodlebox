@@ -1,4 +1,6 @@
-# MoodleBox 
+# MoodleBox
+[![StackShare](https://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](https://stackshare.io/karlveskus/moodlebox)
+[![Code Climate](https://codeclimate.com/github/karlveskus/moodlebox/badges/gpa.svg)](https://codeclimate.com/github/karlveskus/moodlebox)
 
 ### [www.moodlebox.us](https://www.moodlebox.us)
 
