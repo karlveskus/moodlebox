@@ -1,5 +1,13 @@
 @import "../../../../assets/styles/variables";
 
+.header, i {
+    overflow: hidden;
+}
+
+.toggleButton {
+    display: none;
+}
+
 div {
     h4 {
         font-size: 14px;
@@ -23,8 +31,9 @@ div {
                 padding-top: 4px;
                 padding-bottom: 4px;
                 padding-left: 20px;
+
                 &.active {
-                    background: $green !important;
+                    background: $green;
                     border-radius: 3px;
                     font-weight: 400;
                     &:hover {
@@ -41,83 +50,93 @@ div {
                 &:focus {
                     background: none;
                 }
+
+                i {
+                    visibility: hidden;
+                }
             }
 
             &:last-child {
                 font-weight: 500;
                 margin-top: 10px;
             }
+
+            ul.adminSubMenu {
+                overflow: hidden;
+                max-height: 0px;
+            }
         }
     }
-
-    .header, i {
-        overflow: hidden;
-    }
-
-    .toggleButton {
-        display: none;
-    }
-}
-
+} 
 
 // Mobile view
 @media (max-width: 768px){
-    .kinni {
-        max-height: 0px;
+
+    .closed {
         overflow: hidden;
+        max-height: 0px !important;
         transition: max-height 0.2s ease-out;
     }
 
-    .lahti {
+    .opened {
         overflow: hidden;
         max-height: 300px;
         transition: max-height 0.3s ease-in;
+    } 
+
+    .header {
+        overflow: visible;
+        position: absolute;
+        height: 70px;
+        width: 100%;
+        right: 0;
+        top: 0;
+        z-index: 0;
+        background: $secondary-dark;
+
+        .toggleButton {
+            display: inline;
+            border: 0;
+            outline: none;
+            background: none;
+            width: 80px;
+            float: right;
+            height: 100%;
+            
+            i {
+                overflow: visible;
+                font-size: 30px;
+                color: $green;
+
+                &.green {
+                    color: $green-hover;
+                }
+            }
+        }
     }
 
     div {
         font-size: 18px;
         line-height: 25px;
-
-        .header {
-            overflow: visible;
-            position: absolute;
-            height: 70px;
-            width: 100%;
-            right: 0;
-            top: 0;
-            z-index: 0;
-            background: $secondary-dark;
-
-            .toggleButton {
-                display: inline;
-                border: 0;
-                outline: none;
-                background: none;
-                width: 80px;
-                float: right;
-                height: 100%;
-                i {
-                    overflow: visible;
-                    font-size: 30px;
-                    color: $green;
-
-                    &.green {
-                        color: $green-hover;
-                    }
-                }
-            }
-        }
         
-        ul {
+        ul.nav {
             li {
                 padding-bottom: 0;
                 width: calc(100% + 30px);
 
-                a{
-                    &:hover, &.active {
-                        background: none !important;;
+                a {  
+                    cursor: pointer;
+
+                    i {
+                        visibility: visible;
+                        font-size: 13px;
+                        margin-left: 3px;
+                    }
+
+                    &:hover, &.active, &.active:hover {
+                        background: none;
                         color: $green;
-                    }                    
+                    }                                 
                 }
 
                 &:last-child {
@@ -125,7 +144,19 @@ div {
                         margin-top: 10px;
                         margin-bottom: 10px;
                     }
-                }                
+                }   
+
+                ul.adminSubMenu {
+                    padding-left: 40px;
+                    max-height: 300px;
+                    
+                    a {  
+                        display: block;
+                        text-decoration: none;
+                        padding: 0;
+                        margin: 0;
+                    } 
+                }       
             }
         }
     }

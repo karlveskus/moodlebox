@@ -46,6 +46,10 @@ export const LANG_EN_TRANS = {
     'SIDEBAR.UPLOADED_TESTS':       'Uploaded tests',
     'SIDEBAR.USER_SETTINGS':        'User settings',
     'SIDEBAR.LOGOUT':               'Log out',
+    'SIDEBAR.STATISTICS':           'Statistics',
+    'SIDEBAR.TEST_MANAGMENT':       'Tests managment',
+    'SIDEBAR.USER_MANAGMENT':       'Users managment',
+    'SIDEBAR.SERVER_MANAGMENT':     'Servers managment',
 
 
     'HOME.HEADING':                 'Overview',
