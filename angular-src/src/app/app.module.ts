@@ -24,7 +24,6 @@ import { SidebarComponent } from './components/loggedin-wrapper/sidebar/sidebar.
 import { HomeComponent } from './components/loggedin-wrapper/content/home/home.component';
 import { TestsComponent } from './components/loggedin-wrapper/content/tests/tests.component';
 import { SettingsComponent } from './components/loggedin-wrapper/content/settings/settings.component';
-import { AdminComponent } from './components/loggedin-wrapper/content/admin/admin.component';
 import { StatisticsComponent } from './components/loggedin-wrapper/content/admin/statistics/statistics.component';
 import { TestManagmentComponent } from './components/loggedin-wrapper/content/admin/test-managment/test-managment.component';
 import { UserManagmentComponent } from './components/loggedin-wrapper/content/admin/user-managment/user-managment.component';
@@ -151,7 +150,6 @@ const appRoutes: Routes = [
     HomeComponent,
     TestsComponent,
     SettingsComponent,
-    AdminComponent,
     TranslatePipe,
     StatisticsComponent,
     TestManagmentComponent,
