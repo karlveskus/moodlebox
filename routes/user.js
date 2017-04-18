@@ -4,14 +4,8 @@ const properties = require('../config/properties');
 const User = require('../models/user');
 const jwt = require('jsonwebtoken');
 const api = require('./api.js');
+const auth = require('../lib/auth.js');
 
-function mustBeUser(req, res, next) {
-  return api.mustBeUser(req, res, next);
-}
-
-function mustBeAdmin(req, res, next) {
-  return api.mustBeAdmin(req, res, next);
-}
 
 var Pusher = require('pusher');
 
@@ -50,10 +44,6 @@ router.post('/', (req, res, next) => {
       
     }
   });
-
-  
-  
-
 });
 
 router.post('/authenticate', (req, res) => {
