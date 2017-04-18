@@ -19,14 +19,14 @@ export class AuthenticateService{
   registerUser(user) {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    return this.http.post(this.baseUrl + '/api/user/', user, {headers: headers})
+    return this.http.post(this.baseUrl + '/api/users/', user, {headers: headers})
       .map(res => res.json());
   }
 
   authenticateUser(user) {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    return this.http.post(this.baseUrl + '/api/user/authenticate', user,  {headers: headers})
+    return this.http.post(this.baseUrl + '/api/users/authenticate', user,  {headers: headers})
       .map(res => res.json());
   }
 

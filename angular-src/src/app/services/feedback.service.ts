@@ -16,7 +16,7 @@ export class FeedbackService {
   newFeedback(feedback){
     let headers = new Headers();
     headers.append('Content-Type','application/json');
-    return this.http.post(environment.baseUrl + '/api/feedback', feedback, {headers: headers})
+    return this.http.post(environment.baseUrl + '/api/feedbacks', feedback, {headers: headers})
     .map(res => res.json());
   }
 }
