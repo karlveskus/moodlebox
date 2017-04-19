@@ -2,7 +2,7 @@
     <div *ngIf="isMobileView()" class="header">
         <button type="button" class="toggleButton" (click)="toggleMenu()">
             <i class="ion-navicon-round" *ngIf="isMenuCollapsed"></i>
-            <i class="ion-navicon-round green" *ngIf="!isMenuCollapsed"></i>
+            <i class="ion-navicon-round active" *ngIf="!isMenuCollapsed"></i>
         </button>
     </div>
     <div [ngClass]="(isMenuCollapsed==false)?'opened':'closed'">

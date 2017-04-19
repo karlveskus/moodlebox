@@ -39,6 +39,7 @@ export class SidebarComponent implements OnInit {
   toggleMenu() {
     this.isMobileCollapsed = !this.isMobileCollapsed;
     this.isMenuCollapsed = !this.isMenuCollapsed;
+    this.isAdminSubMenuCollapsed = true;
   }
 
   onLogoutClick() {

@@ -54,11 +54,18 @@ export const LANG_EN_TRANS = {
 
     'HOME.HEADING':                 'Overview',
 
-    'ADMIN.HEADING':                'Admin panel',
-
     'TESTS.HEADING':                'Uploaded tests',
 
     'SETTINGS.HEADING':             'User settings',
+
+
+    'STATISTICS.HEADING':           'Statistics',
+
+    'TEST_MANAGMENT.HEADING':       'Tests managment',
+
+    'USER_MANAGMENT.HEADING':       'Users managment',
+
+    'SERVER_MANAGMENT.HEADING':     'Servers managment',
 
 
     'NOT-FOUND.PAGE_NOT_FOUND':     'Page not found!',

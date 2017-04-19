@@ -54,11 +54,18 @@ export const LANG_ET_TRANS = {
 
     'HOME.HEADING':                 'Ülevaade',
 
-    'ADMIN.HEADING':                'Admin panel',
-
     'TESTS.HEADING':                'Üles laetud testid',
 
     'SETTINGS.HEADING':             'Konto seaded',
+
+
+    'STATISTICS.HEADING':           'Statistika',
+
+    'TEST_MANAGMENT.HEADING':       'Testide haldus',
+
+    'USER_MANAGMENT.HEADING':       'Kasutajate haldus',
+
+    'SERVER_MANAGMENT.HEADING':     'Serveri haldus',
 
 
     'NOT-FOUND.PAGE_NOT_FOUND':     'Otsitud lehte ei leitud!',

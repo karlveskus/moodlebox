@@ -1,10 +1,5 @@
 @import "../../../assets/styles/variables";
 
-h2 {
-    padding-bottom: 20px;
-    margin: 0;
-}
-
 .sidebar {
     width: 200px;
     float: left;
@@ -13,11 +8,18 @@ h2 {
 .content {
     width: calc(100% - 200px);
     margin-left: 200px;
-    margin-top: -30px;
+    margin-top: -30px;  
+    font-weight: 300;
+
+    h2 {
+        font-weight: 300;
+        padding-bottom: 20px;
+        margin: 0;
+    } 
 }
 
 // Mobile view
-@media (max-width: 768px){
+@media (max-width: 767px){
 
     .adminSubMenu {
         max-height: 0px;
@@ -39,8 +41,5 @@ h2 {
         padding-left: 15px;
         padding-right: 15px;
         margin-top: 20px;
-        h2 {
-            border: 0;
-        }
     }
 }

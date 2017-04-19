@@ -1,6 +1,6 @@
 <div>
-    <a [routerLink]="['/admin/statistics']" (click)="toggleMenu()">{{ 'SIDEBAR.STATISTICS' | translate}}</a>
-    <a [routerLink]="['/admin/testmanagment']" (click)="toggleMenu()">{{ 'SIDEBAR.TEST_MANAGMENT' | translate}}</a>
-    <a [routerLink]="['/admin/usermanagment']" (click)="toggleMenu()">{{ 'SIDEBAR.USER_MANAGMENT' | translate}}</a>
-    <a [routerLink]="['/admin/servermanagment']" (click)="toggleMenu()">{{ 'SIDEBAR.SERVER_MANAGMENT' | translate}}</a>
+    <a [routerLink]="['/admin/statistics']" [routerLinkActive]="['active']" (click)="toggleMenu()">{{ 'SIDEBAR.STATISTICS' | translate}}</a>
+    <a [routerLink]="['/admin/testmanagment']" [routerLinkActive]="['active']" (click)="toggleMenu()">{{ 'SIDEBAR.TEST_MANAGMENT' | translate}}</a>
+    <a [routerLink]="['/admin/usermanagment']" [routerLinkActive]="['active']" (click)="toggleMenu()">{{ 'SIDEBAR.USER_MANAGMENT' | translate}}</a>
+    <a [routerLink]="['/admin/servermanagment']" [routerLinkActive]="['active']" (click)="toggleMenu()">{{ 'SIDEBAR.SERVER_MANAGMENT' | translate}}</a>
 </div>
