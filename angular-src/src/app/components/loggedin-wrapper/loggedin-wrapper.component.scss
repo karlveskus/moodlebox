@@ -19,6 +19,11 @@ h2 {
 // Mobile view
 @media (max-width: 768px){
 
+    .adminSubMenu {
+        max-height: 0px;
+        overflow: hidden;
+    }
+
     .content, .sidebar {
         width: calc(100% + 30px);
         float: left;

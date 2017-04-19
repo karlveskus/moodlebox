@@ -9,50 +9,51 @@ import { Router } from '@angular/router';
 })
 export class SidebarComponent implements OnInit {
 
-    isCollapsed:boolean = false;
-    isMobileCollapsed:boolean = true;
-    isAdminSubMenuCollapsed: boolean = true;
+  isMenuCollapsed: boolean = false;
+  isMobileCollapsed: boolean = true;
+  isAdminSubMenuCollapsed: boolean = true;
 
-    constructor(private authenticateService : AuthenticateService) {
-        this.checkSize();
+  constructor(
+    private authenticateService : AuthenticateService,
+  ) {
+    this.checkSize();
+  }
+
+  ngOnInit() {
+  }
+
+  checkSize() {
+    // Checks the size on window to choose the menu to be collapsed or not.
+    if(window.innerWidth > 768) {
+      this.isMenuCollapsed = false;
+      this.isMobileCollapsed = true;
+    } else {
+      this.isMenuCollapsed = this.isMobileCollapsed ? true : false;
     }
+  }
 
-    ngOnInit() {
-    }
+  onResize() {
+    this.checkSize();
+  }
 
-    checkSize() {
-        // Checks the size on window to choose the menu to be collapsed or not.
-        if(window.innerWidth > 768) {
-            this.isCollapsed = false;
-            this.isMobileCollapsed = true;
-        } else {
-            this.isCollapsed = this.isMobileCollapsed ? true : false;
-        }
-    }
+  toggleMenu() {
+    this.isMobileCollapsed = !this.isMobileCollapsed;
+    this.isMenuCollapsed = !this.isMenuCollapsed;
+  }
 
-    onResize() {
-        this.checkSize();
-    }
+  onLogoutClick() {
+    this.authenticateService.logout();
+  }
 
-    toggleMenu() {
-        this.isMobileCollapsed = !this.isMobileCollapsed;
-        this.isCollapsed = !this.isCollapsed;
-    }
+  isAdmin() {
+    return this.authenticateService.isAdmin();
+  }
 
-    onLogoutClick() {
-        this.authenticateService.logout();
-    }
+  isMobileView() {
+    return window.innerWidth < 768;
+  }
 
-    isAdmin() {
-        return this.authenticateService.isAdmin();
-    }
-
-    isMobileView() {
-        return window.innerWidth < 768;
-    }
-
-    toggleAdminSubMenu() {
-        this.isAdminSubMenuCollapsed = !this.isAdminSubMenuCollapsed;
-    }
-
+  toggleAdminSubMenu() {
+    this.isAdminSubMenuCollapsed = !this.isAdminSubMenuCollapsed;
+  }
 }

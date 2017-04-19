@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-admin-sub-menu',
@@ -6,22 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin-sub-menu.component.scss']
 })
 export class AdminSubMenuComponent implements OnInit {
-
-  isMobileView:boolean = true;
+  @Output() toggleParentMenu: EventEmitter<any> = new EventEmitter();
 
   constructor() { 
-    this.checkSize();
   }
 
   ngOnInit() {
   }
 
-  checkSize() {
-    // Checks the size on window to choose the menu to be collapsed or not.
-    if(window.innerWidth > 768) {
-      this.isMobileView = false;
-    } else {
-      this.isMobileView = true;
-    }
+  toggleMenu() {
+    this.toggleParentMenu.emit(null);
   }
 }
