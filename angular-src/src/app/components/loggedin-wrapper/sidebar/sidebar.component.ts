@@ -48,7 +48,7 @@ export class SidebarComponent implements OnInit {
     }
 
     isMobileView() {
-        return window.innerWidth < 768
+        return window.innerWidth < 768;
     }
 
     toggleAdminSubMenu() {

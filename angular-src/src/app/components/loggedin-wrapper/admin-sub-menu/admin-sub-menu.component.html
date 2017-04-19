@@ -1,0 +1,8 @@
+<div (window:resize)="checkSize()">
+    <div *ngIf="!isMobileView" class="adminSubMenu">
+        <a [routerLink]="['/admin/statistics']">{{ 'SIDEBAR.STATISTICS' | translate}}</a>
+        <a [routerLink]="['/admin/testmanagment']">{{ 'SIDEBAR.TEST_MANAGMENT' | translate}}</a>
+        <a [routerLink]="['/admin/usermanagment']">{{ 'SIDEBAR.USER_MANAGMENT' | translate}}</a>
+        <a [routerLink]="['/admin/servermanagment']">{{ 'SIDEBAR.SERVER_MANAGMENT' | translate}}</a>
+    </div>
+</div>

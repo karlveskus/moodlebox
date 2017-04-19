@@ -18,12 +18,12 @@
                     <i class="ion-chevron-right" *ngIf="isAdminSubMenuCollapsed"></i>
                     <i class="ion-chevron-down" *ngIf="!isAdminSubMenuCollapsed"></i>
                 </a>
-                <ul class="adminSubMenu" [ngClass]="(isAdminSubMenuCollapsed==false)?'opened':'closed'">
+                <div *ngIf="isMobileView()" class="adminSubMenu" [ngClass]="(isAdminSubMenuCollapsed==false)?'opened':'closed'">
                     <a [routerLink]="['/admin/statistics']" (click)="toggleMenu(); toggleAdminSubMenu()">{{ 'SIDEBAR.STATISTICS' | translate}}</a>
                     <a [routerLink]="['/admin/testmanagment']" (click)="toggleMenu(); toggleAdminSubMenu()">{{ 'SIDEBAR.TEST_MANAGMENT' | translate}}</a>
                     <a [routerLink]="['/admin/usermanagment']" (click)="toggleMenu(); toggleAdminSubMenu()">{{ 'SIDEBAR.USER_MANAGMENT' | translate}}</a>
                     <a [routerLink]="['/admin/servermanagment']" (click)="toggleMenu(); toggleAdminSubMenu()">{{ 'SIDEBAR.SERVER_MANAGMENT' | translate}}</a>
-                </ul>
+                </div>
             </li>
             <li><a [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}" [routerLink]="['/tests']">{{ 'SIDEBAR.UPLOADED_TESTS' | translate}}</a></li>
             <li><a [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}" [routerLink]="['/settings']">{{ 'SIDEBAR.USER_SETTINGS' | translate}}</a></li>
