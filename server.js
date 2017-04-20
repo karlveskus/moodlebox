@@ -33,9 +33,6 @@ app.use('/api', api.router);
 
 // ROUTES
 // =======================================
-app.get('/votted', (req, res) => {
-  res.sendFile(__dirname + '/votted.html');
-});
 app.get('/', (req,res) => {
   res.sendFile(__dirname + "/index.html");
 });

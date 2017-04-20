@@ -24,11 +24,11 @@ import { SidebarComponent } from './components/loggedin-wrapper/sidebar/sidebar.
 import { HomeComponent } from './components/loggedin-wrapper/content/home/home.component';
 import { TestsComponent } from './components/loggedin-wrapper/content/tests/tests.component';
 import { SettingsComponent } from './components/loggedin-wrapper/content/settings/settings.component';
-import { AdminComponent } from './components/loggedin-wrapper/content/admin/admin.component';
 import { StatisticsComponent } from './components/loggedin-wrapper/content/admin/statistics/statistics.component';
 import { TestManagmentComponent } from './components/loggedin-wrapper/content/admin/test-managment/test-managment.component';
 import { UserManagmentComponent } from './components/loggedin-wrapper/content/admin/user-managment/user-managment.component';
 import { ServerManagmentComponent } from './components/loggedin-wrapper/content/admin/server-managment/server-managment.component';
+import { AdminSubMenuComponent } from './components/loggedin-wrapper/admin-sub-menu/admin-sub-menu.component';
 
 import { FeedbackService } from './services/feedback.service';
 import { AuthenticateService } from './services/authenticate.service';
@@ -93,7 +93,7 @@ const appRoutes: Routes = [
           },
           {
               path: 'statistics',
-              component: StatisticsComponent            
+              component: StatisticsComponent 
           },
           {
               path: 'testmanagment',
@@ -151,12 +151,12 @@ const appRoutes: Routes = [
     HomeComponent,
     TestsComponent,
     SettingsComponent,
-    AdminComponent,
     TranslatePipe,
     StatisticsComponent,
     TestManagmentComponent,
     UserManagmentComponent,
-    ServerManagmentComponent
+    ServerManagmentComponent,
+    AdminSubMenuComponent
   ],
   imports: [
     BrowserModule,

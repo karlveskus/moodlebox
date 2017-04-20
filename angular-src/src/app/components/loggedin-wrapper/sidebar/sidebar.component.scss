@@ -1,13 +1,5 @@
 @import "../../../../assets/styles/variables";
 
-.header, i {
-    overflow: hidden;
-}
-
-.toggleButton {
-    display: none;
-}
-
 div {
     h4 {
         font-size: 14px;
@@ -50,27 +42,18 @@ div {
                 &:focus {
                     background: none;
                 }
-
-                i {
-                    visibility: hidden;
-                }
             }
 
             &:last-child {
                 font-weight: 500;
                 margin-top: 10px;
             }
-
-            ul.adminSubMenu {
-                overflow: hidden;
-                max-height: 0px;
-            }
         }
     }
 } 
 
 // Mobile view
-@media (max-width: 768px){
+@media (max-width: 767px){
 
     .closed {
         overflow: hidden;
@@ -85,7 +68,6 @@ div {
     } 
 
     .header {
-        overflow: visible;
         position: absolute;
         height: 70px;
         width: 100%;
@@ -108,7 +90,7 @@ div {
                 font-size: 30px;
                 color: $green;
 
-                &.green {
+                &.active {
                     color: $green-hover;
                 }
             }
@@ -144,18 +126,6 @@ div {
                         margin-top: 10px;
                         margin-bottom: 10px;
                     }
-                }   
-
-                ul.adminSubMenu {
-                    padding-left: 40px;
-                    max-height: 300px;
-                    
-                    a {  
-                        display: block;
-                        text-decoration: none;
-                        padding: 0;
-                        margin: 0;
-                    } 
                 }       
             }
         }
