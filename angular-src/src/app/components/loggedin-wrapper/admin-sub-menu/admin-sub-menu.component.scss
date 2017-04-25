@@ -3,7 +3,7 @@
 @media (min-width: 768px){
     div {
         margin-top: 5px;
-        border-bottom: 1px solid $table-line-gray;
+        border-bottom: 1px solid $dark-gray;
         height: 25px;
         margin-bottom: 10px;
 
@@ -16,7 +16,6 @@
             position: relative;
             bottom: -1px;
             padding: 0px 10px 0px 10px;
-            
 
             &.active {
                 color: $green;

@@ -51,6 +51,8 @@ export const LANG_EN_TRANS = {
     'SIDEBAR.USER_MANAGMENT':       'Users managment',
     'SIDEBAR.SERVER_MANAGMENT':     'Servers managment',
 
+    'USER_MANAGEMENT.SEARCH_USER':  'Search user',
+
 
     'HOME.HEADING':                 'Overview',
 
