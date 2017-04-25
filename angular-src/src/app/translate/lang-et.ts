@@ -51,6 +51,8 @@ export const LANG_ET_TRANS = {
     'SIDEBAR.USER_MANAGMENT':       'Kasutajate haldus',
     'SIDEBAR.SERVER_MANAGMENT':     'Serveri seaded',
 
+    'USER_MANAGEMENT.SEARCH_USER':  'Otsi kasutajat',
+
 
     'HOME.HEADING':                 'Ülevaade',
 
