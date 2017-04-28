@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation, DoCheck } from '@angular/core';
 import { AuthenticateService } from '../../services/authenticate.service';
 import { Router } from '@angular/router';
 
@@ -8,11 +8,18 @@ import { Router } from '@angular/router';
   styleUrls: ['./loggedin-wrapper.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class LoggedinWrapperComponent implements OnInit {
+export class LoggedinWrapperComponent implements DoCheck {
 
-  constructor(private authenticateService : AuthenticateService, private router : Router) { }
+  constructor(
+    private authenticateService : AuthenticateService, 
+    private router : Router
+  ) { }
 
-  ngOnInit() {
+  ngDoCheck() {
+    if (this.authenticateService.isLoggedIn() == false) {
+      this.authenticateService.logout();
+      this.router.navigate(['/']);
+    } 
   }
 
 }
