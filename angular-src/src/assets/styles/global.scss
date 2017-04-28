@@ -8,6 +8,7 @@ button.btn.btn-primary{
   margin-top: 0px;
   border-radius: 2px;
   font-size: 17px;
+  transition: all .15s ease-in-out;
 
   &:hover, &:focus, &:active, &:visited {
     border: none;
