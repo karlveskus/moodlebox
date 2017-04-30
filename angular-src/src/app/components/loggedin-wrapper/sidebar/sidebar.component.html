@@ -1,8 +1,7 @@
 <div (window:resize)="onResize()">
     <div *ngIf="isMobileView()" class="header">
         <button type="button" class="toggleButton" (click)="toggleMenu()">
-            <i class="ion-navicon-round" *ngIf="isMenuCollapsed"></i>
-            <i class="ion-navicon-round active" *ngIf="!isMenuCollapsed"></i>
+            <div class="ion-navicon-round" [ngClass]="{'active': !isMenuCollapsed}"></div>
         </button>
     </div>
     <div [ngClass]="(isMenuCollapsed==false)?'opened':'closed'">
@@ -15,8 +14,7 @@
                 </a>
                 <a *ngIf="isMobileView()" (click)="toggleAdminSubMenu()">
                     {{ 'SIDEBAR.ADMIN_PANEL' | translate}}
-                    <i class="ion-chevron-right" *ngIf="isAdminSubMenuCollapsed"></i>
-                    <i class="ion-chevron-down" *ngIf="!isAdminSubMenuCollapsed"></i>
+                    <div [ngClass]="(isAdminSubMenuCollapsed)?'ion-chevron-right':'ion-chevron-down'"></div>
                 </a>
                 <div *ngIf="isMobileView()" [ngClass]="(isAdminSubMenuCollapsed==false)?'opened':'closed'">
                     <app-admin-sub-menu  (toggleParentMenu)="toggleMenu()" ></app-admin-sub-menu>

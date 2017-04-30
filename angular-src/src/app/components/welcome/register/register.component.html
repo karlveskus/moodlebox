@@ -4,21 +4,21 @@
       <div class="form-group">
           <input class="form-control" type="email" formControlName="email" placeholder="{{ 'REGISTER.EMAIL' | translate }}">
           <div *ngIf="registrationForm.controls['email'].dirty && !registrationForm.controls['email'].valid && !registrationForm.controls['email'].untouched">
-            <i class="ion-alert-circled"></i><div class="error">{{ problems.email | translate }}</div>
+            <div class="ion-alert-circled"></div><div class="error">{{ problems.email | translate }}</div>
           </div>
       </div>
       
       <div class="form-group">
           <input #t  class="form-control" type="password" formControlName="password" placeholder="{{ 'REGISTER.PASSWORD' | translate }}">
           <div *ngIf="registrationForm.controls['password'].dirty && !registrationForm.controls['password'].valid && !registrationForm.controls['password'].untouched">
-            <i class="ion-alert-circled"></i><div class="error">{{ problems.password | translate }}</div>
+            <div class="ion-alert-circled"></div><div class="error">{{ problems.password | translate }}</div>
           </div>
       </div>
       
       <div class="form-group">
           <input class="form-control" type="password" formControlName="passwordAgain" placeholder="{{ 'REGISTER.PASSWORD_AGAIN' | translate }}">
           <div *ngIf="registrationForm.controls['passwordAgain'].dirty && !registrationForm.controls['passwordAgain'].valid && !registrationForm.controls['passwordAgain'].untouched">
-            <i class="ion-alert-circled"></i><div class="error">{{ problems.passwordAgain | translate }}</div>
+            <div class="ion-alert-circled"></div><div class="error">{{ problems.passwordAgain | translate }}</div>
           </div>
       </div>
       <div class="form-group">

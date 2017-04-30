@@ -27,19 +27,22 @@
             border: 2px solid $dark-green;
             border-radius: 50px;
             margin: 6px;
+            text-decoration: none;
 
-            &:hover{
+            &:hover {
                 border: 2px solid $green;
-            }
 
-            i {
-                padding: 11px 9px;
-                font-size: 20px;
-                color: $dark-green;
-
-                &:hover {
+                & > div {
                     color: $green;
                 }
+            }
+
+            div {
+                display: inline;
+                position: relative;
+                top: 7px;
+                font-size: 20px;
+                color: $dark-green;
             }
         }
     }

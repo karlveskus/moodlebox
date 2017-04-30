@@ -3,31 +3,36 @@
 .container {
     height: 70px;
 
-    h3 {
-        display: inline-block;
-        padding-top: 5px;
-        position: relative;
-        z-index: 1;
-    }
-}
-
-a {
-    text-decoration: none !important;
-}
-
-h3{
-    color: #686F83;
-}
-
-.languages {
-    float: right;
-    margin-top: 26px;
-
     a {
-        color: white;
+        text-decoration: none;
 
-        &:hover {
-            color: $green;
+        h3 {
+            color: #686F83;
+            display: inline-block;
+            padding-top: 5px;
+            position: relative;
+            z-index: 1;
+        }
+    } 
+
+    ul.languages {
+        float: right;
+        margin-top: 26px;
+
+        a {
+            color: white;
+
+            &:hover {
+                color: $green;
+            }
+
+            &.active {
+                color: $green;
+
+                &:hover {
+                    color: $green-hover;
+                }
+            }
         }
     }
 }

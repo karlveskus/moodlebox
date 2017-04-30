@@ -1,6 +1,6 @@
 <div class="container">
     <a [routerLink]="['/']"><h3>moodle<span class="green">Box</span></h3></a>
     <ul class="list-inline languages">
-        <li *ngFor="let lang of supportedLanguages"><a [routerLink]="['/']" (click)="selectLang(lang.value)" [class.green]="isCurrentLang(lang.value)">{{ lang.display }}</a></li>
+        <li *ngFor="let lang of supportedLanguages"><a [routerLink]="['/']" (click)="selectLang(lang.value)" [ngClass]="{'active':isCurrentLang(lang.value)}">{{ lang.display }}</a></li>
     </ul>
 </div>

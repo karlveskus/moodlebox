@@ -32,7 +32,7 @@
         <div class="col-md-3 col-md-offset-1 col-sm-4">
             <div class="left">
                 <div class="square">
-                    <i class="glyphicon glyphicon-user" aria-hidden="true"></i>
+                    <div class="glyphicon glyphicon-user" aria-hidden="true"></div>
                 </div>
                 <div class="info">
                     <h1>399</h1>
@@ -44,7 +44,7 @@
         <div class="col-md-4 col-sm-4">
             <div class="center">
                 <div class="square">
-                    <i class="glyphicon glyphicon-record" aria-hidden="true"></i>
+                    <div class="glyphicon glyphicon-record" aria-hidden="true"></div>
                 </div>
                 <div class="info">
                     <h1>26</h1>
@@ -56,7 +56,7 @@
         <div class="col-md-3 col-sm-4">
             <div class="right">
                 <div class="square">
-                    <i class="glyphicon glyphicon-edit" aria-hidden="true"></i>
+                    <div class="glyphicon glyphicon-edit" aria-hidden="true"></div>
                 </div>
                 <div class="info">
                     <h1>287</h1>
@@ -78,7 +78,7 @@
                         <div class="form-group">
                             <input type="text" formControlName="name" class="form-control" placeholder="{{ 'WELCOME.NAME' | translate }}">
                             <div *ngIf="feedbackForm.controls['name'].dirty && !feedbackForm.controls['name'].valid && !feedbackForm.controls['name'].untouched">
-                                <i class="ion-alert-circled"></i><div class="error">{{ problems.name | translate}}</div>
+                                <div class="ion-alert-circled"></div><div class="error">{{ problems.name | translate}}</div>
                             </div>
                         </div>
                     </div>
@@ -87,7 +87,7 @@
                         <div class="form-group">
                             <input type="email" formControlName="email" class="form-control" placeholder="{{ 'WELCOME.EMAIL' | translate }}">
                             <div *ngIf="feedbackForm.controls['email'].dirty && !feedbackForm.controls['email'].valid && !feedbackForm.controls['email'].untouched">
-                                <i class="ion-alert-circled"></i><div class="error">{{ problems.email | translate }}</div>
+                                <div class="ion-alert-circled"></div><div class="error">{{ problems.email | translate }}</div>
                             </div>
                         </div>
                     </div>
@@ -96,7 +96,7 @@
                         <div class="form-group">
                             <textarea formControlName="message" class="form-control" placeholder="{{ 'WELCOME.MESSAGE' | translate }}"></textarea>
                             <div *ngIf="feedbackForm.controls['message'].dirty && !feedbackForm.controls['message'].valid && !feedbackForm.controls['message'].untouched">
-                                <i class="ion-alert-circled"></i><div class="error">{{ problems.message | translate }}</div>
+                                <div class="ion-alert-circled"></div><div class="error">{{ problems.message | translate }}</div>
                             </div>
                         </div>
                     </div>

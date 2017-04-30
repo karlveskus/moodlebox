@@ -85,7 +85,7 @@ div {
             float: right;
             height: 100%;
             
-            i {
+            div {
                 overflow: visible;
                 font-size: 30px;
                 color: $green;
@@ -109,7 +109,8 @@ div {
                 a {  
                     cursor: pointer;
 
-                    i {
+                    div {
+                        display: inline;
                         visibility: visible;
                         font-size: 13px;
                         margin-left: 3px;
