@@ -16,7 +16,7 @@ export class LoggedinWrapperComponent implements DoCheck {
   ) { }
 
   ngDoCheck() {
-    if (this.authenticateService.isLoggedIn() == false) {
+    if (!this.authenticateService.isLoggedIn()) {
       this.authenticateService.logout();
       this.router.navigate(['/']);
     } 
