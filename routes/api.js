@@ -9,7 +9,8 @@ router.use('/users', users);
 router.use('/feedbacks', feedbacks);
 
 router.get('/parser', (req, res, next) => {
-    parser.parseHtml().then(function(sisu) {
+    parser.parseHtml().then(function(parsedHtml) {
+        res.send(parsedHtml);
         next();
     });
 });
