@@ -1,5 +1,10 @@
 @import "../../../../assets/styles/variables";
 
+.header {
+    overflow: hidden;
+    max-height: 0px;
+}
+
 div {
     h4 {
         font-size: 14px;
@@ -17,18 +22,25 @@ div {
             font-size: 15px;
             font-weight: 300;
 
-            a {
+            .mobileOnly {
+                overflow: hidden;
+                max-height: 0px;
+            }
+
+            a, div a {
+                display: block;
                 margin: 0;
                 color: white;
                 padding-top: 4px;
                 padding-bottom: 4px;
                 padding-left: 20px;
+                text-decoration: none;
 
                 &.active {
                     background: $green;
                     border-radius: 3px;
                     font-weight: 400;
-                    &:hover {
+                    &:hover, &:focus {
                         background: $green;
                         color: white;
                     }
@@ -63,11 +75,12 @@ div {
 
     .opened {
         overflow: hidden;
-        max-height: 300px;
+        max-height: 350px;
         transition: max-height 0.3s ease-in;
     } 
 
     .header {
+        max-height: 350px;
         position: absolute;
         height: 70px;
         width: 100%;
@@ -98,7 +111,6 @@ div {
     }
 
     div {
-        font-size: 18px;
         line-height: 25px;
         
         ul.nav {
@@ -106,14 +118,28 @@ div {
                 padding-bottom: 0;
                 width: calc(100% + 30px);
 
+                .desktopOnly {
+                    overflow: hidden;
+                    max-height: 0px;
+                }
+
+                .mobileOnly {
+                    margin-top: 0;
+                    max-height: 1000px;
+                }
+
                 a {  
                     cursor: pointer;
+                    font-size: 16px;
+                    margin-top: 0px;
 
                     div {
                         display: inline;
+                        position: absolute;
                         visibility: visible;
                         font-size: 13px;
-                        margin-left: 3px;
+                        margin-top: 2px;
+                        margin-left: 4px;
                     }
 
                     &:hover, &.active, &.active:hover {
@@ -123,10 +149,7 @@ div {
                 }
 
                 &:last-child {
-                    a {
-                        margin-top: 10px;
-                        margin-bottom: 10px;
-                    }
+                    margin-bottom: 10px;
                 }       
             }
         }

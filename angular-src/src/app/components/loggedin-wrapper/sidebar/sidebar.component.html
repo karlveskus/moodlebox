@@ -1,5 +1,5 @@
 <div (window:resize)="onResize()">
-    <div *ngIf="isMobileView()" class="header">
+    <div class="header">
         <button type="button" class="toggleButton" (click)="toggleMenu()">
             <div class="ion-navicon-round" [ngClass]="{'active': !isMenuCollapsed}"></div>
         </button>
@@ -7,21 +7,25 @@
     <div [ngClass]="(isMenuCollapsed==false)?'opened':'closed'">
         <h4 class="hidden-xs">{{ 'SIDEBAR.CONTENT' | translate}}</h4>
         <ul class="nav">
-            <li><a [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}" [routerLink]="['/home']">{{ 'SIDEBAR.OVERVIEW' | translate}}</a></li>
+            <li><a (click)="toggleMenu()" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}" [routerLink]="['/home']">{{ 'SIDEBAR.OVERVIEW' | translate}}</a></li>
             <li *ngIf="isAdmin()">
-                <a *ngIf="!isMobileView()" [routerLinkActive]="['active']" [routerLink]="['/admin']">
-                    {{ 'SIDEBAR.ADMIN_PANEL' | translate}}
-                </a>
-                <a *ngIf="isMobileView()" (click)="toggleAdminSubMenu()">
-                    {{ 'SIDEBAR.ADMIN_PANEL' | translate}}
-                    <div [ngClass]="(isAdminSubMenuCollapsed)?'ion-chevron-right':'ion-chevron-down'"></div>
-                </a>
-                <div *ngIf="isMobileView()" [ngClass]="(isAdminSubMenuCollapsed==false)?'opened':'closed'">
-                    <app-admin-sub-menu  (toggleParentMenu)="toggleMenu()" ></app-admin-sub-menu>
+                <div class="desktopOnly">
+                   <a [routerLinkActive]="['active']" [routerLink]="['/admin']">
+                        {{ 'SIDEBAR.ADMIN_PANEL' | translate}}
+                    </a>
+                </div>
+                <div class="mobileOnly">
+                    <a (click)="toggleAdminSubMenu()">
+                        {{ 'SIDEBAR.ADMIN_PANEL' | translate}}
+                        <div [ngClass]="(isAdminSubMenuCollapsed)?'ion-chevron-right':'ion-chevron-down'"></div>
+                    </a>
+                    <div [ngClass]="(isAdminSubMenuCollapsed==false)?'opened':'closed'">
+                        <app-admin-sub-menu  (toggleParentMenu)="toggleMenu()" ></app-admin-sub-menu>
+                    </div>
                 </div>
             </li>
-            <li><a [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}" [routerLink]="['/tests']">{{ 'SIDEBAR.UPLOADED_TESTS' | translate}}</a></li>
-            <li><a [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}" [routerLink]="['/settings']">{{ 'SIDEBAR.USER_SETTINGS' | translate}}</a></li>
+            <li><a [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}" [routerLink]="['/tests']" (click)="toggleMenu()" >{{ 'SIDEBAR.UPLOADED_TESTS' | translate}}</a></li>
+            <li><a [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}" [routerLink]="['/settings']" (click)="toggleMenu()" >{{ 'SIDEBAR.USER_SETTINGS' | translate}}</a></li>
             <li><a [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}" [routerLink]="['/']" (click)="onLogoutClick()">{{ 'SIDEBAR.LOGOUT' | translate}}</a></li>
         </ul>
     </div>
