@@ -6,29 +6,60 @@ const request = require('request');
 const cheerio = require('cheerio');
 let Cookie = require('request-cookies').Cookie;
 
-router.get('/', (req, res, next) => {
-  var pageAfterLogin = getPageAfterLogin();
-  res.json(pageAfterLogin);
+router.post('/', (req, res, next) => { 
 
-  function getPageAfterLogin() {
-    request.post({url:'https://moodle.ut.ee/login/index.php', form: {username: properties.moodle.username, password: properties.moodle.password}}, function(err, res, body) {
-      let parsedCookiesList = [];
+  request.post({
+    url:'https://moodle.ut.ee/login/index.php', 
+    form: { 
+      username: properties.moodle.username, 
+      password: properties.moodle.password 
+    } 
+  }, (err, res, body) => {
 
-      let rawCookies = res.headers['set-cookie'];
-      for (let i in rawCookies) {
-        let cookie = new Cookie(rawCookies[i]);
-        parsedCookiesList.push(cookie);
+    request.get({
+      url:'https://moodle.ut.ee/my/', 
+      headers: {
+        'Cookie': getCookies(res)[1]
       }
+    }, (err, res, body) => {
 
-      let parsedCookiesString = parsedCookiesList.map((c) => {
-        return c.key + '=' + c.value;
-      })
-
-      request.get({url:'https://moodle.ut.ee/my/', headers: {'Cookie': parsedCookiesString[1]}}, function(err, res, body) {
-        return body;
+      getCourseLinks(body, (courseLinks) => {
+        courseLinks.forEach((courseLink) => {
+          console.log(courseLink);
+        })
       })
     })
+  })
+
+  res.json({ success: true });                                    // TODO: Add error handling
+
+  function getCookies(res) {
+    let parsedCookiesList = [];
+    let rawCookies = res.headers['set-cookie'];
+
+    rawCookies.forEach((rawCookie) => {
+      parsedCookie = new Cookie(rawCookie);
+      parsedCookiesList.push(parsedCookie.key + '=' + parsedCookie.value)
+    })
+    
+    return parsedCookiesList;
   }
+
+  function getCourseLinks(body, callback) {
+    let courseLinks = []
+    let $ = cheerio.load(body);
+    let courses = $('nav .dropdown ul').last().children();        // Gets all courses from last navigation dropbown list
+
+    courses.each(function() {
+      courseLinks.push(
+        $(this).children().first().attr('href')                   // Gets href from <a> element inside the <ul> element
+        .replace("/course/view.php", "/mod/quiz/index.php")
+      )
+    })
+
+    callback(courseLinks);
+  }
+
 });
 
 module.exports = router;
