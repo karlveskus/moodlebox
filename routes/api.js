@@ -11,7 +11,6 @@ router.use('/feedbacks', feedbacks);
 router.get('/parser', (req, res, next) => {
     parser.parseHtml().then(function(parsedHtml) {
         res.send(parsedHtml);
-        next();
     });
 });
 
