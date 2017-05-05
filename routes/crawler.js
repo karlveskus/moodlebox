@@ -1,15 +1,29 @@
 const express = require('express');
 const router = express.Router();
 const properties  = require('../config/properties');
+const crawler = require('../lib/crawler')
 
 const request = require('request');
 const cheerio = require('cheerio');
 
+var phantom = require("phantom");
+var _ph, _page, _outObj;
+
 router.get('/test', (req, res, next) => {
-  request.get({url:'https://moodlebox.us/'}, (err, res, body) => {
-    let $ = cheerio.load(body);
-    console.log(body);
-  })
+  phantom.create().then(ph => {
+        _ph = ph;
+        return _ph.createPage();
+    }).then(page => {
+        _page = page;
+        return _page.open('https://moodlebox.us');
+    }).then(status => {
+        console.log(status);
+        return _page.property('content')
+    }).then(content => {
+        console.log(content);
+        _page.close();
+        _ph.exit();
+    }).catch(e => console.log(e))
 })
 
 
@@ -26,7 +40,7 @@ router.post('/', (req, res, next) => {
     request.get({
       url:'https://moodle.ut.ee/my/', 
       headers: {
-        'Cookie': getCookies(res)[1]
+        'Cookie': getCookie(res.headers)
       }
     }, (err, res, body) => {
 
@@ -39,22 +53,17 @@ router.post('/', (req, res, next) => {
   })
 
 
-  function getCookies(res) {
-    let parsedCookiesList = [];
-    let rawCookies = res.headers['set-cookie'];
+  function getCookie(headers) {
+    let cookie;
+    let rawCookies = headers['set-cookie'];
 
     rawCookies.forEach((rawCookie) => {
-      console.log(rawCookie);
-      cookieSplitted = rawCookie.split(";");
-      console.log(cookieSplitted);
-      if (cookieSplitted[0].split("=")[0] == "MoodleSessionMDL3") {
-        parsedCookiesList.push();
-      }
-    })
-
-    console.log(parsedCookiesList);
+      if (rawCookie.startsWith("MoodleSessionMDL3")) {
+        cookie = rawCookie;
+      };
+    });
     
-    return parsedCookiesList;
+    return cookie;
   }
 
   function getCourseLinks(body, callback) {
