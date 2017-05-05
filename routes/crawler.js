@@ -4,7 +4,14 @@ const properties  = require('../config/properties');
 
 const request = require('request');
 const cheerio = require('cheerio');
-let Cookie = require('request-cookies').Cookie;
+
+router.get('/test', (req, res, next) => {
+  request.get({url:'https://moodlebox.us/'}, (err, res, body) => {
+    let $ = cheerio.load(body);
+    console.log(body);
+  })
+})
+
 
 router.post('/', (req, res, next) => { 
 
@@ -31,16 +38,21 @@ router.post('/', (req, res, next) => {
     })
   })
 
-  res.json({ success: true });                                    // TODO: Add error handling
 
   function getCookies(res) {
     let parsedCookiesList = [];
     let rawCookies = res.headers['set-cookie'];
 
     rawCookies.forEach((rawCookie) => {
-      parsedCookie = new Cookie(rawCookie);
-      parsedCookiesList.push(parsedCookie.key + '=' + parsedCookie.value)
+      console.log(rawCookie);
+      cookieSplitted = rawCookie.split(";");
+      console.log(cookieSplitted);
+      if (cookieSplitted[0].split("=")[0] == "MoodleSessionMDL3") {
+        parsedCookiesList.push();
+      }
     })
+
+    console.log(parsedCookiesList);
     
     return parsedCookiesList;
   }
