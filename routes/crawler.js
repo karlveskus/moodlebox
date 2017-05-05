@@ -1,31 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const properties  = require('../config/properties');
-const crawler = require('../lib/crawler')
 
 const request = require('request');
 const cheerio = require('cheerio');
-
 var phantom = require("phantom");
-var _ph, _page, _outObj;
-
-router.get('/test', (req, res, next) => {
-  phantom.create().then(ph => {
-        _ph = ph;
-        return _ph.createPage();
-    }).then(page => {
-        _page = page;
-        return _page.open('https://moodlebox.us');
-    }).then(status => {
-        console.log(status);
-        return _page.property('content')
-    }).then(content => {
-        console.log(content);
-        _page.close();
-        _ph.exit();
-    }).catch(e => console.log(e))
-})
-
 
 router.post('/', (req, res, next) => { 
 
@@ -37,20 +16,22 @@ router.post('/', (req, res, next) => {
     } 
   }, (err, res, body) => {
 
+    cookie = getCookie(res.headers);
+
     request.get({
       url:'https://moodle.ut.ee/my/', 
       headers: {
-        'Cookie': getCookie(res.headers)
+        'Cookie': cookie
       }
     }, (err, res, body) => {
 
-      getCourseLinks(body, (courseLinks) => {
+      getCourseLinks(body, (courseLinks) => {       
         courseLinks.forEach((courseLink) => {
-          console.log(courseLink);
-        })
-      })
-    })
-  })
+          renderPage(courseLink, cookie);
+        });
+      });
+    });
+  });
 
 
   function getCookie(headers) {
@@ -64,10 +45,11 @@ router.post('/', (req, res, next) => {
     });
     
     return cookie;
-  }
+  };
+
 
   function getCourseLinks(body, callback) {
-    let courseLinks = []
+    let courseLinks = [];
     let $ = cheerio.load(body);
     let courses = $('nav .dropdown ul').last().children();        // Gets all courses from last navigation dropbown list
 
@@ -75,11 +57,36 @@ router.post('/', (req, res, next) => {
       courseLinks.push(
         $(this).children().first().attr('href')                   // Gets href from <a> element inside the <ul> element
         .replace("/course/view.php", "/mod/quiz/index.php")
-      )
-    })
+      );
+    });
 
     callback(courseLinks);
-  }
+  };
+
+
+  function renderPage(courseLink, cookie) {
+    let _page;
+      phantom.create().then((ph) => {
+          return ph.createPage();
+      }).then((page) => {
+          _page = page;
+          
+          var settings = {
+            headers: {
+              "Cookie": cookie
+            }
+          };
+
+          return _page.open(courseLink, settings);
+      }).then((status) => {
+          console.log(status);
+          return _page.property('content')
+      }).then((content) => {
+          console.log("==========================================================================================")
+          console.log(content);
+          _page.close();
+      }).catch(e => console.log(e));
+  };
 
 });
 
