@@ -27,17 +27,25 @@ router.post('/', (req, res, next) => {
         'Cookie': cookie
       }
     }, (err, resp, body) => {
-      //renderPage('https://moodle.ut.ee/mod/quiz/review.php?attempt=1373878', cookie);
 
       if (!crawler.isLoggedIn(body)) {
         res.status(401).json({success: false, msg:'Login failed'});
         return;
-      }
+      };
         
-      crawler.getCourseLinks(body, (courseLinks) => {       
-        courseLinks.forEach((courseLink) => {
-          crawler.renderPage(courseLink, cookie);
+      crawler.getCourseLinks(body, (courseLink) => {   
 
+        request.get({
+          url:courseLink,
+          headers: {
+            'Cookie': cookie
+          }
+        }, (err, resp, body) => {
+
+          crawler.getQuizLinks(body, (quizLink) => {
+            console.log(quizLink);
+            //crawler.renderPage(courseLink, cookie);
+          });
         });
       });
     });
