@@ -14,9 +14,5 @@ module.exports = {
         'clientId': secrets.google.clientId,
         'clientSecret': secrets.google.clientSecret,
         'callbackURL': env.url + "/api/users/googleCallback"
-    },
-    moodle : {
-        'username': secrets.moodle.username,
-        'password': secrets.moodle.password
     }
 }
