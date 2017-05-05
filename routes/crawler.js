@@ -12,19 +12,27 @@ router.post('/', (req, res, next) => {
       username: req.body.username,
       password: req.body.password
     }
-  }, (err, res, body) => {
+  }, (err, resp, body) => {
 
-    // TODO: Check if login was successful. If not, then stop crawling here
+    if (err) {
+      res.status(500).json({success: false, msg:'There was an unexpected error'});
+      return;
+    }
     
-    cookie = crawler.getCookie(res.headers);
+    cookie = crawler.getCookie(resp.headers);
     
     request.get({
       url:'https://moodle.ut.ee/my/',
       headers: {
         'Cookie': cookie
       }
-    }, (err, res, body) => {
+    }, (err, resp, body) => {
       //renderPage('https://moodle.ut.ee/mod/quiz/review.php?attempt=1373878', cookie);
+
+      if (!crawler.isLoggedIn(body)) {
+        res.status(401).json({success: false, msg:'Login failed'});
+        return;
+      }
         
       crawler.getCourseLinks(body, (courseLinks) => {       
         courseLinks.forEach((courseLink) => {
