@@ -2,3 +2,5 @@ node_modules/
 public/
 .DS_STORE
 secrets.json
+testHtml.html
+testHtml2.html
