@@ -28,23 +28,59 @@ router.post('/', (req, res, next) => {
       }
     }, (err, resp, body) => {
 
+      if (err) {
+        res.status(500).json({success: false, msg:'There was an unexpected error'});
+        return;
+      }
+
       if (!crawler.isLoggedIn(body)) {
         res.status(401).json({success: false, msg:'Login failed'});
         return;
       };
-        
-      crawler.getCourseLinks(body, (courseLink) => {   
+
+      crawler.getCourseLinks(body, (courseLink) => {  
+
+        /*
+        *   Crawls view that shows all quizes
+        *   https://moodle.ut.ee/mod/quiz/index.php?id=2479
+        */ 
 
         request.get({
-          url:courseLink,
+          url: courseLink,
           headers: {
             'Cookie': cookie
           }
         }, (err, resp, body) => {
 
+          if (err) {
+            res.status(500).json({success: false, msg:'There was an unexpected error'});
+            return;
+          }
+
           crawler.getQuizLinks(body, (quizLink) => {
-            console.log(quizLink);
-            //crawler.renderPage(courseLink, cookie);
+
+            /*
+            *   Crawls view that shows all attemts
+            *   https://moodle.ut.ee/mod/quiz/view.php?id=227027
+            */
+
+            request.get({
+              url: quizLink,
+              headers: {
+                'Cookie': cookie
+              }
+            }, (err, resp, body) => {
+
+              if (err) {
+                res.status(500).json({success: false, msg:'There was an unexpected error'});
+                return;
+              }
+
+              crawler.getQuizReviewLinks(body, (quizreviewLink) => {
+                console.log(quizreviewLink);
+                //crawler.renderPage(quizreviewLink, cookie);
+              });
+            });
           });
         });
       });
