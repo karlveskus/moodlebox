@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const crawler = require('../lib/crawler.js');
+const parser = require('../lib/parser.js');
 const request = require('request');
 
 router.post('/', (req, res, next) => { 
@@ -14,10 +15,7 @@ router.post('/', (req, res, next) => {
     }
   }, (err, resp, body) => {
 
-    if (err) {
-      res.status(500).json({success: false, msg:'There was an unexpected error'});
-      return;
-    }
+    if (err) return sendUnexpectedError(res);
     
     cookie = crawler.getCookie(resp.headers);
     
@@ -28,15 +26,8 @@ router.post('/', (req, res, next) => {
       }
     }, (err, resp, body) => {
 
-      if (err) {
-        res.status(500).json({success: false, msg:'There was an unexpected error'});
-        return;
-      }
-
-      if (!crawler.isLoggedIn(body)) {
-        res.status(401).json({success: false, msg:'Login failed'});
-        return;
-      };
+      if (err) return sendUnexpectedError(res);
+      if (!crawler.isLoggedIn(body)) return sendLoginError(res);
 
       crawler.getCourseLinks(body, (courseLink) => {  
 
@@ -52,10 +43,7 @@ router.post('/', (req, res, next) => {
           }
         }, (err, resp, body) => {
 
-          if (err) {
-            res.status(500).json({success: false, msg:'There was an unexpected error'});
-            return;
-          }
+          if (err) return sendUnexpectedError(res);
 
           crawler.getQuizLinks(body, (quizLink) => {
 
@@ -71,14 +59,29 @@ router.post('/', (req, res, next) => {
               }
             }, (err, resp, body) => {
 
-              if (err) {
-                res.status(500).json({success: false, msg:'There was an unexpected error'});
-                return;
-              }
+              if (err) return sendUnexpectedError(res);
 
-              crawler.getQuizReviewLinks(body, (quizreviewLink) => {
-                console.log(quizreviewLink);
-                //crawler.renderPage(quizreviewLink, cookie);
+              crawler.getQuizReviewLinks(body, (quizReviewLink) => {
+
+                /*
+                *   Crawls view that shows the quiz with all questions
+                *   https://moodle.ut.ee/mod/quiz/review.php?attempt=1582190&showall=1
+                */
+
+                request.get({
+                  url: quizReviewLink,
+                  headers: {
+                    'Cookie': cookie
+                  }
+                }, (err, resp, body) => {
+
+                  if (err) return sendUnexpectedError(res);
+                  
+                  parser.parseHtml(body);
+
+                  console.log(quizReviewLink);
+                  //crawler.renderPage(quizreviewLink, cookie);
+                });
               });
             });
           });
@@ -87,5 +90,13 @@ router.post('/', (req, res, next) => {
     });
   });
 });
+
+function sendUnexpectedError(res) {
+  res.status(500).json({success: false, msg:'There was an unexpected error'});
+}
+
+function sendLoginError(res) {
+  res.status(401).json({success: false, msg:'Login failed'});
+}
 
 module.exports = router;
