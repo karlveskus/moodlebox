@@ -22,7 +22,7 @@ import { FooterComponent } from './components/reusable/footer/footer.component';
 import { LoggedinWrapperComponent } from './components/loggedin-wrapper/loggedin-wrapper.component';
 import { SidebarComponent } from './components/loggedin-wrapper/sidebar/sidebar.component';
 import { HomeComponent } from './components/loggedin-wrapper/content/home/home.component';
-import { TestsComponent } from './components/loggedin-wrapper/content/tests/tests.component';
+import { SubjectsComponent } from './components/loggedin-wrapper/content/subjects/subjects.component';
 import { SettingsComponent } from './components/loggedin-wrapper/content/settings/settings.component';
 import { StatisticsComponent } from './components/loggedin-wrapper/content/admin/statistics/statistics.component';
 import { TestManagmentComponent } from './components/loggedin-wrapper/content/admin/test-managment/test-managment.component';
@@ -110,14 +110,14 @@ const appRoutes: Routes = [
       ]
   },
   {
-      path: 'tests',
+      path: 'subjects',
       canActivate: [AuthGuard],
       data: {roles: ['user', 'admin']},
       component: LoggedinWrapperComponent,
       children: [
           {
               path: '',
-              component: TestsComponent,
+              component: SubjectsComponent,
           }
       ]
   },
@@ -149,7 +149,7 @@ const appRoutes: Routes = [
     LoggedinWrapperComponent,
     SidebarComponent,
     HomeComponent,
-    TestsComponent,
+    SubjectsComponent,
     SettingsComponent,
     TranslatePipe,
     StatisticsComponent,

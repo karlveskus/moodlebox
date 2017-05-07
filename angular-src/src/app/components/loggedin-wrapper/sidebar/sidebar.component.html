@@ -24,7 +24,7 @@
                     </div>
                 </div>
             </li>
-            <li><a [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}" [routerLink]="['/tests']" (click)="toggleMenu()" >{{ 'SIDEBAR.UPLOADED_TESTS' | translate}}</a></li>
+            <li><a [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}" [routerLink]="['/subjects']" (click)="toggleMenu()" >{{ 'SIDEBAR.UPLOADED_TESTS' | translate}}</a></li>
             <li><a [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}" [routerLink]="['/settings']" (click)="toggleMenu()" >{{ 'SIDEBAR.USER_SETTINGS' | translate}}</a></li>
             <li><a [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}" [routerLink]="['/']" (click)="onLogoutClick()">{{ 'SIDEBAR.LOGOUT' | translate}}</a></li>
         </ul>
