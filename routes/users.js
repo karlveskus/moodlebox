@@ -101,4 +101,3 @@ function sendSuccessResponse(res, token) {
 }
 
 module.exports = router;
-module.exports = router;

@@ -1,8 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const parser = require('../lib/parser.js');
 const cheerio = require('cheerio');
 const fs = require('fs-promise');
+
+const parser = require('../lib/parser.js');
+const crawler = require('../lib/crawler.js');
 
 const users = require('./users');
 const feedbacks = require('./feedbacks');
@@ -17,5 +19,8 @@ router.get('/parser', (req, res, next) => {
     });
 });
 
+router.post('/crawler', (req, res) => { 
+  crawler.run(req, res);
+});
 
 module.exports.router = router;
