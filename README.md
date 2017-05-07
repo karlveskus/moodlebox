@@ -12,6 +12,7 @@ Tegemist on Tartu Ülikooli kursuse "Veebirakenduste loomine" raames tehtud proj
 * Tõnis Tenno
 
 ## Kasulikud lingid
+- [Etapp 6](https://github.com/karlveskus/moodlebox/wiki/Etapp6)
 - [Prototüüp](https://github.com/karlveskus/moodlebox/wiki/Visuaalne-protot%C3%BC%C3%BCp)
 - [Parseri dokumentatsioon](https://github.com/karlveskus/moodlebox/wiki/Parser-documentation)
 
