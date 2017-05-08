@@ -56,7 +56,7 @@ export const LANG_ET_TRANS = {
 
     'HOME.HEADING':                 'Ülevaade',
 
-    'TESTS.HEADING':                'Üles laetud testid',
+    'SUBJECTS.HEADING':             'Ained',
 
     'SETTINGS.HEADING':             'Konto seaded',
 

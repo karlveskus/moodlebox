@@ -1,0 +1,53 @@
+@import "../../../../../assets/styles/variables";
+
+*, *:before, *:after {box-sizing:  border-box !important;}
+
+
+.row {
+  -webkit-column-width: 200px; /* Chrome, Safari, Opera */
+  -moz-column-width: 200px; /* Firefox */
+  column-width: 200px;
+
+  column-gap: 10px;
+  -moz-column-gap: 10px;
+  -webkit-column-gap: 10px;
+
+  @media (max-width: 767px){
+    padding: 0 10px 0 10px;
+  }
+}
+
+.subject {
+  h3 {
+      margin-top: 0px;
+      font-size: 18px;
+      font-weight: 300;
+      display: block;
+      height: 33px;
+  }
+
+  p.count-info {
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 0;
+
+    span {
+      color: $gray;
+      font-size: 14px;
+    }
+  }
+
+  display: inline-block;
+  padding: 13px;
+  width:  100%;
+  border-radius: 5px;
+  background: $secondary-dark;
+  margin-bottom: 10px;
+
+  border: 3px solid $dark-bluish-gray;
+
+  &:hover {
+    border: 3px solid $green;
+    cursor: pointer;
+  }
+}
