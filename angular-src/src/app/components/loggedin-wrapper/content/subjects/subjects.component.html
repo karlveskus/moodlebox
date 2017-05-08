@@ -2,20 +2,22 @@
     {{ 'SUBJECTS.HEADING' | translate }}
 </h2>
 
+<form>
+    <input type="text" spellcheck="false" class="form-control search" placeholder="{{ 'SUBJECTS.SEARCH_SUBJECT' | translate }}">
+</form>
+
 <div class="row">
 
-    <div *ngFor="let subject of subjects" class="subject">
+
+    <div class="subject" *ngFor="let subject of subjects" (click)="toggleCollapse(subject.code)" [ngClass]="{'expanded':isExpanded(subject.code)}">
         <h3>{{subject.name}}</h3>
 
         <p class="count-info">{{subject.testCount}} <span>TESTI</span></p>
         <p class="count-info">{{subject.questionCount}} <span>ERIENVAT KÜSIMUST</span></p>
 
-        <!--<h1>{{subject.testCount}} <span>TESTI</span></h1>-->
-        <!--<h1>{{subject.questionCount}} <span>ERINEVAT KÜSIMUST</span></h1>-->
-
-        <!--<p *ngFor="let test of subject.tests">-->
-            <!--{{test.name}}-->
-        <!--</p>-->
+        <a *ngFor="let test of subject.tests">
+            {{test.name}}
+        </a>
     </div>
 
 

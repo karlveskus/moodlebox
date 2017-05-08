@@ -57,6 +57,7 @@ export const LANG_EN_TRANS = {
     'HOME.HEADING':                 'Overview',
 
     'SUBJECTS.HEADING':             'Subjects',
+    'SUBJECTS.SEARCH_SUBJECT':      'Search subject',
 
     'SETTINGS.HEADING':             'User settings',
 

@@ -1,7 +1,14 @@
 @import "../../../../../assets/styles/variables";
 
-*, *:before, *:after {box-sizing:  border-box !important;}
+form{
+  width: 100%;
+  margin-bottom: 20px;
 
+  .form-control{
+    height: 40px;
+    font-size: 1.1em;
+  }
+}
 
 .row {
   -webkit-column-width: 200px; /* Chrome, Safari, Opera */
@@ -11,13 +18,32 @@
   column-gap: 10px;
   -moz-column-gap: 10px;
   -webkit-column-gap: 10px;
-
-  @media (max-width: 767px){
-    padding: 0 10px 0 10px;
-  }
+  margin: 0;
 }
 
 .subject {
+  display: inline-block;
+  padding: 13px;
+  width:  100%;
+  max-height: 130px;
+  border-radius: 5px;
+  overflow: hidden;
+  background: $secondary-dark;
+  margin-bottom: 10px;
+  transition: max-height 0.5s;
+  border: 3px solid $dark-bluish-gray;
+
+
+  &:hover {
+    border: 3px solid $green;
+    cursor: pointer;
+  }
+
+  &.expanded {
+    max-height: 290px;
+    border: 3px solid $green;
+  }
+
   h3 {
       margin-top: 0px;
       font-size: 18px;
@@ -37,17 +63,18 @@
     }
   }
 
-  display: inline-block;
-  padding: 13px;
-  width:  100%;
-  border-radius: 5px;
-  background: $secondary-dark;
-  margin-bottom: 10px;
+  a {
+    display: block;
+    color: $bluish-gray;
+    font-weight: 400;
 
-  border: 3px solid $dark-bluish-gray;
+    &:first-of-type {
+      margin-top: 10px;
+    }
 
-  &:hover {
-    border: 3px solid $green;
-    cursor: pointer;
+    &:hover {
+      color: $green;
+    }
   }
+
 }

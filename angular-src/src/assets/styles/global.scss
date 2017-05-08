@@ -26,7 +26,8 @@ body {
 }
 
 body, p, h1, h2, h3, h4, h5, h6, a{
-    font-family: Lato !important;
+  font-family: Lato !important;
+  text-decoration: none !important;
 }
 
 html {
@@ -62,7 +63,10 @@ input {
 
 .form-control {
   box-shadow: none;
-  outline: none;
+  &:focus {
+    outline: none !important;
+    box-shadow: none !important;
+  }
 }
 
 .form-control.search {
@@ -78,6 +82,16 @@ input {
   &::-webkit-input-placeholder{
     color: #A2A7B4;
   }
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
 }
 
 // Custom media queries
