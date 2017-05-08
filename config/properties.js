@@ -14,5 +14,9 @@ module.exports = {
         'clientId': secrets.google.clientId,
         'clientSecret': secrets.google.clientSecret,
         'callbackURL': env.url + "/api/users/googleCallback"
+    },
+    admin: {
+        'email': secrets.admin.email,
+        'password': secrets.admin.password
     }
 }

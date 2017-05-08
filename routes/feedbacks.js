@@ -17,7 +17,7 @@ router.post('/', function(req, res, next) {
 });
 
 router.delete('/:id', auth.mustBeAdmin, function(req, res, next){
-    Feedback.findByIdAndRemove({_id: req.params.id}).then(function(feedback){
+    Feedback.findByIdAndRemove(req.params.id).then(function(feedback){
         res.send({success: true});
     }).catch(next);
 });

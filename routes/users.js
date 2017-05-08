@@ -27,19 +27,14 @@ router.post('/', (req, res, next) => {
     } else {
       User.addUser(newUser, (err) => {
         if(err)
-          res.json({success: false, msg:'Failed to register user'});
+          res.json({success: false, msg: 'Failed to register user'});
         else 
-          res.json({success: true, msg:'User registered'});
-          User.find().count({}, function(err, count) {
-            pusher.trigger('my-channel', 'my-event', {
-              "message": count
-            });
-          });
+          res.json({success: true, msg: 'User registered'});
       });
-      
-    }
+    };
   });
 });
+
 
 
 router.get('/count', (req, res) => {
@@ -82,15 +77,15 @@ router.post('/authenticate', (req, res) => {
 
 function sendErrorResponse(res) {
   res.status(500).json({success: false, msg:'There was an unexpected error'});
-}
+};
 
 function sendNotFoundResponse(res) {
   res.status(401).json({success: false, msg:'No user found with given email and password'});
-}
+};
 
 function sendUserAlreadyExists(res) {
   res.status(400).json({success: false, msg:'User already exists'});
-}
+};
 
 function sendSuccessResponse(res, token) {
   res.json({
@@ -98,6 +93,6 @@ function sendSuccessResponse(res, token) {
     msg: "User was found from our database",
     token: token
   });
-}
+};
 
 module.exports = router;
