@@ -63,10 +63,6 @@ input {
 .form-control {
   box-shadow: none;
   outline: none;
-
-  &::-webkit-input-placeholder{
-    color: #A2A7B4;
-  }
 }
 
 .form-control.search {
@@ -78,6 +74,10 @@ input {
   font-weight: 500;
   padding-left: 35px;
   height: 100%;
+
+  &::-webkit-input-placeholder{
+    color: #A2A7B4;
+  }
 }
 
 // Custom media queries
