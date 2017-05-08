@@ -60,6 +60,25 @@ input {
   }
 }
 
+.form-control {
+  box-shadow: none;
+  outline: none;
+
+  &::-webkit-input-placeholder{
+    color: #A2A7B4;
+  }
+}
+
+.form-control.search {
+  background: $dark-gray url(../images/search_icon.svg) no-repeat 10px center;
+  background-size: 1.2em 1.2em;
+  border: 1px solid #282C38;
+  border-radius: 3px;
+  color: $bluish-gray;
+  font-weight: 500;
+  padding-left: 35px;
+  height: 100%;
+}
 
 // Custom media queries
 
