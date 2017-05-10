@@ -10,12 +10,12 @@
 
 
     <div class="subject" *ngFor="let subject of subjects" (click)="toggleCollapse(subject.code)" [ngClass]="{'expanded':isExpanded(subject.code)}">
-        <h3>{{subject.name}}</h3>
+        <h3 [routerLink]="[subject.code]">{{subject.name}}</h3>
 
         <p class="count-info">{{subject.testCount}} <span>TESTI</span></p>
         <p class="count-info">{{subject.questionCount}} <span>ERIENVAT KÜSIMUST</span></p>
 
-        <a *ngFor="let test of subject.tests">
+        <a *ngFor="let test of subject.tests" [routerLink]="[subject.code + '/' + trim(test.name)]">
             {{test.name}}
         </a>
     </div>

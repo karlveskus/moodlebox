@@ -25,7 +25,7 @@ form{
   display: inline-block;
   padding: 13px;
   width:  100%;
-  max-height: 130px;
+  max-height: 126px;
   border-radius: 5px;
   overflow: hidden;
   background: $secondary-dark;
@@ -50,6 +50,11 @@ form{
       font-weight: 300;
       display: block;
       height: 33px;
+
+    &:hover {
+      color: $green;
+    }
+
   }
 
   p.count-info {

@@ -29,12 +29,16 @@ export class SubjectsComponent implements OnInit {
     return this.expandedSubject == code;
   }
 
+  trim(string) {
+      return string.replace(" ", "");
+  }
+
   generateTestSubjects() {
-    this.tests.push({name: "Harjutustest 1", path: "/MATAT_03_133/test1"});
-    this.tests.push({name: "Harjutustest 2", path: "/MATAT_03_133/test2"});
-    this.tests.push({name: "Harjutustest 3", path: "/MATAT_03_133/test3"});
-    this.tests.push({name: "Harjutustest 4", path: "/MATAT_03_133/test4"});
-    this.tests.push({name: "Harjutustest 5", path: "/MATAT_03_133/test5"});
+    this.tests.push({name: "Harjutustest 1"});
+    this.tests.push({name: "Harjutustest 2"});
+    this.tests.push({name: "Harjutustest 3"});
+    this.tests.push({name: "Harjutustest 4"});
+    this.tests.push({name: "Harjutustest 5"});
     this.subjects.push({
       code: "MTAT.03.133",
       name: "Algoritmid ja andmestruktuurid",

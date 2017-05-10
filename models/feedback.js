@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const config = require('../config');
 
-// User Schema
 const FeedbackSchema = mongoose.Schema({
   name: {
     type: String,
