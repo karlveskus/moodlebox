@@ -44,23 +44,32 @@ form{
     border: 3px solid $green;
   }
 
-  h3 {
+  .header {
+    height: 52px;
+
+    h3 {
       margin-top: 0px;
       font-size: 18px;
       font-weight: 300;
-      display: block;
-      height: 33px;
+      display: inline;
 
-    &:hover {
-      color: $green;
+      &:hover {
+        color: $green;
+      }
+
     }
-
   }
+
+
 
   p.count-info {
     font-size: 20px;
     font-weight: 400;
+    margin-top: -5px;
     margin-bottom: 0;
+    position: relative;
+
+
 
     span {
       color: $gray;
