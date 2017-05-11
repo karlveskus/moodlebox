@@ -8,9 +8,11 @@ const crawler = require('../lib/crawler.js');
 
 const users = require('./users');
 const feedbacks = require('./feedbacks');
+const subjects = require('./subjects');
 
 router.use('/users', users);
 router.use('/feedbacks', feedbacks);
+router.use('/subjects', subjects);
 
 // This route is just for testing
 router.get('/parser', (req, res, next) => {

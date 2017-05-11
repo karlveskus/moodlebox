@@ -1,0 +1,28 @@
+<h2>
+    {{ 'SUBJECTS.HEADING' | translate }}
+</h2>
+
+<form>
+    <input type="text" spellcheck="false" class="form-control search" placeholder="{{ 'SUBJECTS.SEARCH_SUBJECT' | translate }}">
+</form>
+
+<div class="row">
+
+
+    <div class="subject" *ngFor="let subject of subjects" (click)="toggleCollapse(subject.code)" [ngClass]="{'expanded':isExpanded(subject.code)}">
+        <div class="header">
+            <h3 [routerLink]="[subject.code]">{{subject.name}}</h3>
+        </div>
+
+
+        <p class="count-info">{{subject.testCount}} <span>TESTI</span></p>
+        <p class="count-info">{{subject.questionCount}} <span>ERIENVAT KÜSIMUST</span></p>
+
+        <a *ngFor="let test of subject.tests" [routerLink]="[subject.code + '/' + trim(test.name)]">
+            {{test.name}}
+        </a>
+    </div>
+
+
+
+</div>

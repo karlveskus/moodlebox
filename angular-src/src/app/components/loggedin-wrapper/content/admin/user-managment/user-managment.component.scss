@@ -1,37 +1,16 @@
 @import "../../../../../../assets/styles/variables";
 
 form {
-    
-    float: right;
-    width: 190px;
-    height: 35px;
     position: relative;
-    top: -50px;
 
-    .form-control {
-        background: $dark-gray;
-        border: 1px solid #282C38; // Peab mõtlema kas oleks vaja vairable-i
-        box-shadow: none;
-        outline: none;
-        border-radius: 3px;
-        color: $bluish-gray;
-        font-weight: 500;
-        font-size: 14px;
-        padding-left: 30px;
-        
+    @media only screen and (min-width : 992px) {
+        float: right;
+        width: 190px;
+        height: 33px;
+        top: -50px;
     }
 
-    .ion-android-search {
-        position: absolute;
-        font-size: 19px;
-        left: 10px;
-        top: 4px;
-        color: #A2A7B4;
+    @media only screen and (max-width : 991px) {
+        height: 40px;
     }
-
-    ::-webkit-input-placeholder{
-        color: #A2A7B4; // Peab mõtlema kas oleks vaja vairable-i
-    }
-
-    
 }

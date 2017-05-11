@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { FeedbackService } from '../../services/feedback.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-welcome',
@@ -19,14 +18,10 @@ export class WelcomeComponent implements OnInit {
   feedbackSuccess: Boolean;
   problems: Object;
 
-  translatedText: string;
-  supportedLanguages: any[];
-
   constructor(
     private feedbackService: FeedbackService,
-    private router: Router,
   ) {
-    
+
 
     this.name = new FormControl('', Validators.required);
     this.email = new FormControl('',[Validators.required, Validators.pattern(/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])+/)]);
@@ -40,7 +35,7 @@ export class WelcomeComponent implements OnInit {
       message: this.message
     });
     this.updateProblems();
-    this.feedbackForm.valueChanges.subscribe(data => {
+    this.feedbackForm.valueChanges.subscribe(() => {
       this.updateProblems();
     })
   }
@@ -58,7 +53,7 @@ export class WelcomeComponent implements OnInit {
   }
 
   onFeedbackSubmit() {
-    this.updateProblems(); 
+    this.updateProblems();
     for (let property in this.feedbackForm.controls) {
       this.feedbackForm.controls[property].markAsDirty();
       this.feedbackForm.controls[property].markAsTouched();
@@ -69,7 +64,7 @@ export class WelcomeComponent implements OnInit {
         name: this.name.value,
         email: this.email.value,
         message: this.message.value
-      }
+      };
 
       this.feedbackService.newFeedback(feedback).subscribe(data => {
         if(data._id){
@@ -77,6 +72,6 @@ export class WelcomeComponent implements OnInit {
           this.feedbackForm.reset();
         } 
       });
-    } 
+    }
   }
 }
